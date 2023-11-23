@@ -24,6 +24,8 @@ const BookingPlace = () => {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </>

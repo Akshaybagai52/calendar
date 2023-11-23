@@ -13,7 +13,6 @@ const Banner = () => {
 
     return (
         <>
-
             <div className="Home_page_main" style={{backgroundImage:`url(${bg_image.src})`}}>
                 <div className="container">
                     <div className="Home_page_sub-main">
