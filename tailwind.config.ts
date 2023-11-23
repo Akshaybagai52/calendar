@@ -13,6 +13,17 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'Rubik': ['Rubik',' sans-serif '],     
+      },
+      screens: {
+        'sm': {'max': '576px'},
+        'md': {'max': '768px'},
+        'lg': {'max': '1024px'},
+        'xl': {'max': '1280px'},
+        'sm-min': {'min': '576px'},
+      },
+
     },
   },
   plugins: [],
