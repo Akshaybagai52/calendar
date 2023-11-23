@@ -10,7 +10,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="bg-black">
+        <header className="bg-black relative z-[9]">
             <div className="m-w-[1200px] mx-[20px] flex items-center justify-between p-4">
                 {/* Logo */}
                 <Link href={('/')} className="text-red-500 font-bold text-4xl">
