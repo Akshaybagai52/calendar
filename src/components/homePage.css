@@ -1,0 +1,28 @@
+.Book-button{
+    @apply shadow-[1px_3px_3px] text-[34px] p-2.5 rounded-[10px] bg-white;
+  }
+  
+ .Home_page_main{
+  @apply bg-cover bg-center bg-no-repeat h-[100vh] flex ;
+  /* background: linear-gradient(83deg, #00b6df40, transparent) */
+  
+}
+.Home_page_main::after {
+  @apply content-[''] absolute w-full z-[1] opacity-60 inset-0;
+  background: black;
+}
+
+.Home_page_sub-main{
+  @apply  ml-[170px] flex gap-2 relative z-[9] mt-[60px];
+}
+.react-calendar {
+  @apply w-[400px] max-w-full border leading-[2.125em] border-solid border-[#a0a096] !important;
+  background: white !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* // Booking place ///  */
+.booking_palce-sub_main {
+  @apply w-[65%] mt-[-60px] mb-[-60px] relative shadow-[0px_1px_4px_2px] z-[9] mx-auto p-[10px];
+  background: white;
+}
