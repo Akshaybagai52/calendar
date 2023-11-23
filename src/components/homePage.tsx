@@ -9,7 +9,6 @@ const HomePage = () => {
         <>
             <Banner />
             <BookingPlace />
-
         </>
     )
 }

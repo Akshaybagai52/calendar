@@ -13,7 +13,7 @@
 }
 
 .Home_page_sub-main{
-  @apply  ml-[170px] flex gap-2 relative z-[9] mt-[60px];
+  @apply  flex gap-2 relative z-[9] mt-[60px];
 }
 .react-calendar {
   @apply w-[400px] max-w-full border leading-[2.125em] border-solid border-[#a0a096] !important;
