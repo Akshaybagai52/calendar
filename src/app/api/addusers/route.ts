@@ -1,18 +1,58 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import db from "../../../../lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+// import bcrypt from "bcrypt";
+const bcrypt = require('bcrypt')
+import prisma from "../../../../lib/db";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  //   const { name, email } = req.body;
-
-  const newUser = await db.user.create({
-    data: {
-      name: "Akshaay",
-      email: "anay@gmail.com",
-    },
-  });
-
-//   res.status(200).json(newUser);
-  return NextResponse.json({ message: newUser }, { status: 200 });
-  // res.status(405).json({ message: 'Method not allowed' });
+interface User {
+  name: string;
+  email: string;
+  password: string;
 }
+
+export const POST = async (req: NextRequest, res: NextResponse) => {
+  const { name, email, password }: User = await req.json();
+
+  try {
+    // Check if user already exists in the database
+    const existingUser = await prisma.createUsers.findUnique({
+      where: {
+        email: email,
+      },
+    });
+
+    if (existingUser) {
+      return NextResponse.json(
+        { error: "User already exists. Please use a different email." },
+        { status: 409 }
+      );
+    }
+
+    // User does not exist, proceed with registration
+    const salt = await bcrypt.genSalt(10);
+    const hashed = await bcrypt.hash(password, salt);
+
+    const newUser = await prisma.createUsers.create({
+      data: {
+        name: name,
+        email: email,
+        password: hashed,
+      },
+    });
+
+    return NextResponse.json(
+      { message: "User successfully registered.", data: newUser },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json({ message: "Unable to register user.", error }, { status: 500 });
+  }
+};
+
+export const GET = async (req: Request, res: Response) => {
+  try {
+    const createUsers = await prisma.createUsers.findMany();
+    return NextResponse.json({ msg: "OK", createUsers }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ msg: "Unable to retrieve users.", error }, { status: 500 });
+  }
+};

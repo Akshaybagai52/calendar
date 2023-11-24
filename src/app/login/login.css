@@ -19,7 +19,8 @@
 }
 
   .input i {
-    top: 50%;
+    /* top: 50%; */
+    margin-top: 20px;
     width: 36px;
     position: absolute;
     transform: translateY(-50%);
