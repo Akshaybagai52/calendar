@@ -1,17 +1,23 @@
 "use client"
+import 'react-toastify/dist/ReactToastify.css';
 import "../login/login.css"
 import { useState } from "react"
 import Link from "next/link"
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import { RotatingLines } from 'react-loader-spinner'
 
+import { FaEnvelope, FaLock } from "react-icons/fa";
+import { useRouter } from 'next/navigation'
 interface Errors {
   email: string;
   password: string;
 }
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>({ email: '', password: '' });
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -55,39 +61,54 @@ export default function Login() {
 
     setErrors({ email: emailError, password: passwordError });
     setIsFormValid(emailError === '' && passwordError === '');
-
     if (emailError === '' && passwordError === '') {
-     
-      // try {
-      //   const response = await fetch('http://localhost:3000/api/login', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({ email, password }),          
-      //   });
+      setIsLoading(true);
+      try {
+        const response = await fetch('http://localhost:3000/api/loginaapi', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
 
-      //   if (response.ok) {
-      //     console.log('User logged in successfully!');
-      //     // Handle successful login (redirect, set authentication state, etc.)
-      //   } else {
-      //     console.error('Login failed');
-      //     alert('Invalid email or password');
-      //   }
-      // } catch (error) {
-      //   console.error('Error during login:', error);
-      //   alert('Error during login');
-      // }
-      
+        if (response.ok) {
+          toast.success("User logged in successfully!")
+          setEmail('')
+          setPassword('')
+          router.push("/")
+        } else {
+          toast.error("Invalid email or password")
+          setEmail('')
+          setPassword('')
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        toast.error("Error during login")
+      }
+      finally {
+        setIsLoading(false); // Stop loader after API request completes
+      }
+
     } else {
-      // console.log('Form has errors. Please correct them.');
-      alert("Form has errors. Please correct them.")
+      // alert("Form has errors. Please correct them.")
+      toast.error('Form has errors. Please correct them.')
     }
   };
 
   return (
     <div>
       <div className="bg-slate-200 h-[570px]">
+        <ToastContainer position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light" />
         <div className="grid place-items-center ">
           <div className="signup-form w-[480px] sm:w-[330px] bg-white shadow-[2px_4px_8px_#6b728040] text-center p-8 rounded-lg mt-[30px] ">
             <div className="container">
@@ -111,6 +132,7 @@ export default function Login() {
                   <input
                     type="password"
                     value={password}
+                    autoComplete="on"
                     onChange={(e) => setPassword(e.target.value)}
                     onBlur={() => handleBlur('password')}
                     placeholder="Password"
@@ -119,11 +141,18 @@ export default function Login() {
                 </div>
                 <button
                   className="signup-btn w-full rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-6 px-0 py-2 border-[none]"
-                  disabled={isFormValid}
+                  // disabled={isFormValid || isLoading}  
                   type="submit"
                   onClick={handleSubmit}
-                >
-                  SIGN IN
+                >{
+                    isLoading ? <center><RotatingLines
+                      strokeColor="white"
+                      strokeWidth="5"
+                      animationDuration="40s"
+                      width="25"
+                      visible={true}
+                    /></center> : "SIGN IN"
+                  }
                 </button>
               </form>
               <p className="text-sm text-gray-500">Create a new account <Link href="/register">signup</Link></p>
@@ -133,5 +162,5 @@ export default function Login() {
       </div>
     </div>
   );
-  
+
 }

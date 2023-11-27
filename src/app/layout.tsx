@@ -1,14 +1,16 @@
+'use client'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
 import './globals.css'
-
+import { store } from '@/store/store'
+import { Provider } from 'react-redux'
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Calendar',
-  description: 'Booking Calendar App',
-}
+// export const metadata: Metadata = {
+//   title: 'Calendar',
+//   description: 'Booking Calendar App',
+// }
 
 export default function RootLayout({
   children,
@@ -36,11 +38,12 @@ export default function RootLayout({
       </head>
       <body>
         <div className={inter.className}>
-          <section>
-          <Navbar />
-          <main>{children}</main>
-
-          </section>
+          <Provider store={store}>
+            <section>
+              <Navbar />
+              <main>{children}</main>
+            </section>
+          </Provider>,
         </div>
       </body>
     </html>
