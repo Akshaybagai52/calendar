@@ -1,7 +1,12 @@
 "use client"
 import "../login/login.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from 'next/navigation'
+import { RotatingLines } from 'react-loader-spinner'
+
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 interface Errors {
     name: string;
@@ -9,9 +14,11 @@ interface Errors {
     password: string;
 }
 export default function Register() {
+    const router = useRouter();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<Errors>({ name: '', email: '', password: '' });
     const [isFormValid, setIsFormValid] = useState(false);
 
@@ -22,7 +29,7 @@ export default function Register() {
             error = 'name is required.';
         } else if (name.length < 3) {
             error = 'Name should have at least three characters.';
-          }
+        }
         return error;
     };
     const validateEmail = () => {
@@ -72,53 +79,56 @@ export default function Register() {
         setIsFormValid(nameError === '' && emailError === '' && passwordError === '');
 
         if (nameError === '' && emailError === '' && passwordError === '') {
-            // console.log('Form submitted successfully!');
-
+            setIsLoading(true);
             try {
                 const response = await fetch('http://localhost:3000/api/addusers', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ name, email, password }),
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password }),
                 });
-        
-                const data = await response.json();
-                console.log(data?.error);
-                
                 if (response.ok) {
-                  console.log('User registered successfully!');
-                  setName('')
-                  setEmail('')
-                  setPassword('')
-                  // Handle successful registration (redirect, display message, etc.)
-                } else {
-                  if (response.status === 409) {
-                    console.error('User already exists.');
+                    toast.success("User registered successfully!")
+                    router.push("/login")
                     setName('')
                     setEmail('')
                     setPassword('')
-                    // setErrors({ ...errors, email: 'User already exists.' });
-                    alert(data?.error);
-                  } else {
-                    console.error('Registration failed');
-                    alert('Registration failed');
-                  }
+                } else {
+                    if (response.status === 409) {
+                        setName('')
+                        setEmail('')
+                        setPassword('')
+                        toast.error('User already exists. try another email')
+                    } else {
+                        toast.error("Registration failed")
+                    }
                 }
-              } catch (error) {
-                console.error('Error during registration:', error);
-                alert('Error during registration');
-              }
+            } catch (error) {
+                toast.error("Error during registration")
+            }
+            finally {
+                setIsLoading(false)
+            }
 
         } else {
-            // console.log('Form has errors. Please correct them.');
-            alert("Form has errors. Please correct them.")
+            toast.error("Form has errors. Please correct them.")
         }
     };
 
     return (
         <div>
             <div className="bg-slate-200 h-[570px]">
+                <ToastContainer position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light" />
                 <div className="grid place-items-center ">
                     <div className="signup-form w-[480px] sm:w-[330px] bg-white shadow-[2px_4px_8px_#6b728040] text-center p-8 rounded-lg mt-[30px] ">
                         <div className="container">
@@ -142,16 +152,24 @@ export default function Register() {
 
                                 <div className="input">
                                     <i className="fa-solid fa-lock"><FaLock /></i>
-                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} onBlur={() => handleBlur('password')} placeholder="Password" />
+                                    <input type="password" autoComplete="on" value={password} onChange={(e) => setPassword(e.target.value)} onBlur={() => handleBlur('password')} placeholder="Password" />
                                     {errors.password && <p style={{ color: 'red', fontSize: '12px', marginTop: '8px' }} className="error-message">{errors.password}</p>}
                                 </div>
                                 <button
                                     className="signup-btn w-full rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-6 px-0 py-2 border-[none]"
-                                    disabled={isFormValid}
+                                    // disabled={isFormValid || loading}
                                     type="submit"
                                     onClick={handleSubmit}
-                                >
-                                    SIGN UP
+                                >{
+                                    isLoading ? <center><RotatingLines
+                                            strokeColor="white"
+                                            strokeWidth="5"
+                                            animationDuration="40s"
+                                            width="25"
+                                            visible={true}
+                                        /></center> : "SIGN UP"
+                                    }
+
                                 </button>
                             </form>
                             <p className="text-sm text-gray-500">Already have an account <Link href="/login">sign in</Link></p>
