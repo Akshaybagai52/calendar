@@ -24,7 +24,7 @@ const Banner = () => {
                     <div className=" Home_page_sub-main">
                         <div className="sm:mx-auto sm:my-2 Home_page-heading w-[50%] ">
                             <h1  className={`${marhey.className} sm:text-[50px] text-[80px] text-white `}>Book your <br /><span className="">Meeting</span></h1>
-                            <button className={`${playfair_Display.className} sm:!text-[27px] Book-button`} onClick={()=>router.push('/booking')}>Book <span>Today</span></button>
+                            <button className={`${playfair_Display.className} sm:!text-[27px] Book-button`} onClick={()=>router.push('/bookingtoday')}>Book <span>Today</span></button>
                         </div>
                         <div className=" sm:w-[100%] Home_page-calendat-image w-[50%]">
                             <div className="Home_page-calendar w-[100%]  h-[300px] ">
