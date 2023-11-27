@@ -58,6 +58,7 @@ export default function Login() {
     setIsFormValid(emailError === '' && passwordError === '');
 
     if (emailError === '' && passwordError === '') {
+     
       // console.log('Form submitted successfully!');
       
     } else {
