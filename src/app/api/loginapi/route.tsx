@@ -7,7 +7,7 @@ interface User {
     password: string;
   }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+  export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
     const { email, password }: User = await req.json();
 
@@ -17,6 +17,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         password: password
       },
     });
+    
     console.log(prisma.createUsers,"dfds");
 
     if (!user) {
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
+console.log(passwordMatch,"passwordMatch");
 
     if (passwordMatch) {
       return NextResponse.json({ message: "User logged in successfully." },{status:200});

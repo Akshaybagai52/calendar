@@ -48,7 +48,7 @@ export default function Login() {
     }
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const emailError = validateEmail();
     const passwordError = validatePassword();
@@ -58,7 +58,26 @@ export default function Login() {
 
     if (emailError === '' && passwordError === '') {
      
-      // console.log('Form submitted successfully!');
+      // try {
+      //   const response = await fetch('http://localhost:3000/api/login', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //     body: JSON.stringify({ email, password }),          
+      //   });
+
+      //   if (response.ok) {
+      //     console.log('User logged in successfully!');
+      //     // Handle successful login (redirect, set authentication state, etc.)
+      //   } else {
+      //     console.error('Login failed');
+      //     alert('Invalid email or password');
+      //   }
+      // } catch (error) {
+      //   console.error('Error during login:', error);
+      //   alert('Error during login');
+      // }
       
     } else {
       // console.log('Form has errors. Please correct them.');
