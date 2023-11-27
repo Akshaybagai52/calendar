@@ -10,7 +10,7 @@ interface Errors {
 }
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<Errors>({ email: '', password: '' });
@@ -58,7 +58,8 @@ export default function Login() {
     setIsFormValid(emailError === '' && passwordError === '');
 
     if (emailError === '' && passwordError === '') {
-      console.log('Form submitted successfully!');
+      // console.log('Form submitted successfully!');
+      
     } else {
       // console.log('Form has errors. Please correct them.');
       alert("Form has errors. Please correct them.")
@@ -113,5 +114,5 @@ export default function Login() {
       </div>
     </div>
   );
-  );
+  
 }
