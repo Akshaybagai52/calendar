@@ -1,10 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next";
 const bcrypt = require("bcrypt");
 import prisma from "../../../../lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 interface User {
-    name: string;
     email: string;
     password: string;
   }
