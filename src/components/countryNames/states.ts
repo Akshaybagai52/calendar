@@ -1,4 +1,4 @@
-export const StateNamesData = async (countryValue) => {
+export const StateNamesData = async (countryValue:String): Promise<any> => {
     console.log(countryValue,"cont")
     const response = await fetch(`https://www.universal-tutorial.com/api/states/`+`${countryValue}`, {
         method: 'GET',

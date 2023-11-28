@@ -1,5 +1,6 @@
+import { promises } from "dns";
 
-export const countriesData = async () => {
+export const countriesData = async ():Promise<any> => {
     const response = await fetch(`https://www.universal-tutorial.com/api/countries`, {
         
         method: 'GET',

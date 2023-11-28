@@ -3,65 +3,80 @@ import React, { ReactEventHandler, useEffect, useState } from "react";
 import bg_image from '../../assets/offer-3.jpg'
 import { countriesData } from "../countryNames/countries";
 import { StateNamesData } from "../countryNames/states";
-const CheckDestination = () => {
-    const [countryNames, setCountryNames] = useState<Object>([])
-    const [cityNames, setCityNames] = useState<Object>([])
-    const [stateNames, setStatesNames] = useState<Object>([])
+import { CityNamesData } from "../countryNames/cities";
+import { stringify } from "json5";
+import { any } from "prop-types";
 
-    const [searchValue, setSearchValue] = useState<string>({
+interface country {
+    country_name: String
+}
+interface city {
+    city_name: String
+}
+interface state {
+    state_name: String
+}
+
+
+interface SearchValue {
+    cityName: string;
+    CountryName: string;
+    stateName: string;
+}
+
+const CheckDestination = () => {
+    const [countryNames, setCountryNames] = useState<country[]>([]);
+    const [cityNames, setCityNames] = useState<state[]>([])
+    const [stateNames, setStatesNames] = useState<city[]>([])
+
+    const [searchValue, setSearchValue] = useState<SearchValue>({
         cityName: '',
         CountryName: '',
         stateName: ''
-
     })
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Fix the typo: preventDefault() instead of preventDefalult()
-        // const response = await fetch(`https://api.api-ninjas.com/v1/city?name=${!searchValue ? "chandigrah" : searchValue}`, {
-        //     method: 'GET',
-        //     headers: {
-        //         // 'X-Api-Key': 'fPZEXwG1Bg/v5vsJ37ipwA==YCcMwFAlBYgdE6RP'
-        //         'X-Api-Key': 'k930IlEKrjOFxEzaqgR9BMTXMBVRZwd0BcdAeAQNXWnSwpQvsFks50dt_FCtlo9og0Q'
-        //     },
-        // });
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
     }
 
-// console.log(countriesData(),"oo")
+    // console.log(countriesData(),"oo")
     useEffect(() => {
-        const fetchData=async()=>{
-          let Data=  await countriesData()
-        
-          setCountryNames(Data)
+        const fetchData = async () => {
+            let Data = await countriesData()
+            setCountryNames(Data)
         }
         fetchData()
-   
+
     }, [])
-  
+
 
     useEffect(() => {
-        let countryValue = searchValue.CountryName;
-        console.log(countryValue,"nn")
+        let stateValue: String = searchValue.stateName;
+        let countryValue: String = searchValue.CountryName;
         const fetchData1 = async () => {
-           
-           if(countryValue){
-            console.log("cobnhhh", countryValue)
-            let data =await StateNamesData(countryValue);
-            console.log(data, "searchValue.CountryName");
-            setStatesNames(data)
-           }
-          
+            if (stateValue) {
+                console.log("cobnhhh", stateValue)
+                let data = await CityNamesData(stateValue);
+                console.log(data, "searchValue.CountryName");
+                setCityNames(data)
+            }else if (countryValue) {
+                console.log("cobnhhh", countryValue)
+                let data = await StateNamesData(countryValue);
+                setStatesNames(data)
+            }else{
+                console.log("not found")
+            }
+
         }
         fetchData1();
-     }, [searchValue.CountryName]);
-
-    // console.log(citiesFind,"searchValue")
-    const handleChange =async (e) => {
-        const { value,name} = e.target
-        setSearchValue({...searchValue,[name]:value})
-  
        
+       
+    }, [searchValue]);
+
+    const handleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const { value, name } = e.target
+        setSearchValue({ ...searchValue, [name]: value })
     }
-console.log(stateNames,"stateNames")
 
     return (
         <>
@@ -72,81 +87,65 @@ console.log(stateNames,"stateNames")
 
                         <form className="w-[400px] bg-[#00000075] p-3 text-white" onSubmit={handleSubmit}>
                             <div className="destination_search my-5 relative ">
-                                <p className="my-2">Choose your City</p>
-                                <select name="CountryName" value={searchValue.CountryName} className="text-black" onChange={handleChange}>
-                                <option>{!searchValue.CountryName?"Select Country...":searchValue.CountryName}</option>
+                                <p className="my-2">Choose your country</p>
+                                <select name="CountryName" value={searchValue.CountryName} className="text-black w-full mx-0 my-2.5 p-2 rounded-[7px]" onChange={handleChange}>
+                                    <option>{!searchValue.CountryName ? "Select Country..." : searchValue.CountryName}</option>
                                     {
-                                        countryNames?.map((ele) => {
-                                            
-                                            return (
-                                                <>
+                                        countryNames?.map((ele: country, index: number) => {
 
-                                                    <option value={ele?.country_name} >{ele?.country_name}</option>
-                                                </>
+                                            return (
+                                                <option key={index} value={ele.country_name}>
+                                                    {ele.country_name}
+                                                </option>
                                             )
                                         })
 
                                     }
                                 </select>
-                                <select name="stateName" value={searchValue.stateName} className="text-black" onChange={handleChange}>
-                                <option>{!searchValue.stateName?"Select stateName...":searchValue.stateName}</option>
+                                <p className="my-2">Choose your state</p>
+                                <select name="stateName" value={searchValue.stateName} className="text-black w-full mx-0 my-2.5 p-2 rounded-[7px]" onChange={handleChange}>
+                                    <option>{!searchValue.stateName ? "Select stateName..." : searchValue.stateName}</option>
                                     {
-                                        stateNames?.map((ele) => {
-                                            
-                                            return (
-                                                <>
+                                        stateNames?.map((ele: state, index: number) => {
 
-                                                    <option className="text-black"  value={ele?.state_name} >{ele?.state_name}</option>
-                                                </>
+                                            return (
+
+
+                                                <option key={index} className="text-black" value={ele?.state_name} >{ele?.state_name}</option>
+
                                             )
                                         })
 
                                     }
                                 </select>
-                                <select name="cityName" value={searchValue} className="text-black" onChange={handleChange}>
-                                <option>Select cityName...</option>
+                                <p className="my-2">Choose your city</p>
+                                <select name="cityName" value={searchValue} className="text-black w-full mx-0 my-2.5 p-2 rounded-[7px]" onChange={handleChange}>
+                                    <option>Select cityName...</option>
                                     {
-                                        countryNames?.map((ele) => {
-                                            
-                                            return (
-                                                <>
+                                        cityNames?.map((ele: city, index: number) => {
 
-                                                    <option value={ele?.country_name} >{ele?.country_name}</option>
-                                                </>
+                                            return (
+
+                                                <option key={index} value={ele?.city_name} >{ele?.city_name}</option>
                                             )
                                         })
 
                                     }
                                 </select>
-                                {/* <input type="text" value={searchValue} placeholder="checkdestnation ..." className="border text-black border-black w-[100%] p-2 rounded" onChange={handleChange} />
-                                {
-                                    citiesFind && <div className="absolute top-[76px] right-0 left-0 overflow-scroll h-[200px]">
-                                        <ul className="">
-                                            {citiesFind?.map((ele, index) => {
-                                                return (
-                                                    <div className="bg-white text-black p-2" key={index}>
-                                                        <li className="cursor-pointer" onClick={() => [setSearchValue(ele), setCitiesFind(null)]}>{ele}</li>
-                                                    </div>
-                                                )
-
-
-                                            })}
-                                        </ul>
-                                    </div>
-                                } */}
+                               
                             </div>
                             <div className="dest_info " >
                                 <div className="flex gap-[20px]  ">
                                     <div>
                                         <label htmlFor="checkin_date "> Check in date</label>
-                                        <input type="date" name="checkin_date" id="" className="border w-[80%] border-black text-black" />
+                                        <input type="date" name="checkin_date" id="" className="border w-[100%] border-black text-black" />
 
                                     </div>
                                     <div>
 
                                         <label htmlFor="checkin_date "> Check out date</label>
 
-                                        <input type="date" name="checkout_date" id="" className="border w-[80%] border-black text-black " />
+                                        <input type="date" name="checkout_date" id="" className="border w-[100%] border-black text-black " />
                                     </div>
 
                                 </div>

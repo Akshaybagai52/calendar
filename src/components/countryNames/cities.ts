@@ -1,5 +1,6 @@
-export const CityNamesData = async (cityValue) => {
-    console.log(cityValue,"cont")
+export const CityNamesData = async (cityValue:String): Promise<any>=> {
+    console.log(cityValue,"cityValue")
+   
     const response = await fetch(`https://www.universal-tutorial.com/api/cities/`+`${cityValue}`, {
         method: 'GET',
         headers: {
