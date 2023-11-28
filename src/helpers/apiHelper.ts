@@ -1,6 +1,6 @@
 // helpers/apiHelpers.ts
 
-const fetcher = async <T>(url: string): Promise<T> => {
+export const fetcher = async <T>(url: string): Promise<T> => {
     try {
       const response = await fetch(url);
   
@@ -14,5 +14,5 @@ const fetcher = async <T>(url: string): Promise<T> => {
     }
   };
   
-  export default fetcher;
+
   

@@ -5,16 +5,17 @@ import useSWR from "swr";
 import booking_place_pic1 from "../../assets/3.jpg";
 import booking_place_pic2 from "../../assets/2.jpg";
 import { Josefin_Sans } from "next/font/google";
+import { fetcher } from "@/helpers/apiHelper";
 const JosefinSans = Josefin_Sans({ weight: "600", subsets: ["latin"] });
 
 const BookingPlace = () => {
-  const fetcher = (url: string) => fetch(url).then((r) => r.json());
+  //   const fetcher = (url: string) => fetch(url).then((r) => r.json());
   const { data, error, isLoading } = useSWR(
     "https://jsonplaceholder.typicode.com/todos",
     fetcher
   );
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>failed to load</div>; 
   if (isLoading) return <div>loading...</div>;
   if (data) console.log(data);
   // console.log(data)
