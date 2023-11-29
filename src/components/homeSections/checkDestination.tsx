@@ -4,119 +4,116 @@ import bg_image from "../../assets/offer-3.jpg";
 import { fetcher } from "@/helpers/apiHelper";
 
 import useSWR from "swr";
-// import { StateNamesData } from "../countryNames/states";
-// import { CityNamesData } from "../countryNames/cities";
+import DestinationHeadLine from "./destinationHeadLine";
 
 import { v4 as uuidv4 } from "uuid";
 import { Span } from "next/dist/trace";
 uuidv4();
 
-
-interface tokenProps {
-  auth_token: string;
-
-}
 interface countryProps {
   country_name: string;
-
 }
 
 interface SearchValueProps {
   cityName: string;
   CountryName: string;
   stateName: string;
-  checkInDate:string;
-  checkOutDate:string;
+  checkInDate: string;
+  checkOutDate: string;
 }
 
 const CheckDestination = () => {
   // const tokenGen: tokenProps
- const [tokenGen,setTokenGen]=useState<string | undefined>(undefined)
+  const [tokenGen, setTokenGen] = useState<string | undefined>(undefined);
 
   const [searchValue, setSearchValue] = useState<SearchValueProps>({
     cityName: "",
     CountryName: "",
     stateName: "",
-    checkInDate:'',
-    checkOutDate:''
+    checkInDate: "",
+    checkOutDate: "",
   });
-  
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-  }
-
-
- 
-//  const genrateToken=(setTokenGen: (token: string) => void) =>{
-  
-//   const { data:tokenData, error:errorToken } = useSWR(
-//     "https://www.universal-tutorial.com/api/getaccesstoken",
-//     (url) =>
-//     fetch(url, {
-//       method: "GET",
-//       headers: {
-//         "Accept": "application/json",
-//         "api-token":"k930IlEKrjOFxEzaqgR9BMTXMBVRZwd0BcdAeAQNXWnSwpQvsFks50dt_FCtlo9og0Q",
-//         "user-email":"satnamsingh85611@gmail.com"
-//       },
-//     })
-//   );
-
-// };
-
-//  }
- 
-
-
-
-
-
-
+  };
 
   const { data, error, isLoading } = useSWR(
     "https://www.universal-tutorial.com/api/countries",
-    fetcher
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
-  if(error){
-console.log(error,"get country")
+  if (error) {
+    console.log(error, "get country");
   }
 
-  const { data:item, error:errorItem, isLoading:isLoadingCheck } = useSWR(
-    `https://www.universal-tutorial.com/api/states/`+`${searchValue.CountryName}`,
-    fetcher
+  const {
+    data: item,
+    error: errorItem,
+    isLoading: isLoadingCheck,
+  } = useSWR(
+    !searchValue.CountryName
+      ? null
+      : `https://www.universal-tutorial.com/api/states/` +
+          `${searchValue.CountryName}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
-  if(errorItem){
-    console.log(errorItem,"get state")
-      }
+  if (errorItem) {
+    console.log(errorItem, "get state");
+  }
 
-  const { data:item1, error:errorItem1, isLoading:isLoadingCheck1 } = useSWR(
-    `https://www.universal-tutorial.com/api/cities/`+`${searchValue.stateName}`,
-    
+  const {
+    data: item1,
+    error: errorItem1,
+    isLoading: isLoadingCheck1,
+  } = useSWR(
+    !searchValue.stateName
+      ? null
+      : `https://www.universal-tutorial.com/api/cities/` +
+          `${searchValue.stateName}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
 
-  if(errorItem1){
-    console.log(errorItem1,"get city")
-      }
+  if (errorItem1) {
+    console.log(errorItem1, "get city");
+  }
 
-  const handleChangeInputElement = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInputElement = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { value, name } = e.target;
     setSearchValue({ ...searchValue, [name]: value });
   };
-  const handleChangeSelectElement = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeSelectElement = async (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const { value, name } = e.target;
     setSearchValue({ ...searchValue, [name]: value });
   };
 
   return (
     <>
-      <div className="check_destination_main mt-[20px]  ">
+      <div className="sm:mt-[236px] check_destination_main mt-[20px]  ">
         <div className="container">
-          <div
-            className="check_destination_sub-main"
-            style={{ backgroundImage: `url(${bg_image.src})` }}
-          >
+          <DestinationHeadLine />
+          <div className="sm:block check_destination_sub-main flex items-center">
             <form
-              className="w-[400px] bg-[#00000075] p-3 text-white"
+              style={{ backgroundImage: `url(${bg_image.src})` }}
+              className="w-[400px]  p-3 text-white form_destination relative"
               onSubmit={handleSubmit}
             >
               <div className="destination_search my-5 relative ">
@@ -132,13 +129,14 @@ console.log(error,"get country")
                       ? "Select Country..."
                       : searchValue.CountryName}
                   </option>
-                  {data instanceof Array && data?.map((ele: countryProps) => {
-                    return (
-                      <option key={uuidv4()} value={ele.country_name}>
-                        {ele.country_name}
-                      </option>
-                    );
-                  })}
+                  {data instanceof Array &&
+                    data?.map((ele: countryProps) => {
+                      return (
+                        <option key={uuidv4()} value={ele.country_name}>
+                          {ele.country_name}
+                        </option>
+                      );
+                    })}
                 </select>
                 <p className="my-2">Choose your state</p>
                 <select
@@ -152,17 +150,18 @@ console.log(error,"get country")
                       ? "Select stateName..."
                       : searchValue.stateName}
                   </option>
-                  {item instanceof Array && item?.map((ele:any) => {
-                    return (
-                      <option
-                        key={uuidv4()}
-                        className="text-black"
-                        value={ele?.state_name}
-                      >
-                        {ele?.state_name}
-                      </option>
-                    );
-                  })}
+                  {item instanceof Array &&
+                    item?.map((ele: any) => {
+                      return (
+                        <option
+                          key={uuidv4()}
+                          className="text-black"
+                          value={ele?.state_name}
+                        >
+                          {ele?.state_name}
+                        </option>
+                      );
+                    })}
                 </select>
                 <p className="my-2">Choose your city</p>
                 <select
@@ -176,13 +175,14 @@ console.log(error,"get country")
                       ? "Select stateName..."
                       : searchValue.cityName}
                   </option>
-                  {item1 instanceof Array && item1?.map((ele: any) => {
-                    return (
-                      <option  key={uuidv4()} value={ele?.city_name}>
-                        {ele?.city_name}
-                      </option>
-                    );
-                  })}
+                  {item1 instanceof Array &&
+                    item1?.map((ele: any) => {
+                      return (
+                        <option key={uuidv4()} value={ele?.city_name}>
+                          {ele?.city_name}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
               <div className="dest_info ">
@@ -194,7 +194,7 @@ console.log(error,"get country")
                       name="checkInDate"
                       value={searchValue.checkInDate}
                       id=""
-                      className="border w-[100%] border-black text-black"
+                      className="border w-[100%] border-black text-black rounded-[5px] p-[5px]"
                       onChange={handleChangeInputElement}
                     />
                   </div>
@@ -206,7 +206,7 @@ console.log(error,"get country")
                       name="checkOutDate"
                       value={searchValue.checkOutDate}
                       id=""
-                      className="border w-[100%] border-black text-black "
+                      className="border w-[100%] border-black text-black rounded-[5px] p-[5px]"
                       onChange={handleChangeInputElement}
                     />
                   </div>
@@ -215,12 +215,20 @@ console.log(error,"get country")
                 <input
                   type="submit"
                   value="Submit"
-                  className=" submit_button border bg-white text-black "
+                  className=" submit_button border bg-white text-black mt-[15px] p-[5px]"
                 />
                 {/* <button onClick={genrateToken}>Genrate Token</button> */}
                 {/* {tokenGen && <span>{tokenGen}</span>} */}
               </div>
             </form>
+            <div className="make_your_reservation">
+              <div className="make_your_reservation-text w-[50%] mx-auto ">
+                <h2>Easy scheduling ahead</h2>
+                <p>
+                Calendly is your scheduling automation platform for eliminating the back-and-forth emails to find the perfect time — and so much more.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

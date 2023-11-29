@@ -1,6 +1,8 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import logo from '../../assets/logo-white.png'
+import Image from 'next/image';
 export default function Navbar() {
     const router = usePathname();
 
@@ -11,13 +13,14 @@ export default function Navbar() {
     return (
         <div>
             {/* <Navbar /> */}
-            <header className="bg-black relative z-[9] border-solid py-[14px]">
+            <header className="bg-black relative z-[9] border-solid ">
                 <div className='container '>
-                    <div className="flex justify-between items-baseline ">
+                    <div className="flex justify-between items-center ">
                         {/* Logo */}
                         <Link href={('/')} className="text-red-500 font-bold text-4xl">
-                            <span className="text-red-500 font-bold">Cal.</span>
-                            <span className="text-white text-3xl">Com</span>
+                            {/* <span className="text-red-500 font-bold">Cal.</span>
+                            <span className="text-white text-3xl">Com</span> */}
+                            <Image src={logo} alt='logo'  className='w-[100px]'/>
                         </Link>
 
                         {/* Navigation Links */}
