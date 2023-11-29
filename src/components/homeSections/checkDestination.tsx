@@ -107,12 +107,12 @@ const CheckDestination = () => {
 
   return (
     <>
-      <div className="sm:mt-[236px] check_destination_main mt-[20px]  ">
+      <div className="sm:mt-[236px] check_destination_main bg-[lavender] p-[10px] ">
         <div className="container">
           <DestinationHeadLine />
           <div className="sm:block check_destination_sub-main flex items-center">
             <form
-              style={{ backgroundImage: `url(${bg_image.src})` }}
+              // style={{ backgroundImage: `url(${bg_image.src})` }}
               className="w-[400px]  p-3 text-white form_destination relative"
               onSubmit={handleSubmit}
             >
@@ -222,8 +222,8 @@ const CheckDestination = () => {
               </div>
             </form>
             <div className="make_your_reservation">
-              <div className="make_your_reservation-text w-[50%] mx-auto ">
-                <h2>Easy scheduling ahead</h2>
+              <div className="sm:w-[100%] p-[10px] make_your_reservation-text w-[50%] mx-auto ">
+                <h2 className=" text-[38px] font-bold w-[100%] ">Easy scheduling ahead</h2>
                 <p>
                 Calendly is your scheduling automation platform for eliminating the back-and-forth emails to find the perfect time — and so much more.
                 </p>

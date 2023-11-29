@@ -5,9 +5,10 @@ import { useState } from "react"
 import Link from "next/link"
 import { ToastContainer, toast } from 'react-toastify';
 import { RotatingLines } from 'react-loader-spinner'
-
+import { signIn } from 'next-auth/react';
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useRouter } from 'next/navigation'
+import axios from 'axios';
 interface Errors {
   email: string;
   password: string;
@@ -95,7 +96,14 @@ export default function Login() {
       toast.error('Form has errors. Please correct them.')
     }
   };
-
+const signIn=async()=>{
+try {
+  const data = await axios.post("http://localhost:3000/api/auth/login")
+  console.log(data,"data")
+} catch (error) {
+  console.log(error)
+}
+}
   return (
     <div>
       <div className="bg-slate-200 h-[570px]">
@@ -156,6 +164,7 @@ export default function Login() {
                 </button>
               </form>
               <p className="text-sm text-gray-500">Create a new account <Link href="/register">signup</Link></p>
+              <button onClick={signIn}>Github</button>
             </div>
           </div>
         </div>
