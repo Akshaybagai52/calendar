@@ -1,8 +1,15 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession, signIn, signOut } from "next-auth/react"
+
 export default function Navbar() {
     const router = usePathname();
+    const { data:session } = useSession()
+    // if(session){
+    //     console.log("fine",session);
+        
+    // }
 
     const isLinkActive = (href: string) => {
         return router === href ? 'bg-white px-2.5 py-0.5 rounded-[30px]' : '';
@@ -61,9 +68,11 @@ export default function Navbar() {
                         <div>
                             <ul className="flex items-center ">
                                 <li className='text-[black] rounded px-3.5 py-1.5 bg-white'>
-                                    <Link href="/login">
+                                    {session?.user ? (<span onClick={() => signOut()}>
+                                        Logout
+                                    </span>) : (<Link href="/login">
                                         Login
-                                    </Link>
+                                    </Link>)}
                                 </li>
                             </ul>
                         </div>

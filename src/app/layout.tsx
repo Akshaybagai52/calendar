@@ -1,11 +1,11 @@
 'use client'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
+import { SessionProvider } from "next-auth/react";
+
 import './globals.css'
 import { store } from '@/store/store'
 import { Provider } from 'react-redux'
-const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata: Metadata = {
 //   title: 'Calendar',
@@ -37,13 +37,15 @@ export default function RootLayout({
         <title>Calendar</title>
       </head>
       <body>
-        <div className={inter.className}>
-          <Provider store={store}>
-            <section>
-              <Navbar />
-              <main>{children}</main>
-            </section>
-          </Provider>,
+        <div>
+          <SessionProvider>
+            {/* <Provider store={store}> */}
+              <section>
+                <Navbar />
+                <main>{children}</main>
+              </section>
+            {/* </Provider> */}
+          </SessionProvider>,
         </div>
       </body>
     </html>
