@@ -36,6 +36,24 @@
 
 
 }
-.check_destination_sub-main{
-  @apply  bg-cover bg-center bg-no-repeat;
+.form_destination{
+  @apply  bg-cover bg-center bg-no-repeat z-[999999];
+}
+.form_destination::after {
+  @apply content-[''] absolute opacity-60 z-[-1] inset-0;
+  background: black;
+}
+
+/* destinationHeadline */
+.eleven h1:after {
+  @apply absolute w-10 h-10 content-['\00a7'] text-3xl leading-10 text-[#c50000] font-normal z-[5] block bg-[#f8f8f8] -ml-5 left-2/4 bottom-[23px];
+}
+.eleven h1:before {
+  @apply sm:top-[8.4rem] absolute z-[4] h-px w-[32%] bg-[rgb(119_119_119_/_var(--tw-bg-opacity))] content-[var(--tw-content)] m-0 right-[34%] top-[5.4rem];
+  --tw-bg-opacity: 1;
+  --tw-content: "";
+}
+.eleven h1 {
+  @apply text-3xl text-center leading-[1.5em] uppercase tracking-[2px] text-[#111] pb-[45px];
+  font-family: "Playfair Display", serif;
 }

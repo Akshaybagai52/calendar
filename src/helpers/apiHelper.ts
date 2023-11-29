@@ -1,11 +1,13 @@
 // helpers/apiHelpers.ts
-let token=" eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzYXRuYW1zaW5naDg1NjExQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ims5MzBJbEVLcmpPRnhFemFxZ1I5Qk1UWE1CVlJad2QwQmNkQWVBUU5YV25Td3BRdnNGa3M1MGR0X0ZDdGxvOW9nMFEifSwiZXhwIjoxNzAxMjQ4ODMwfQ.sjyd5IMkUCRECB5g8K8mvHLquKKpb7hRUk0wxJLQNSs"
 export const fetcher = async <T>(url: string): Promise<T> => {
+// let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzYXRuYW1zaW5naDg1NjExQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ims5MzBJbEVLcmpPRnhFemFxZ1I5Qk1UWE1CVlJad2QwQmNkQWVBUU5YV25Td3BRdnNGa3M1MGR0X0ZDdGxvOW9nMFEifSwiZXhwIjoxNzAxMzA5ODc5fQ.kUIT5cyjulkTPnE6FfziIgmz7wp3CohryoFcAtJGYbQ"
+
   try {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization:"Bearer" + `${token}`,
+        // Authorization:"Bearer " + `${token}`,
+        Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzYXRuYW1zaW5naDg1NjExQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ims5MzBJbEVLcmpPRnhFemFxZ1I5Qk1UWE1CVlJad2QwQmNkQWVBUU5YV25Td3BRdnNGa3M1MGR0X0ZDdGxvOW9nMFEifSwiZXhwIjoxNzAxMzA5ODc5fQ.kUIT5cyjulkTPnE6FfziIgmz7wp3CohryoFcAtJGYbQ" ,
         Accept: "application/json",
       },
     });
