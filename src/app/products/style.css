@@ -1,0 +1,36 @@
+/* * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 20;
+  }
+   */
+  .marquee {
+    overflow: hidden;
+  }
+  
+  .marquee-content {
+    display: flex;
+    animation: scrolling 10s linear infinite;
+  }
+  
+  .marquee-item {
+    flex: 0 0 16vw;
+    margin: 0 1vw;
+    flex: 0 0 20vw;
+    margin: 0 2vw;
+  }
+  
+   img {
+    display: block;
+    width: 100%;
+    height:100px;
+    padding: 0 20px;
+  }
+  
+  @keyframes scrolling {
+    0% { transform: translateX(0); }
+    100% { transform: translatex(-144vw); }
+  }
+  

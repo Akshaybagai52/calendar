@@ -12,7 +12,7 @@ export default function Navbar() {
     // }
 
     const isLinkActive = (href: string) => {
-        return router === href ? 'bg-white px-2.5 py-0.5 rounded-[30px]' : '';
+        return router === href ? 'bg-white text-[#6366f1] px-2.5 py-0.5 rounded-[30px]' : '';
     };
 
     return (
