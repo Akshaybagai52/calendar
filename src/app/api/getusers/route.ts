@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import db from "../../../../lib/db";
+import prisma from "../../../../lib/db";
 
 export async function GET(req: NextRequest, res: NextResponse) {
-  const users = await db.createUsers.findMany();
+  const User = await prisma.createUsers.findMany()
   
-  console.log(users);
-  return NextResponse.json({ message: users }, { status: 200 });
+  console.log(User);
+  return NextResponse.json({ message: User }, { status: 200 });
 }

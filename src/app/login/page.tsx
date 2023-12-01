@@ -1,14 +1,15 @@
 "use client"
 import 'react-toastify/dist/ReactToastify.css';
 import "../login/login.css"
-import { useState } from "react"
+import { ChangeEvent, useState } from "react";
 import Link from "next/link"
 import { ToastContainer, toast } from 'react-toastify';
 import { RotatingLines } from 'react-loader-spinner'
-import { signIn } from 'next-auth/react';
+import { signIn } from "next-auth/react"
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { useRouter } from 'next/navigation'
-import axios from 'axios';
+import { useSearchParams, useRouter } from "next/navigation";
 interface Errors {
   email: string;
   password: string;
@@ -21,6 +22,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>({ email: '', password: '' });
   const [isFormValid, setIsFormValid] = useState(false);
+
 
   const validateEmail = () => {
     let error = '';
@@ -54,7 +56,8 @@ export default function Login() {
       setErrors({ ...errors, password: passwordError });
     }
   };
-
+  // const searchParams = useSearchParams();
+  // const callbackUrl = searchParams.get("callbackUrl") || "/";
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const emailError = validateEmail();
@@ -90,20 +93,29 @@ export default function Login() {
       finally {
         setIsLoading(false); // Stop loader after API request completes
       }
+      // const res = await signIn("credentials", {
+      //   redirect: false,
+      //   email: email,
+      //   password: password,
+      //   callbackUrl,
+      // });
+
+      // console.log(res);
+      // if (!res?.error) {
+      //   router.push(callbackUrl);
+      // } else {
+      //   // setErrors{("invalid email or password")};
+      //   console.log("invalid email or password");
+        
+      // }
 
     } else {
       // alert("Form has errors. Please correct them.")
       toast.error('Form has errors. Please correct them.')
     }
+
   };
-const signIn=async()=>{
-try {
-  const data = await axios.post("http://localhost:3000/api/auth/login")
-  console.log(data,"data")
-} catch (error) {
-  console.log(error)
-}
-}
+
   return (
     <div>
       <div className="bg-slate-200 h-[570px]">
@@ -148,7 +160,7 @@ try {
                   {errors.password && <p style={{ color: 'red', fontSize: '12px', marginTop: '8px' }} className="error-message">{errors.password}</p>}
                 </div>
                 <button
-                  className="signup-btn w-full rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-6 px-0 py-2 border-[none]"
+                  className="signup-btn w-full rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
                   // disabled={isFormValid || isLoading}  
                   type="submit"
                   onClick={handleSubmit}
@@ -163,8 +175,13 @@ try {
                   }
                 </button>
               </form>
-              <p className="text-sm text-gray-500">Create a new account <Link href="/register">signup</Link></p>
-              <button onClick={signIn}>Github</button>
+              <p className="text-sm text-gray-500">Create a new account?. <Link href="/register">Signup</Link></p>
+              {/* <p>or Signup With </p> */}
+              <button type='button' className='google-btn shadow-[4px_2px_10px_rgba(0,0,0,0.2)] w-full rounded bg-white text-Black text-base cursor-pointer mx-0 my-3 px-0 py-2 border-2 border-solid border-[black] hover:bg-[black] hover:text-[white]' onClick={() => signIn("google")}>
+                <FcGoogle className="inline text-xl mr-1.5 mb-[3px]" />Sign In With Google</button>
+              <button type='button' className='github-btn shadow-[4px_2px_10px_rgba(0,0,0,0.2)] w-full rounded bg-white text-Black text-base cursor-pointer mx-0 my-3 px-0 py-2 border-2 border-solid border-[black] hover:bg-[black] hover:text-[white]' onClick={() => signIn("github")}>
+                <FaGithub className="inline text-xl mr-1.5 mb-[3px]" />Sign In With Github</button>
+
             </div>
           </div>
         </div>

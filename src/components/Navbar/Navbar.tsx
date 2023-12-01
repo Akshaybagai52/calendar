@@ -6,9 +6,13 @@ import { FaBars } from "react-icons/fa";
 import Image from 'next/image';
 export default function Navbar() {
     const router = usePathname();
+    // if(session){
+    //     console.log("fine",session);
+        
+    // }
 
     const isLinkActive = (href: string) => {
-        return router === href ? 'bg-white px-2.5 py-0.5 rounded-[30px]' : '';
+        return router === href ? 'bg-white text-[#6366f1] px-2.5 py-0.5 rounded-[30px]' : '';
     };
 
     return (
