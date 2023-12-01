@@ -6,7 +6,7 @@ export default function Plans() {
       title: "Ideas Unfiltered",
       description:
       "There are many variations available, but the majority have suffered.",
-      price: "$10.00",
+      price: 10.00,
       point1:"Unlimited placeholder texts",
       point2:"Consectetur adipiscing elit",
       point3:"Excepteur sint occaecat cupidatat",
@@ -16,7 +16,7 @@ export default function Plans() {
       title: "Ideas Brewed",
       description:
         "There are many variations available, but the majority have suffered.",
-      price: "$25.00",
+      price: 25.00,
       point1:"Unlimited placeholder texts",
       point2:"Consectetur adipiscing elit",
       point3:"Excepteur sint occaecat cupidatat",
@@ -26,7 +26,7 @@ export default function Plans() {
       title: "Ideas Instant",
       description:
         "There are many variations available, but the majority have suffered.",
-      price: "$38.25",
+      price: 38.25,
       point1:"Unlimited placeholder texts",
       point2:"Consectetur adipiscing elit",
       point3:"Excepteur sint occaecat cupidatat",
