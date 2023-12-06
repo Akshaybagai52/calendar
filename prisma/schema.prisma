@@ -22,3 +22,14 @@ model createUsers {
   email String @unique
   password String
 }
+
+model ScheduleMetting {
+  id   String @id @default(uuid())
+  name String
+  email String 
+  country String
+  state String
+  city String
+  checkIn DateTime
+  checkOut DateTime
+}

@@ -5,6 +5,7 @@ import Banner from "./homeSections/banner";
 // import BookingPlace from "./homeSections/bookingPlace";
 import CheckDestination from "./homeSections/checkDestination";
 import MillionUsers from "./homeSections/millionUser";
+import Footer from "./homeSections/footer"
 const HomePage = () => {
 
     return (
@@ -13,6 +14,7 @@ const HomePage = () => {
             {/* <BookingPlace /> */}
             <CheckDestination />
             <MillionUsers/>
+            <Footer />
         </>
     )
 }

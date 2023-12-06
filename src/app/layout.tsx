@@ -4,7 +4,9 @@ import Navbar from '@/components/Navbar/Navbar'
 import { SessionProvider } from "next-auth/react";
 
 import './globals.css'
-import { store } from '@/store/store'
+// import { store } from '@/store/store'
+// import {store} from '../components/../store'
+// import {store} from '@/store/store'
 import { Provider } from 'react-redux'
 
 // export const metadata: Metadata = {
@@ -38,14 +40,16 @@ export default function RootLayout({
       </head>
       <body>
         <div>
-          <SessionProvider>
+          {/* <SessionProvider> */}
             {/* <Provider store={store}> */}
               <section>
                 <Navbar />
-                <main>{children}</main>
+                <main>
+                  {children}
+                </main>
               </section>
             {/* </Provider> */}
-          </SessionProvider>,
+          {/* </SessionProvider>, */}
         </div>
       </body>
     </html>

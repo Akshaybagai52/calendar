@@ -40,13 +40,13 @@ export default function Plans() {
           {subscriptionData.map((data, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 bg-white p-6 pb-[50px] rounded-[9px] text-start shadow-[0px_0px_2px_1px]"
+              className="grid grid-cols-1 bg-white p-6  rounded-[9px] text-start shadow-[0px_0px_2px_1px]"
             >
               <div className="font-[600] text-[18px]">{data.title}</div>
               <p className="text-2xl font-medium">
-                {data.price === 0 ? "FREE" : `${data.price}`}
+                ${data.price === 0 ? "FREE" : `${data.price}`}
                 {data.price !== 0 && (
-                  <span className="text-sm align-top text-slate-500 font-medium"> /month</span>
+                  <span className="text-sm align-top text-slate-500 font-medium"> /mo</span>
                 )}
               </p>
               <p className="text-[16px] text-slate-500 font-medium">{data.description}</p>
