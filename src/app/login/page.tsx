@@ -5,11 +5,12 @@ import { ChangeEvent, useState } from "react";
 import Link from "next/link"
 import { ToastContainer, toast } from 'react-toastify';
 import { RotatingLines } from 'react-loader-spinner'
-import { signIn } from "next-auth/react"
+// import { signIn } from "next-auth/react"
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useSession, signIn, signOut } from 'next-auth/react';
 interface Errors {
   email: string;
   password: string;
@@ -23,6 +24,19 @@ export default function Login() {
   const [errors, setErrors] = useState<Errors>({ email: '', password: '' });
   const [isFormValid, setIsFormValid] = useState(false);
 
+  // const { data, status } = useSession();
+  // if (status === 'loading') return <h1> loading... please wait</h1>;
+  // if (status === 'authenticated') {
+  //   const user= data?.user?.email
+  //   console.log(user,"user");
+  //   console.log(data?.expires,"fdgfdgdf")
+    
+  // }
+  // if(status==='unauthenticated'){
+  //   console.log(data,"dfgd");
+    
+  // }
+ 
 
   const validateEmail = () => {
     let error = '';

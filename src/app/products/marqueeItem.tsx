@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 interface MarqueeItemProps {
   src: string;
@@ -8,7 +9,7 @@ interface MarqueeItemProps {
 const MarqueeItem: React.FC<MarqueeItemProps> = ({ src, alt }) => {
   return (
     <div className="marquee-item">
-      <img src={src} alt={alt} />
+      <Image src={src} alt={alt} />
     </div>
   );
 };  
