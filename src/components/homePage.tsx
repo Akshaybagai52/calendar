@@ -6,6 +6,7 @@ import Banner from "./homeSections/banner";
 import CheckDestination from "./homeSections/checkDestination";
 import MillionUsers from "./homeSections/millionUser";
 import Footer from "./homeSections/footer"
+import Toptabs from "./homeSections/toptabs";
 const HomePage = () => {
 
     return (
@@ -14,6 +15,7 @@ const HomePage = () => {
             {/* <BookingPlace /> */}
             <CheckDestination />
             <MillionUsers/>
+            <Toptabs/>
             <Footer />
         </>
     )

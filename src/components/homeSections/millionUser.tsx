@@ -6,7 +6,7 @@ import image4 from '../../assets/download (4).png'
 import Image from "next/image";
 const MillionUsers = () => {
   return (
-    <div className="million_user_main my-[20px]">
+    <div className="million_user_main my-[50px]">
       <div className="container">
         <div className="million_user_content">
           <h2 className="font-bold text-[30px] text-center my-[20px] ">Loved by 20 million+ users</h2>
