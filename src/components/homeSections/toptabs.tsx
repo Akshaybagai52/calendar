@@ -76,15 +76,7 @@ const Toptabs = () => {
 
                 </div>
                 <div className='content bg-[white] font-light leading-[30px] text-base text-justify  pb-[50px]'>
-                    {/* {tabs.map((tab, i) =>
-                        <div key={i}>
-                            {currentTab === `${tab.id}` && <div>
-                                <p className='title text-[black] text-[medium] text-xl font-semibold mb-5'>{tab.title}</p>
-                                <p>{tab.content}</p>
-                            </div>}
-                        </div>
-                       */}
-
+                 
                     <div className="main">
                         {tabs.map((tab, i) =>
                             <div key={i} className="w-[100%]">
