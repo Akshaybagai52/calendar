@@ -113,7 +113,7 @@ function Toptab2() {
                                 <h2 className='text-[2.375rem] leading-[1.2] font-bold text-center text-[rgb(11,53,88)] mb-6'>Discover how businesses grow with Calendly</h2>
                             </div>
                             <div className='w-full max-w-[50%] min-w-[373px] h-auto'>
-                                <p className='text-left text-[rgb(71,103,136)] text-lg leading-[1.4] font-[normal] pb-4'>Learn how teams of all sizes are using Calendly’s scheduling automation platform to create value.</p>
+                                <p className='text-left text-[rgb(71,103,136)] text-lg leading-[1.4] font-[normal] pb-4'>Learn how teams of all sizes are using Calendlys scheduling automation platform to create value.</p>
 
                                 <button className='cursor-pointer text-[rgb(0,107,255)] text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center justify-center gap-2 text-left font-semibold p-0 rounded-lg'>
                                     <span className='cursor-pointer text-[rgb(0,107,255)] text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center justify-center gap-2 font-semibold p-0 rounded-lg'>View Customers stories</span>
