@@ -279,8 +279,8 @@ const CheckDestination = () => {
 
   const sendEmail = async (e: any) => {
     e.preventDefault();
-    const CheckIndDate = checkIn ? dayjs(checkIn).format('YYYY-MM-DD ') : null;
-    const CheckOutDate = checkOut ? dayjs(checkOut).format('YYYY-MM-DD ') : null;
+    const CheckIndDate = checkIn ? dayjs(checkIn).format('MMM D, YYYY h:mm A ') : null;
+    const CheckOutDate = checkOut ? dayjs(checkOut).format('MMM D, YYYY h:mm A ') : null;
 
 
     let dataSend = {
