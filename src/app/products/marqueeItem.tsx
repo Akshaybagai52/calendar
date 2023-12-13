@@ -9,7 +9,7 @@ interface MarqueeItemProps {
 const MarqueeItem: React.FC<MarqueeItemProps> = ({ src, alt }) => {
   return (
     <div className="marquee-item">
-      <Image src={src} alt={alt} />
+      <Image src={src} alt={alt} width={100} height={100} />
     </div>
   );
 };  

@@ -5,8 +5,13 @@ import { GiDiscussion } from "react-icons/gi";
 import { FaLaptopCode } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { PiStudentDuotone } from "react-icons/pi";
+import tab1 from "../../components/homeSections/images/tab1.webp";
+import tab2 from "../../components/homeSections/images/tab2.webp";
+import tab3 from "../../components/homeSections/images/tab3.webp";
+import tab4 from "../../components/homeSections/images/tab4.webp";
+import tab5 from "../../components/homeSections/images/tab6.webp";
+import tab6 from "../../components/homeSections/images/tab6.webp";
 import Image from 'next/image'
-
 
 const Toptabs = () => {
 
@@ -17,42 +22,73 @@ const Toptabs = () => {
             img6: <TbTargetArrow />,
             tabTitle: 'Sales',
             title: 'Drive more revenue',
-            content: 'Las tabs se generan automáticamente a partir de un array de objetos, el cual tiene las propiedades: id, tabTitle, title y content.'
+            content: 'Book high-value meetings in seconds and turn scheduling into a competitive advantage.',
+            title1: 'Speed up your sales cycle',
+            content1: 'Keep your deal momentum high and remove scheduling friction at every stage of your sales cycle.',
+            title2: 'Close more deals',
+            content2: 'Customize reminder and follow-up workflows to move deals along, integrate with sales tools, and remove logistical tasks to focus on selling.',
+            img1: tab1,
         },
         {
             id: "2",
             img6: <HiSpeakerphone />,
             tabTitle: 'Marketing',
-            title: 'Speed up your sales cycle',
-            content: 'Contenido de tab 2.'
+            title: 'Drive more pipeline',
+            content: 'Turn marketing leads into booked meetings, faster',
+            title1: 'Improve lead response times',
+            content1: 'Gain a competitive advantage when you qualify, route, and book leads instantly.',
+            title2: 'Boost conversion rates',
+            content2: 'Reduce friction in the sales funnel and close more deals.',
+            img1: tab2,
+
         },
         {
             id: "3",
             img6: <GiDiscussion />,
             tabTitle: 'Customer Success',
-            title: 'Close more deals',
-            content: 'Contenido de tab 3.'
+            title: 'Drive more retention',
+            content: 'Bring all of your experts together and connect with customers at every stage of their journey to build long-lasting partnerships.',
+            title1: 'Speed up your response times',
+            content1: 'Quickly book time to solve customers’ needs and help them self-serve to support their goals.',
+            title2: 'Improve NPS and customer health',
+            content2: 'Change the way you schedule meetings to increase customer satisfaction and keep engagement high with reminder and follow-up workflows.',
+            img1: tab3,
         },
         {
             id: "4",
             img6: <FaPeopleRoof />,
             tabTitle: 'Recruting',
-            title: 'Drive more pipeline',
-            content: 'Contenido de tab 4.'
+            title: 'Hire more efficiently',
+            content: 'Spend less time wrangling calendars and more time meeting candidates.',
+            title1: 'Speed up your recruiting cycle',
+            content1: 'Book interviews in seconds and reduce time-to-fill.',
+            title2: 'Improve the candidate experience',
+            content2: 'Eliminate friction and make your recruiting process a competitive advantage.',
+            img1: tab4,
         },
         {
             id: "5",
             img6: <FaLaptopCode />,
             tabTitle: 'Information Technology',
-            title: 'Improve lead response times',
-            content: 'Contenido de tab 5.'
+            title: 'Maintain enterprise-grade security with scheduling automation',
+            content: 'Stay aligned with your security requirements and reduce risk across the org.',
+            title1: 'Implement and govern at ease',
+            content1: 'Eliminate the manual processes of implementing, managing user access and permissions on the platform.',
+            title2: 'Drive adoption and ROI across teams',
+            content2: 'Partner with our team to onboard, drive adoption, and identify success metrics to achieve greater value, faster.',
+            img1: tab5,
         },
         {
             id: "6",
             img6: <PiStudentDuotone />,
             tabTitle: 'Education',
-            title: 'Title 6',
-            content: 'Contenido de tab 6.'
+            title: 'Drive more valuable connections with automated schedulin',
+            content: 'Spend more quality time supporting students, whether you’re advising, tutoring, career planning, or counseling.',
+            title1: 'Increase communication and foster coordination',
+            content1: 'Make your schedule more accessible to students and prospects, allowing them to book time when they need it most.',
+            title2: 'Deliver a better educational experience',
+            content2: 'Focus on what matters most: supporting and connecting with your students, so they can succeed.',
+            img1: tab6,
         }
 
     ];
@@ -75,20 +111,24 @@ const Toptabs = () => {
                     </div>
 
                 </div>
-                <div className='content bg-[white] font-light leading-[30px] text-base text-justify  pb-[50px]'>
-                 
+                <div className='content bg-[white] font-light leading-[30px] text-base pb-[50px]'>
+
                     <div className="main">
                         {tabs.map((tab, i) =>
-                            <div key={i} className="w-[100%]">
+                            <div key={i} className="w-[100%] ">
                                 {currentTab === `${tab.id}` &&
-                                    <div className="flex items-center flex-row w-full max-w-[1080px] pt-10 pb-16 px-10 m-auto">
-                                        <div className="content w-[50%]">
+                                    <div className="flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
+                                        <div className="content w-[50%] pr-[25px]">
                                             <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title}</h3>
-                                            <p>{tab.content}</p>
+                                            <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content}</p>
+                                            <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title1}</h3>
+                                            <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content1}</p>
+                                            <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title2}</h3>
+                                            <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content2}</p>
                                         </div>
                                         <div className="image w-[50%]">
                                             {/* Use local image or an image from the same domain */}
-                                            <Image src="/path/to/local/image.jpg" width={300} height={200} className="h-8 me-3" alt="Image Alt Text" />
+                                            <Image src={tab.img1} width={500} height={400} className=" me-3" alt="Image" />
                                         </div>
                                     </div>}
                             </div>

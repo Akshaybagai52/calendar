@@ -33,7 +33,7 @@
   @apply w-full border font-semibold mx-0 my-3 p-[5px] rounded-[5px] border-solid border-black;
 }
 .form_destination {
-  @apply bg-cover bg-center bg-no-repeat z-[999999];
+  @apply bg-cover bg-center bg-no-repeat z-[1];
 }
 .form_destination::after {
   @apply content-[''] absolute opacity-60 z-[-1] inset-0 bg-[#00000080];
@@ -56,6 +56,7 @@
 .tabs button:disabled {
   border-bottom: 3px solid rgb(0, 107, 255);
   color: rgb(0, 107, 255);
+  
   /* background: rgb(197,214,134);
   background: linear-gradient(90deg, rgba(197,214,134,0.7679446778711485) 0%, rgba(79,18,18,0.8295693277310925) 50%, rgba(39,188,200,0.8435749299719888) 100%) */
 }
