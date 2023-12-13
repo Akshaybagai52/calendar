@@ -3,7 +3,7 @@ import db from '../lib/db'
 
 const users = [
   { name: "John Doe", email: "john.doe@example.com",password:"pradeep" },
-  { name: "Jane Doe", email: "jane.doe@example.com",password:"pradeep" }
+  // { name: "Jane Doe", email: "jane.doe@example.com",password:"pradeep" }
 ];
 
 async function seed() {
