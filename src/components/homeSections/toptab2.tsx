@@ -27,6 +27,7 @@ interface Point {
 
 function Toptab2() {
     const storeTheme = useAppSelector((state) => state.theme);
+    const text_colors=storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"
     const [currentTab, setCurrentTab] = useState('1');
     const tabs: Point[] = [
         {
@@ -113,7 +114,7 @@ function Toptab2() {
                     <div className='tabs flex flex-col gap-16 w-full'>
                         <div className='flex'>
                             <div className=''>
-                                <h2 className='text-[2.375rem] leading-[1.2] font-bold text-center text-[rgb(11,53,88)] mb-6'>Discover how businesses grow with Calendly</h2>
+                                <h2 className={`text-[2.375rem] leading-[1.2] font-bold text-center mb-6 ${text_colors}`}>Discover how businesses grow with Calendly</h2>
                             </div>
                             <div className='w-full max-w-[50%] min-w-[373px] h-auto'>
                                 <p className='text-left text-[rgb(71,103,136)] text-lg leading-[1.4] font-[normal] pb-4'>Learn how teams of all sizes are using Calendlys scheduling automation platform to create value.</p>
@@ -145,24 +146,24 @@ function Toptab2() {
                                         <div className="flex justify-between gap-6 w-full">
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] border-solid'>
-                                                    <h3 className="text-left text-[rgb(11,53,88)] text-[4.25rem] leading-[1.2] font-bold">{tab.title}</ h3>
-                                                    <p className="text-left text-[rgb(71,103,136)] text-2xl leading-[1.4] font-semibold mb-6">{tab.content}</p>
+                                                    <h3 className={`text-left  text-[4.25rem] leading-[1.2] font-bold ${text_colors}`}>{tab.title}</ h3>
+                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content}</p>
 
                                                 </ div>
-                                                <button className='text-justify cursor-pointer text-[rgb(11,53,88)] text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center gap-2 font-semibold p-0 rounded-lg'>{tab.btn}</ button>
+                                                <button className={`text-justify cursor-pointer ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center gap-2 font-semibold p-0 rounded-lg`}>{tab.btn}</ button>
 
                                             </div>
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] '>
-                                                    <h3 className="text-left text-[rgb(11,53,88)] text-[4.25rem] leading-[1.2] font-bold">{tab.title1}</h3>
-                                                    <p className="text-left text-[rgb(71,103,136)] text-2xl leading-[1.4] font-semibold mb-6">{tab.content1}</p>
+                                                    <h3 className={`text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title1}</h3>
+                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content1}</p>
                                                 </div>
                                             </ div>
 
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] border-solid'>
-                                                    <h3 className="text-left text-[rgb(11,53,88)] text-[4.25rem] leading-[1.2] font-bold">{tab.title2}</h3>
-                                                    <p className="text-left text-[rgb(71,103,136)] text-2xl leading-[1.4] font-semibold mb-6">{tab.content2}</p>
+                                                    <h3 className={`text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title2}</h3>
+                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content2}</p>
                                                 </div>
                                             </ div>
                                         </div>}
