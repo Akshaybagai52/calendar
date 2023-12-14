@@ -100,7 +100,7 @@ const Toptabs = () => {
     return (
         <>
             <div className='container'>
-                <h1 className="text-[3.125rem] leading-[1.2] font-bold  text-center text-[rgb(11,53,88)] mb-14">Smarter scheduling for teams<br /> who conduct meetings at scale</h1>
+                <h1 className={`text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</h1>
                 <div className='tabs flex justify-between'>
                     <div className="flex items-center justify-center w-full">
                         {tabs.map((tab) =>
