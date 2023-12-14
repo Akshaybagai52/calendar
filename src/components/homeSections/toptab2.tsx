@@ -4,8 +4,11 @@ import imgs2 from './images/top2.png';
 import imgs3 from './images/top3.png';
 import imgs4 from './images/top4.png';
 import imgs5 from './images/top5.png';
+
 import imgs6 from './images/top6.png';
 import { StaticImageData } from 'next/image';
+import { useAppSelector } from '@/store/hooks';
+
 import Image from 'next/image';
 
 interface Point {
@@ -23,7 +26,7 @@ interface Point {
 }
 
 function Toptab2() {
-
+    const storeTheme = useAppSelector((state) => state.theme);
     const [currentTab, setCurrentTab] = useState('1');
     const tabs: Point[] = [
         {
@@ -105,7 +108,7 @@ function Toptab2() {
     }
     return (
         <div>
-            <section className='bg-[rgb(240,243,248)]'>
+            <section className={`${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-[rgb(240,243,248)]"}`}>
                 <div className="container w-full max-w-[1200px] py-[120px] ">
                     <div className='tabs flex flex-col gap-16 w-full'>
                         <div className='flex'>

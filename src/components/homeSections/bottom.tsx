@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
-
+import { useAppSelector } from '@/store/hooks'
 export default function Bottom() {
+    const storeTheme = useAppSelector((state) => state.theme);
     return (
         <div className='mb-[50px] mt-[50px]'>
             <div className='container'>
                 <div className='w-full max-w-[1200px] py-0'>
-                    <div className='flex items-center justify-center flex-col gap-6 w-full max-w-[1170px] min-h-[222px] bg-[rgb(240,243,248)] border p-[72px] rounded-[32px] border-solid border-[rgb(212,224,237)]'>
+                    <div className={`flex items-center justify-center flex-col gap-6 w-full max-w-[1170px] min-h-[222px]  border p-[72px] rounded-[32px] border-solid border-[rgb(212,224,237)] ${storeTheme==="dark"?"bg-black text-white":"bg-[rgb(240,243,248)]"}`}>
                         <div className='w-full max-w-[770px] h-auto'>
                             <h1 className='text-[2.375rem] leading-[1.2] font-bold text-center text-[rgb(11,53,88)] mb-6'>Power up your scheduling</h1>
                             <div className='w-full h-auto text-center text-[rgb(71,103,136)] text-xl leading-[1.4] font-normal'>
