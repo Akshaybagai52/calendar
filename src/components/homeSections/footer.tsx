@@ -1,11 +1,13 @@
 'use client'
 import React from "react";
 import Image from 'next/image'
-
+import { useAppSelector } from "@/store/hooks";
 const Footer = () => {
+    const storeTheme = useAppSelector((state)=>state.theme)
     return (
 
-        <footer className="bg-[#e6e6fa]">
+        <footer className={`${storeTheme==="dark"?'bg-black text-white duration-300 border-t border-white':'bg-[#e6e6fa]'}`}>
+        
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -16,7 +18,7 @@ const Footer = () => {
                     </div>
                     <div className="flex justify-around gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                            <h2 className={`mb-6 text-sm font-semibold  uppercase dark:text-white ${storeTheme==="dark"?"text-white":"text-gray-900"}`}>Resources</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">Calendar</a>
@@ -27,7 +29,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                            <h2 className={`mb-6 text-sm font-semibold  uppercase dark:text-white ${storeTheme==="dark"?"text-white":"text-gray-900"}`}>Follow us</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline ">Github</a>
@@ -38,7 +40,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                            <h2 className={`mb-6 text-sm font-semibold  uppercase dark:text-white ${storeTheme==="dark"?"text-white":"text-gray-900"}`}>Legal</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">Privacy Policy</a>

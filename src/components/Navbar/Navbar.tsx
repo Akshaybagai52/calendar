@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import logo from '../../assets/logo-white.png';
 import { FaBars } from "react-icons/fa";
+import ModeIcon from '../theme/mode-icon';
 import Image from 'next/image';
 export default function Navbar() {
     const router = usePathname();
@@ -18,7 +19,7 @@ export default function Navbar() {
     return (
         <div>
             {/* <Navbar /> */}
-            <header className="bg-black relative z-[9] border-solid ">
+            <header className="bg-black border-solid fixed z-[999] top-0 inset-x-0">
                 <div className='container '>
                     <div className="flex justify-between items-center ">
                         {/* Logo */}
@@ -73,9 +74,16 @@ export default function Navbar() {
                                         Login
                                     </Link>
                                 </li>
+                            
                                 <span className='text-white hidden sm:block pr-2 text-[24px]'><FaBars /></span>
                             </ul>
                            
+                           
+                        </div>
+                        <div>
+                            <ul>
+                                <li><ModeIcon/></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

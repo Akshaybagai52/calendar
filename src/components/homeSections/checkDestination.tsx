@@ -253,10 +253,11 @@
 
 "use client";
 import React, { ReactEventHandler, useEffect, useState } from "react";
-import bg_image from "../../assets/offer-3.jpg";
-import { fetcher } from "@/helpers/apiHelper";
-import useSWR from "swr";
+// import bg_image from "../../assets/offer-3.jpg";
+// import { fetcher } from "@/helpers/apiHelper";
+// import useSWR from "swr";
 import DestinationHeadLine from "./destinationHeadLine";
+import {useAppSelector } from "@/store/hooks";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -269,6 +270,8 @@ import dayjs, { Dayjs } from "dayjs";
 uuidv4();
 
 const CheckDestination = () => {
+  const storeTheme = useAppSelector((state) => state.theme);
+  
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [checkIn, setCheckIn] = useState(null);
@@ -314,15 +317,15 @@ const CheckDestination = () => {
   }
   return (
     <>
-      <div className="sm:mt-[236px] check_destination_main bg-[lavender] p-[10px] ">
+      <div className={`sm:mt-[236px] check_destination_main  p-[10px]${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`}>
         <div className="container">
           <DestinationHeadLine />
           <div className="sm:block check_destination_sub-main flex items-center">
             <form
               // style={{ backgroundImage: `url(${bg_image.src})` }}
-              className="w-[400px]  p-3 text-white form_destination relative"
+              className={`w-[400px]  p-3 text-white form_destination relative ${storeTheme==="dark" && "border border-white"} `}
               onSubmit={sendEmail}
-            >
+             >
               <div className="destination_search my-5 relative ">
                 {/* <p className="my-2">Choose your country</p> */}
                 <p className="my-2">Enter Your Email</p>
@@ -344,7 +347,7 @@ const CheckDestination = () => {
                 /> */}
                 <div className="dest_info ">
                   <div className="flex gap-[20px]  "></div>
-                  <div className="Check_IN">
+                  <div className={`Check_IN ${storeTheme==="dark" ? "!border-white":"border-black"}`}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DemoContainer components={['DateTimePicker']}>
                         <DateTimePicker
@@ -352,7 +355,7 @@ const CheckDestination = () => {
                           disablePast
                           value={checkIn}
                           onChange={(e: any) => setCheckIn(e)}
-                          className='border w-[100%] border-black text-white rounded-[5px] p-[5px]'
+                          className={` w-[100%]  text-white rounded-[5px] p-[5px] `}
                           slotProps={{
                             textField: {
                             },
@@ -368,7 +371,8 @@ const CheckDestination = () => {
                           label="Check Out Date"
                           value={checkOut}
                           onChange={(date) => setCheckOut(date)}
-                          className='border w-[100%] border-black text-black rounded-[5px] p-[5px]'
+                          className={`border border-white w-[100%] rounded-[5px] p-[5px]`}
+     
                           slotProps={{
                             textField: {
                             },

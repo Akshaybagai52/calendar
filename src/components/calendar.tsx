@@ -5,12 +5,12 @@ import Calendar from 'react-calendar';
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
-const ReactCalendar = () => {
+const ReactCalendar = ({storeTheme}:any) => {
 
     const [value, onChange] = useState<Value>(new Date());
     return (
         <>
-            <Calendar className='shadow-[-1px_1px_3px_1px] ' onChange={onChange} value={value} />
+            <Calendar className={`shadow-[-1px_1px_3px_1px] ${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`} onChange={onChange} value={value} />
         </>
     )
 }

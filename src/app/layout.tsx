@@ -1,12 +1,13 @@
 'use client'
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar/Navbar'
-import { SessionProvider } from "next-auth/react";
+// import { SessionProvider } from "next-auth/react";
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './globals.css'
 // import { store } from '@/store/store'
 // import {store} from '../components/../store'
-// import {store} from '@/store/store'
+import {persistor, store } from '../store/store'; 
 import { Provider } from 'react-redux'
 
 // export const metadata: Metadata = {
@@ -39,16 +40,19 @@ export default function RootLayout({
         <title>Calendar</title>
       </head>
       <body>
+   
         <div>
           {/* <SessionProvider> */}
-            {/* <Provider store={store}> */}
+            <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
               <section>
                 <Navbar />
                 <main>
                   {children}
                 </main>
               </section>
-            {/* </Provider> */}
+              </PersistGate>
+            </Provider>
           {/* </SessionProvider>, */}
         </div>
       </body>

@@ -12,9 +12,9 @@ import tab4 from "../../components/homeSections/images/tab4.webp";
 import tab5 from "../../components/homeSections/images/tab6.webp";
 import tab6 from "../../components/homeSections/images/tab6.webp";
 import Image from 'next/image'
-
+import { useAppSelector } from "@/store/hooks";
 const Toptabs = () => {
-
+    const storeTheme = useAppSelector((state) => state.theme);
     const [currentTab, setCurrentTab] = useState('1');
     const tabs = [
         {
@@ -111,19 +111,19 @@ const Toptabs = () => {
                     </div>
 
                 </div>
-                <div className='content bg-[white] font-light leading-[30px] text-base pb-[50px]'>
+                <div className={`content  font-light leading-[30px] text-base pb-[50px] ${storeTheme==="dark"?"bg-black":"bg-[white]"}`}>
 
                     <div className="main">
                         {tabs.map((tab, i) =>
                             <div key={i} className="w-[100%] ">
                                 {currentTab === `${tab.id}` &&
                                     <div className="flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
-                                        <div className="content w-[50%] pr-[25px]">
-                                            <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title}</h3>
+                                        <div className={`content w-[50%] pr-[25px] `}>
+                                            <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content}</p>
-                                            <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title1}</h3>
+                                            <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title1}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content1}</p>
-                                            <h3 className="text-[black] text-[medium] text-xl font-semibold">{tab.title2}</h3>
+                                            <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title2}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content2}</p>
                                         </div>
                                         <div className="image w-[50%]">
