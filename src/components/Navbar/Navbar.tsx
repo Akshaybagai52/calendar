@@ -32,9 +32,9 @@ export default function Navbar() {
                         {/* Navigation Links */}
                         <nav className="sm:hidden flex space-x-6 text-white px-10 py-2.5 border-2 border-solid border-[white] rounded-[30px]">
                             <ul className="flex items-center space-x-4">
-                                <li className={isLinkActive('/pricing')}>
-                                    <Link href="/pricing" >
-                                        Pricing
+                                <li className={isLinkActive('/enterprise')}>
+                                    <Link href="/enterprise" >
+                                    EnterPrise
                                     </Link>
                                 </li>
                             </ul>
