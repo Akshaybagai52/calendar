@@ -68,11 +68,14 @@ export default function Navbar() {
                             </ul>
                         </nav>
                         <div>
-                            <ul className=" flex items-center ">
+                            <ul className=" flex gap-2 items-center ">
                                 <li className='sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white'>
                                     <Link href="/login">
                                         Login
                                     </Link>
+                                </li>
+                                <li className='sm:hidden'>
+                                <li><ModeIcon/></li>
                                 </li>
                             
                                 <span className='text-white hidden sm:block pr-2 text-[24px]'><FaBars /></span>
@@ -80,11 +83,7 @@ export default function Navbar() {
                            
                            
                         </div>
-                        <div>
-                            <ul>
-                                <li><ModeIcon/></li>
-                            </ul>
-                        </div>
+                       
                     </div>
                 </div>
             </header>

@@ -1,9 +1,12 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import img from "../../components/homeSections/images/images_card.webp"
-
+import { useAppSelector } from '@/store/hooks'
 
 function Card() {
+    const storeTheme=useAppSelector((state)=>state.theme)
+    const text_colors = storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"
     return (
         <div className='mt-[30px] mb-[60px]'>
             <div className='container'>
@@ -12,7 +15,7 @@ function Card() {
                         <Image src={img} width={500} height={400} className="me-3" alt="Calendar Logo" />
                     </div>
                     <div className='contentss w-[50%]'>
-                        <h1 className='text-[2.125rem] leading-[1.2] font-bold  text-[rgb(11,53,88)] mb-10'>The security and oversight your IT team needs</h1>
+                        <h1 className={`text-[2.125rem] leading-[1.2] font-bold mb-10 ${text_colors}`}>The security and oversight your IT team needs</h1>
                         <p className='text-[grey]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi maiores
                             quod nobis nesciunt voluptatum corporis rerum consequatur.
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
