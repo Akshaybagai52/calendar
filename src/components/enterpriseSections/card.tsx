@@ -2,13 +2,19 @@
 import React from 'react'
 import Image, { StaticImageData } from "next/image";
 import { useAppSelector } from '@/store/hooks'
-import img1 from "../enterpriseSections/Images/img1.png";
-import img2 from "../enterpriseSections/Images/img2.png";
-import img3 from "../enterpriseSections/Images/img3.png";
-import card1 from "../enterpriseSections/Images/card1.webp"
-import card2 from "../enterpriseSections/Images/card2.webp"
-import card3 from "../enterpriseSections/Images/card3.webp"
-import card4 from "../enterpriseSections/Images/card4.webp"
+// import img1 from "../enterpriseSections/Images/img1.png";
+// import img2 from "../enterpriseSections/Images/img2.png";
+// import img3 from "../enterpriseSections/Images/img3.png";
+import img1 from "../../assets/img1.png"
+import img2 from "../../assets/img2.png"
+import img3 from "../../assets/img3.png"
+
+
+import card1 from "../../assets/card1.webp";
+import card2 from "../../assets/card2.webp"
+import card3 from "../../assets/card3.webp"
+import card4 from "../../assets/card4.webp"
+
 
 
 interface Point {
