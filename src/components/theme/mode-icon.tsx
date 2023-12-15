@@ -4,7 +4,6 @@ import { Theme } from "../../types/interface";
 import { setTheme } from "@/store/app.slice";
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
-
 import { useEffect, useState } from "react";
 
 function ModeIcon() {

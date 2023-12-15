@@ -1,6 +1,8 @@
+"use client"
 import { FcCheckmark } from "react-icons/fc";
-
+import { useAppSelector } from "@/store/hooks";
 export default function Plans() {
+  const storeTheme= useAppSelector((state)=>state.theme)
   const subscriptionData = [
     {
       title: "Ideas Unfiltered",
@@ -40,7 +42,7 @@ export default function Plans() {
           {subscriptionData.map((data, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 bg-white p-6  rounded-[9px] text-start shadow-[0px_0px_2px_1px]"
+              className={`grid grid-cols-1 p-6  rounded-[9px] text-start shadow-[0px_0px_2px_1px] ${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-white"}`}
             >
               <div className="font-[600] text-[18px]">{data.title}</div>
               <p className="text-2xl font-medium">

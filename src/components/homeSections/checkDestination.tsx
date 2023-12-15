@@ -355,7 +355,7 @@ const CheckDestination = () => {
                           disablePast
                           value={checkIn}
                           onChange={(e: any) => setCheckIn(e)}
-                          className={` w-[100%]  text-white rounded-[5px] p-[5px] `}
+                          className={` w-[100%] bg-white text-white rounded-[5px] p-[5px] `}
                           slotProps={{
                             textField: {
                             },
@@ -371,7 +371,7 @@ const CheckDestination = () => {
                           label="Check Out Date"
                           value={checkOut}
                           onChange={(date) => setCheckOut(date)}
-                          className={`border border-white w-[100%] rounded-[5px] p-[5px]`}
+                          className={`border bg-white border-white w-[100%] rounded-[5px] p-[5px]`}
      
                           slotProps={{
                             textField: {

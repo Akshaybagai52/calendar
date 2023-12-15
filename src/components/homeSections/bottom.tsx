@@ -7,7 +7,7 @@ export default function Bottom() {
     const textColorClass = storeTheme === 'dark' ? 'text-white' : 'text-[rgb(71,103,136)]';
 
     return (
-        <div className='mb-[50px] mt-[50px]'>
+        <div className={`mb-[50px] mt-[50px] ${storeTheme==="dark"?"bg-black duration-300 text-white":""}`} >
             <div className='container'>
                 <div className='w-full max-w-[1200px] py-0'>
                     <div className={`flex items-center justify-center flex-col gap-6 w-full max-w-[1170px] min-h-[222px] border p-[72px] rounded-[32px] border-solid border-[rgb(212,224,237)] ${storeTheme === 'dark' ? 'bg-black text-white' : 'bg-[rgb(240,243,248)]'}`}>
