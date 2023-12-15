@@ -8,7 +8,7 @@ function BannerSection() {
     return (
         <div className='mt-[80px] mb-[60px]'>
             <div className='container'>
-                <div className='flex m-auto w-[100%]'>
+                <div className='flex m-auto w-[100%] sm: w-[100%]'>
                     <div className='contentss w-[50%]'>
                         <h1 className='text-[3.125rem] leading-[1.2] font-bold max-w-[805px] whitespace-pre-line text-left text-[rgb(11,53,88)]'>Solve external scheduling for enterprise</h1>
 
