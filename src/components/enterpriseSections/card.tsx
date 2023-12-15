@@ -20,7 +20,7 @@ interface Point {
     img: string | StaticImageData,
 }
 interface Point1 {
-    img2: string | StaticImageData,
+    imge: string | StaticImageData,
     head2: string,
     thirdPara: string,
 }
@@ -29,22 +29,22 @@ function Card() {
     const storeTheme = useAppSelector((state) => state.theme)
     const data1: Point1[] = [
         {
-            img2: card1,
+            imge: card1,
             head2: 'Complete legal and security reviews',
             thirdPara: 'Our team ensures that your organizations requirements are met.',
         },
         {
-            img2: card2,
+            imge: card2,
             head2: 'Set up your account for scale',
             thirdPara: 'Implementation experts customize onboarding and guide setup.',
         },
         {
-            img2: card3,
+            imge: card3,
             head2: 'Establish and hit your goals',
             thirdPara: 'Success partners help you get the most out of your subscription.',
         },
         {
-            img2: card4,
+            imge: card4,
             head2: 'Skip the line if anything comes up',
             thirdPara: 'Product specialists are available 24/7 to support your team.',
         }
@@ -132,7 +132,7 @@ function Card() {
                             {data1.map((item, index) =>
                                 <div key={index} className='rounded-lg border-solid border-[rgb(231,237,246)] w-[23%]  border'>
                                     <div className=''>
-                                        <Image src={item.img2} alt="" width={450} height={200} />
+                                        <Image src={item.imge} alt="" width={450} height={200} />
                                         <div className='p-[1.625rem]'>
                                             <h3 className='text-xl leading-[1.4] text-left text-[rgb(11,53,88)] font-bold pb-[15px]'>{item.head2}</h3>
                                             <p className='pb-[15px] w-full h-full text-left text-[rgb(71,103,136)] text-lg leading-[1.6] font-normal'>{item.thirdPara}</p>
