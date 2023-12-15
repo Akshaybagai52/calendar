@@ -2,8 +2,8 @@
 import React from 'react';
 import Image from "next/image";
 import { useAppSelector } from '@/store/hooks';
+// import bottom from "../enterpriseSections/Images/bottom.jpg"
 import bottom from "../enterpriseSections/Images/bottom.jpg"
-
 function BottomSection() {
     const storeTheme = useAppSelector((state) => state.theme);
     const textColorClass = storeTheme === 'dark' ? 'text-white' : 'text-[rgb(71,103,136)]';
