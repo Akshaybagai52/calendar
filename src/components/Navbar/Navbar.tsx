@@ -28,8 +28,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center relative ">
             {/* Logo */}
             <Link href={"/"} className="text-red-500 font-bold text-4xl">
-              {/* <span className="text-red-500 font-bold">Cal.</span>
-                            <span className="text-white text-3xl">Com</span> */}
+        
               <Image src={logo} alt="logo" className="sm:w-[64px] w-[100px]" />
             </Link>
 
