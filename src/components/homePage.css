@@ -17,15 +17,26 @@
 }
 
 .react-calendar {
-  @apply w-[400px] max-w-full border leading-[2.125em] border-solid border-[#a0a096] !important;
+  @apply w-[400px] max-w-[375px] sm:mx-auto border leading-[2.125em] border-solid border-[#a0a096] !important;
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+/* // nav  */
+nav {
+  @apply  sm:h-[265px] sm:!rounded-[5px] sm:border-[none] sm:top-[64px] sm:bg-black sm:!p-[10px];
+}
+.navUl{
+@apply sm:w-[150px] sm:leading-[35px] sm:text-lg sm:p-2.5 sm:border-b sm:border-solid !important;
+}
+nav li{
+  @apply sm:!border-b sm:!border-solid px-[15px] ;
+}
 /* // Booking place ///  */
 .booking_palce-sub_main {
   @apply w-[80%]   relative shadow-[0px_1px_4px_2px] z-[9] mx-auto p-[10px];
   background: white;
 }
+
 
 /* // checkdestion  */
 .submit_button {

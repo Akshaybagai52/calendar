@@ -10,21 +10,21 @@ import Toptabs from "./homeSections/toptabs";
 import Card from "./homeSections/card";
 import Bottom from "./homeSections/bottom";
 import Toptab2 from "./homeSections/toptab2";
-// import ModeIcon from "./theme/mode-icon";
+
 const HomePage = () => {
 
     return (
         <>
-{/* <ModeIcon/> */}
+
             <Banner />
-            {/* <BookingPlace /> */}
+          
             <CheckDestination />
             <MillionUsers />
             <Toptabs />
             <Card />
             <Toptab2/>
             <Bottom />
-            <Footer />
+            <Footer /> 
         </>
     )
 }

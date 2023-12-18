@@ -9,14 +9,14 @@ const Footer = () => {
         <footer className={`${storeTheme==="dark"?'bg-black text-white duration-300 border-t border-white':'bg-[#e6e6fa]'}`}>
         
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                <div className="md:flex md:justify-between">
-                    <div className="mb-6 md:mb-0">
+                <div className="footer_menus">
+                    <div className="mb-6 md:mb-0 ">
                         <a href="#" className="flex items-center">
                             <Image src="https://flowbite.com/docs/images/logo.svg" width='30' height='30' className="h-8 me-3" alt="Calendar Logo" />
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Calendar</span>
                         </a>
                     </div>
-                    <div className="flex justify-around gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div className=" flex justify-around gap-8 sm:gap-6 sm:grid-cols-3 sm:mt-[10px]">
                         <div>
                             <h2 className={`mb-6 text-sm font-semibold  uppercase dark:text-white ${storeTheme==="dark"?"text-white":"text-gray-900"}`}>Resources</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">

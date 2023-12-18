@@ -323,7 +323,7 @@ const CheckDestination = () => {
           <div className="sm:block check_destination_sub-main flex items-center">
             <form
               // style={{ backgroundImage: `url(${bg_image.src})` }}
-              className={`w-[400px]  p-3 text-white form_destination relative ${storeTheme==="dark" && "border border-white"} `}
+              className={`sm:w-[100%] w-[400px]  p-3 text-white form_destination relative ${storeTheme==="dark" && "border border-white"} `}
               onSubmit={sendEmail}
              >
               <div className="destination_search my-5 relative ">
