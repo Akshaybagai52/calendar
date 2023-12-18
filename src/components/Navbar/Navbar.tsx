@@ -1,33 +1,37 @@
-"use client"
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import logo from '../../assets/logo-white.png';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import logo from "../../assets/logo-white.png";
 import { FaBars } from "react-icons/fa";
-import ModeIcon from '../theme/mode-icon';
-import Image from 'next/image';
+import ModeIcon from "../theme/mode-icon";
+import Image from "next/image";
+import { useState } from "react";
 export default function Navbar() {
-    const router = usePathname();
-    // if(session){
-    //     console.log("fine",session);
-        
-    // }
+    const [FaBarsToggle,setFaBarsToggle]=useState<boolean>(false)
+  const router = usePathname();
+  // if(session){
+  //     console.log("fine",session);
 
-    const isLinkActive = (href: string) => {
-        return router === href ? 'bg-white text-[#6366f1] px-2.5 py-0.5 rounded-[30px]' : '';
-    };
+  // }
 
-    return (
-        <div>
-            {/* <Navbar /> */}
-            <header className="bg-black border-solid fixed z-[999] top-0 inset-x-0">
-                <div className='container '>
-                    <div className="flex justify-between items-center ">
-                        {/* Logo */}
-                        <Link href={('/')} className="text-red-500 font-bold text-4xl">
-                            {/* <span className="text-red-500 font-bold">Cal.</span>
+  const isLinkActive = (href: string) => {
+    return router === href
+      ? "sm:bg-black sm:p-0  sm:rounded-none  bg-white text-[#6366f1] px-2.5 py-0.5 rounded-[30px]"
+      : "";
+  };
+
+  return (
+    <div>
+      {/* <Navbar /> */}
+      <header className="bg-black border-solid fixed z-[999] top-0 inset-x-0 " >
+        <div className="container ">
+          <div className="flex justify-between items-center relative ">
+            {/* Logo */}
+            <Link href={"/"} className="text-red-500 font-bold text-4xl">
+              {/* <span className="text-red-500 font-bold">Cal.</span>
                             <span className="text-white text-3xl">Com</span> */}
-                            <Image src={logo} alt='logo'  className='sm:w-[64px] w-[100px]'/>
-                        </Link>
+              <Image src={logo} alt="logo" className="sm:w-[64px] w-[100px]" />
+            </Link>
 
                         {/* Navigation Links */}
                         <nav className="sm:hidden flex space-x-6 text-white px-10 py-2.5 border-2 border-solid border-[white] rounded-[30px]">
@@ -59,6 +63,7 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             </ul>
+                          
                             <ul className="flex items-center space-x-4">
                                 <li className={isLinkActive('/blogs')}>
                                     <Link href="/blogs">
@@ -68,6 +73,7 @@ export default function Navbar() {
                             </ul>
                         </nav>
                         <div>
+                          
                             <ul className=" flex gap-2 items-center ">
                                 <li className='sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white'>
                                     <Link href="/login">

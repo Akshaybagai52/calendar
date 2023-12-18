@@ -100,9 +100,9 @@ const Toptabs = () => {
     return (
         <>
             <div className='container'>
-                <h1 className={`text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</h1>
+                <h1 className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</h1>
                 <div className='tabs flex justify-between'>
-                    <div className="flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center w-[98%]">
                         {tabs.map((tab) =>
                             <button className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid bg-[lightgray] text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
                          transition-all duration-[0.3s] ease-[ease-out] pb-[25px] border-[none] hover:text-[grey] hover:bg-[rgba(255,255,255,0.15)] disabled:text-[white] "
@@ -117,8 +117,8 @@ const Toptabs = () => {
                         {tabs.map((tab, i) =>
                             <div key={i} className="w-[100%] ">
                                 {currentTab === `${tab.id}` &&
-                                    <div className="flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
-                                        <div className={`content w-[50%] pr-[25px] `}>
+                                    <div className="sm:block flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
+                                        <div className={` sm:w-full content w-[50%] pr-[25px] `}>
                                             <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content}</p>
                                             <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title1}</h3>
@@ -126,7 +126,7 @@ const Toptabs = () => {
                                             <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title2}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content2}</p>
                                         </div>
-                                        <div className="image w-[50%]">
+                                        <div className="image sm:w-full w-[50%]">
                                             {/* Use local image or an image from the same domain */}
                                             <Image src={tab.img1} width={500} height={400} className=" me-3" alt="Image" />
                                         </div>

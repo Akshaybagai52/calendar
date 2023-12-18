@@ -17,14 +17,14 @@ const HomePage = () => {
         <>
 
             <Banner />
-            {/* <BookingPlace /> */}
+          
             <CheckDestination />
             <MillionUsers />
             <Toptabs />
             <Card />
             <Toptab2/>
             <Bottom />
-            <Footer />
+            <Footer /> 
         </>
     )
 }

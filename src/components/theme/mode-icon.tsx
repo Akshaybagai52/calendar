@@ -25,7 +25,7 @@ function ModeIcon() {
 
   return (
     <>
-      <div className="flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
+      <div className="sm:text-black flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
         <button onClick={() => dispatch(setTheme(Theme.LIGHT))}>
           <FaSun />
         </button>
