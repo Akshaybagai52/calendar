@@ -1,14 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import img from "../enterpriseSections/images/banner.webp"
+// import img from "../enterpriseSections/images/banner.webp"
+import imge from "../../assets/banner.webp"
 
 
 function BannerSection() {
     return (
         <div className='mt-[80px] mb-[60px]'>
             <div className='container'>
-                <div className='flex m-auto w-[100%]'>
+                <div className='flex m-auto w-[100%] '>
                     <div className='contentss w-[50%]'>
                         <h1 className='text-[3.125rem] leading-[1.2] font-bold max-w-[805px] whitespace-pre-line text-left text-[rgb(11,53,88)]'>Solve external scheduling for enterprise</h1>
 
@@ -23,7 +24,7 @@ function BannerSection() {
 
                     </div>
                     <div className='images_card w-[50%]'>
-                        <Image src={img} width={500} height={400} className="me-3" alt="Calendar Logo" />
+                        <Image src={imge} width={500} height={400} className="me-3" alt="Calendar Logo" />
                     </div>
                 </div>
             </div>
