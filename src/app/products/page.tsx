@@ -1,13 +1,18 @@
+"use client"
 import Image from "next/image";
 import Illustration from "../../assets/Illustration.webp";
 import MillionUsers from "@/components/homeSections/millionUser";
 import Marquee from "./marquie";
+import Bottom from "@/components/homeSections/bottom";
+import Footer from "@/components/homeSections/footer";
+import { useAppSelector } from "@/store/hooks";
 // import "../products/product.css";
 
 export default function Product() {
+  const storeTheme = useAppSelector((state)=>state.theme)
   return (
     <div>
-      <section className="relative bg-white bg-center bg-cover bg-no-repeat flex justify-center  py-0">
+      <section className={`relative bg-center bg-cover bg-no-repeat flex justify-center pt-20 ${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-white"}`}>
         <div className="flex flex-col gap-0 w-full overflow-auto">
           <div className="flex flex-col w-full pt-[72px]">
             <div className="flex items-center justify-center flex-col w-full pt-8 space-y-6 ">
@@ -45,7 +50,7 @@ export default function Product() {
         </div>
       </section>
 
-      <section className="relative bg-white bg-[center_bottom] bg-cover bg-no-repeat flex overflow-visible justify-center p-0">
+      <section className={`relativ bg-[center_bottom] bg-cover bg-no-repeat flex overflow-visible justify-center p-0 ${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-white"}`}>
         <div className="flex flex-col gap-32 w-full max-w-full py-16">
           <div className="flex items-center flex-col w-full bg-transparent">
             <div className="flex items-center flex-col w-full mb-14">
@@ -64,7 +69,8 @@ export default function Product() {
             </div>
             <div className="w-full max-w-[1900px] h-full">
             <Marquee />
-
+            <Bottom />
+            <Footer />
             </div>
           </div>
         </div>

@@ -13,5 +13,4 @@ const MarqueeItem: React.FC<MarqueeItemProps> = ({ src, alt }) => {
     </div>
   );
 };  
-
 export default MarqueeItem;

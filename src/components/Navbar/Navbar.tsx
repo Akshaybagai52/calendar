@@ -33,58 +33,66 @@ export default function Navbar() {
               <Image src={logo} alt="logo" className="sm:w-[64px] w-[100px]" />
             </Link>
 
-            {/* Navigation Links */}
-            <nav className="sm:absolute space-x-6 text-white px-10 py-2.5 border-2 border-solid border-[white] rounded-[30px] duration-500" style={{left:FaBarsToggle===true?"0":"-178px"}}>
-              <ul className="navUl sm:block flex items-center ">
-                <li className={isLinkActive("/pricing")}>
-                  <Link href="/pricing">Pricing</Link>
-                </li>
-
-                <li className={isLinkActive("/plans")}>
-                  <Link href="/plans">Plans</Link>
-                </li>
-
-                <li className={isLinkActive("/products")}>
-                  <Link href="/products">Products</Link>
-                </li>
-
-                <li className={isLinkActive("/docs")}>
-                  <Link href="/docs">Docs</Link>
-                </li>
-
-                <li className={`${isLinkActive("/blogs")} !border-none `}>
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-              </ul>
-              {/* // mobile screen for  */}
-              <div className="hidden sm:block !m-0">
-                <div className="flex my-[5px] items-center  gap-3">
-                <Link href="/login" className="text-[black] mx-0 p-1 rounded-[5px] bg-white">Login</Link>
-                <ModeIcon />
+                        {/* Navigation Links */}
+                        <nav className="sm:hidden flex space-x-6 text-white px-10 py-2.5 border-2 border-solid border-[white] rounded-[30px]">
+                            <ul className="flex items-center space-x-4">
+                                <li className={isLinkActive('/enterprise')}>
+                                    <Link href="/enterprise" >
+                                    EnterPrise
+                                    </Link>
+                                </li>
+                            </ul>
+                            <ul className="flex items-center space-x-4">
+                                <li className={isLinkActive('/plans')}>
+                                    <Link href="/plans">
+                                        Plans
+                                    </Link>
+                                </li>
+                            </ul>
+                            <ul className="flex items-center space-x-4">
+                                <li className={isLinkActive('/products')}>
+                                    <Link href="/products">
+                                        Products
+                                    </Link>
+                                </li>
+                            </ul>
+                            <ul className="flex items-center space-x-4">
+                                <li className={isLinkActive('/docs')}>
+                                    <Link href="/docs">
+                                        Docs
+                                    </Link>
+                                </li>
+                            </ul>
+                          
+                            <ul className="flex items-center space-x-4">
+                                <li className={isLinkActive('/blogs')}>
+                                    <Link href="/blogs">
+                                        Blogs
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div>
+                          
+                            <ul className=" flex gap-2 items-center ">
+                                <li className='sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white'>
+                                    <Link href="/login">
+                                        Login
+                                    </Link>
+                                </li>
+                                <li className='sm:hidden'>
+                                <li><ModeIcon/></li>
+                                </li>
+                            
+                                <span className='text-white hidden sm:block pr-2 text-[24px]'><FaBars /></span>
+                            </ul>
+                           
+                           
+                        </div>
+                       
+                    </div>
                 </div>
-              </div>
-                {/* // mobile screen for  */}
-            </nav>
-
-            <div>
-              <ul className=" flex gap-2 items-center ">
-                <li className="sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white">
-                  <Link href="/login">Login</Link>
-                </li>
-                <li className="sm:hidden">
-                  <li>
-                    <ModeIcon />
-                  </li>
-                </li>
-
-                <span className="text-white hidden sm:block pr-2 text-[24px]" onClick={()=>setFaBarsToggle(!FaBarsToggle)}>
-                  <FaBars />
-                </span>
-              </ul>
-            </div>
-          </div>
+            </header>
         </div>
-      </header>
-    </div>
-  );
+    );
 }
