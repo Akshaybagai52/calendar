@@ -3,7 +3,8 @@ import React from "react";
 import Image from 'next/image'
 import { useAppSelector } from "@/store/hooks";
 const Footer = () => {
-    const storeTheme = useAppSelector((state)=>state.theme)
+
+    const storeTheme = useAppSelector((state) => state.theme)
     return (
 
         <footer className={`${storeTheme==="dark"?'bg-black text-white duration-300 border-t border-white':'bg-[#e6e6fa]'}`}>
