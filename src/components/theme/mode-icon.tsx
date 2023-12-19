@@ -36,16 +36,6 @@ function ModeIcon() {
           currentTheme === "dark" ? 'right-[7px] duration-500' : 'right-[33px] duration-500'}`} ></span>
       </div>
 
-      {/* <button
-        className="text-white"
-        onClick={() =>
-          dispatch(
-            setTheme(currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
-          )
-        }
-      >
-        {currentTheme === Theme.LIGHT ? "Dark" : "Light"}
-      </button> */}
     </>
   );
 }

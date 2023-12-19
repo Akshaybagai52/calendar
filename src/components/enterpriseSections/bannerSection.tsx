@@ -7,13 +7,13 @@ import imge from "../../assets/banner.webp"
 
 function BannerSection() {
     return (
-        <div className='mt-[80px] mb-[60px]'>
+        <div className='mb-[60px]'>
             <div className='container'>
-                <div className='flex m-auto w-[100%] '>
-                    <div className='contentss w-[50%]'>
+                <div className='sm:block sm:mt-[65px] p-2 mt-[113px] flex m-auto w-[100%] '>
+                    <div className='sm:w-[100%] contentss w-[50%]'>
                         <h1 className='text-[3.125rem] leading-[1.2] font-bold max-w-[805px] whitespace-pre-line text-left text-[rgb(11,53,88)]'>Solve external scheduling for enterprise</h1>
 
-                        <div className='mt-[30px] w-full max-w-[770px] h-full text-left text-[rgb(71,103,136)] text-xl leading-[1.4] font-[normal]'>
+                        <div className='py-[55px] px-[10px] mt-[10px] w-full max-w-[770px] h-full text-left text-[rgb(71,103,136)] text-xl leading-[1.4] font-[normal]'>
                             <p className='text-[grey]'>Calendly powers scheduling for over 4 out of 5 Fortune 500 companies.
                             </ p>
                             <div className=' flex items-center gap-4 w-full justify-start pt-[12px]'>
@@ -23,7 +23,7 @@ function BannerSection() {
                         </div>
 
                     </div>
-                    <div className='images_card w-[50%]'>
+                    <div className='sm:w-[100%] images_card w-[50%]'>
                         <Image src={imge} width={500} height={400} className="me-3" alt="Calendar Logo" />
                     </div>
                 </div>

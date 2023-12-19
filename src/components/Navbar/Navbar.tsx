@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import ModeIcon from "../theme/mode-icon";
 import Image from "next/image";
 import { useState } from "react";
+import '../homePage.css'
 export default function Navbar() {
   const [FaBarsToggle, setFaBarsToggle] = useState<boolean>(false);
   const router = usePathname();

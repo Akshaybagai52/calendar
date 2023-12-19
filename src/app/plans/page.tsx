@@ -37,8 +37,8 @@ export default function Plans() {
   ];
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-[4rem]">
-        <div className="max-w-6xl w-full mx-auto flex h-[550px] py-10 px-6 md:py-20 md:px-16 gap-[1.2rem]">
+      <main className=" flex min-h-screen flex-col items-center justify-between p-[4rem]">
+        <div className=" sm:block   max-w-6xl w-full mx-auto flex h-[550px] py-10 px-6 md:py-20 md:px-16 gap-[1.2rem]">
           {subscriptionData.map((data, i) => (
             <div
               key={i}

@@ -90,9 +90,9 @@ function Card() {
                         <div className='flex relative items-center flex-col gap-4 w-full'>
                             <h2 className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Accomplish goals that matter to your business</h2>
                         </div>
-                        <div className='flex justify-between w-[100%]'>
+                        <div className='sm:block flex justify-between w-[100%]'>
                             {data.map((item, index) =>
-                                <div key={index} className='rounded-lg border-solid border-[rgb(231,237,246)] w-[30%] p-[1.625rem] border'>
+                                <div key={index} className='sm:w-[100%] rounded-lg border-solid border-[rgb(231,237,246)] w-[30%] p-[1.625rem] border'>
                                     <div className=''>
                                         <h3 className='text-xl leading-[1.4] text-left text-[rgb(11,53,88)] font-bold pb-[15px]'>{item.head}</h3>
                                         <p className='pb-[15px] w-full h-full text-left text-[rgb(71,103,136)] text-lg leading-[1.6] font-normal'>{item.para}</p>
@@ -112,9 +112,9 @@ function Card() {
                         <div className='flex relative items-center flex-col gap-4 w-full'>
                             <h2 className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Equip teams to exceed expectations</h2>
                         </div>
-                        <div className='flex justify-between w-[100%]'>
+                        <div className='sm:block flex justify-between w-[100%]'>
                             {data.map((item, index) =>
-                                <div key={index} className='rounded-lg border-r-2 border-r-[rgb(231,237,246)] border-solid w-[30%] p-[1.625rem] '>
+                                <div key={index} className='sm:w-[100%] rounded-lg border-r-2 border-r-[rgb(231,237,246)] border-solid w-[30%] p-[1.625rem] '>
                                     <div className=''>
                                         <h3 className='text-left text-[#006bff] text-[3.125rem] leading-none font-bold mb-4'>{item.numb}</h3>
                                         <p className='w-full h-full mb-8 max-w-[270px] text-left text-[rgb(71,103,136)] text-2xl leading-[1.4] font-normal'>{item.secPara}</p>
@@ -134,9 +134,9 @@ function Card() {
                         <div className='flex relative items-center flex-col gap-4 w-full'>
                             <h2 className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Accomplish goals that matter to your business</h2>
                         </div>
-                        <div className='flex justify-between w-[100%]'>
+                        <div className=' sm:block flex justify-between w-[100%]'>
                             {data1.map((item, index) =>
-                                <div key={index} className='rounded-lg border-solid border-[rgb(231,237,246)] w-[23%]  border'>
+                                <div key={index} className='sm:w-[100%] rounded-lg border-solid border-[rgb(231,237,246)] w-[23%]  border'>
                                     <div className=''>
                                         <Image src={item.imge} alt="" width={450} height={200} />
                                         <div className='p-[1.625rem]'>

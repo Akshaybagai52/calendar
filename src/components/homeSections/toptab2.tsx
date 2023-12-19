@@ -9,6 +9,7 @@ import imgs6 from './images/top6.png';
 import { StaticImageData } from 'next/image';
 import { useAppSelector } from '@/store/hooks';
 
+import {motion} from 'framer-motion'
 import Image from 'next/image';
 
 interface Point {
@@ -21,7 +22,8 @@ interface Point {
     content1: string,
     title2: string,
     content2: string,
-    img1: string | StaticImageData
+    img1: string | StaticImageData,
+    delay:number
 
 }
 
@@ -41,6 +43,7 @@ function Toptab2() {
             title2: '360%',
             content2: 'increase in partner calls',
             img1: imgs1,
+            delay:0.1
         },
         {
             id: "2",
@@ -53,7 +56,7 @@ function Toptab2() {
             title2: '114%',
             content2: 'more meetings booked YOY',
             img1: imgs2,
-
+            delay:0.2
         },
         {
             id: "3",
@@ -66,6 +69,7 @@ function Toptab2() {
             title2: '2,077',
             content2: 'hours saved',
             img1: imgs3,
+            delay:0.3
         },
         {
             id: "4",
@@ -78,6 +82,7 @@ function Toptab2() {
             title2: '13,607',
             content2: 'hours reclaimed',
             img1: imgs4,
+            delay:0.4
         },
         {
             id: "5",
@@ -90,6 +95,7 @@ function Toptab2() {
             title2: '20%',
             content2: 'fewer scheduling errors',
             img1: imgs5,
+            delay:0.5
         },
         {
             id: "6",
@@ -102,6 +108,7 @@ function Toptab2() {
             title2: '90%',
             content2: 'of sales calls scheduled with Calendly',
             img1: imgs6,
+            delay:0.6
         }
     ];
     const handleTabClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -128,12 +135,12 @@ function Toptab2() {
                     <div className='sm:grid sm:grid-cols-2 sm:place-items-center content tablist flex justify-between gap-3 w-full'>
                         {tabs.map((tab: Point) =>
 
-                            <button className='cursor-pointer inline-flex w-full max-w-[180px] flex-[1_0_140px] 
+                            <motion.button animate={{y:-50}} transition={{delay:tab.delay}} whileInView={{y:0}} className='cursor-pointer inline-flex w-full max-w-[180px] flex-[1_0_140px] 
                         justify-center items-center shadow-[rgba(71,103,136,0.06)_0px_15px_30px,rgba(71,103,136,0.03)_0px_8px_15px,rgba(71,103,136,0.04)_0px_4px_4.5px]
                          bg-white p-[22px] rounded-[10px] border-[1.5px] border-solid border-[rgb(0,107,255)]'
                                 key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>
                                 <Image src={tab.img1} width={100} height={50} alt="top tab image" />
-                            </button>
+                            </motion.button>
                         )}
 
                     </div>
