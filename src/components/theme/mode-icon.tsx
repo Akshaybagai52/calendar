@@ -25,7 +25,7 @@ function ModeIcon() {
 
   return (
     <>
-      <div className="flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
+      <div className="sm:text-black flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
         <button onClick={() => dispatch(setTheme(Theme.LIGHT))}>
           <FaSun />
         </button>
@@ -36,16 +36,6 @@ function ModeIcon() {
           currentTheme === "dark" ? 'right-[7px] duration-500' : 'right-[33px] duration-500'}`} ></span>
       </div>
 
-      {/* <button
-        className="text-white"
-        onClick={() =>
-          dispatch(
-            setTheme(currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
-          )
-        }
-      >
-        {currentTheme === Theme.LIGHT ? "Dark" : "Light"}
-      </button> */}
     </>
   );
 }

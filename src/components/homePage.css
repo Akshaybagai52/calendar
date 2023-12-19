@@ -3,12 +3,12 @@
 }
 
 .Home_page_main {
-  @apply bg-cover bg-center bg-no-repeat flex h-[631px] pt-[61px];
+  @apply sm:h-[162vh] bg-cover bg-center bg-no-repeat flex h-[631px] pt-[61px];
   /* background: linear-gradient(83deg, #00b6df40, transparent) */
 }
 
 .Home_page_main::after {
-  @apply content-[''] absolute w-full z-[1] opacity-60 inset-0 h-[630px];
+  @apply sm:h-[162vh] content-['']  absolute w-full z-[1] opacity-60 inset-0 h-[630px];
   background: black;
 }
 
@@ -17,15 +17,26 @@
 }
 
 .react-calendar {
-  @apply w-[400px] max-w-full border leading-[2.125em] border-solid border-[#a0a096] !important;
+  @apply w-[400px] max-w-[375px] sm:mx-auto border leading-[2.125em] border-solid border-[#a0a096] !important;
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+/* // nav  */
+header nav {
+  @apply  sm:h-[265px] sm:!rounded-[5px] sm:border-[none] sm:top-[64px] sm:bg-black sm:!p-[10px];
+}
+nav .navUl{
+@apply sm:w-[150px] sm:leading-[35px] sm:text-lg sm:p-2.5 sm:border-b sm:border-solid !important;
+}
+nav ul li{
+  @apply sm:!border-b sm:!border-solid px-[15px] ;
+}
 /* // Booking place ///  */
 .booking_palce-sub_main {
   @apply w-[80%]   relative shadow-[0px_1px_4px_2px] z-[9] mx-auto p-[10px];
   background: white;
 }
+
 
 /* // checkdestion  */
 .submit_button {

@@ -262,7 +262,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
+// import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
+import {motion} from 'framer-motion'
 
 import { v4 as uuidv4 } from "uuid";
 import { Span } from "next/dist/trace";
@@ -317,25 +318,25 @@ const CheckDestination = () => {
   }
   return (
     <>
-      <div className={`sm:mt-[236px] check_destination_main  p-[10px]${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`}>
+      <div className={`sm:mt-[20px] check_destination_main  p-[10px]${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`}>
         <div className="container">
           <DestinationHeadLine />
           <div className="sm:block check_destination_sub-main flex items-center">
             <form
               // style={{ backgroundImage: `url(${bg_image.src})` }}
-              className={`w-[400px]  p-3 text-white form_destination relative ${storeTheme==="dark" && "border border-white"} `}
+              className={`sm:w-[100%] w-[400px]  p-3 text-white form_destination relative ${storeTheme==="dark" && "border border-white"} `}
               onSubmit={sendEmail}
              >
               <div className="destination_search my-5 relative ">
                 {/* <p className="my-2">Choose your country</p> */}
                 <p className="my-2">Enter Your Email</p>
 
-                <input
+                <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.2}} whileInView={{y:0}}
                   type="email"
                   placeholder="Receiver's Email Address"
                   className="text-black w-full mx-0 my-2.5 p-2 rounded-[7px]"
                   onChange={(e) => setEmail(e.target.value)}
-                />
+                ></motion.input>
 
 
 
@@ -347,7 +348,7 @@ const CheckDestination = () => {
                 /> */}
                 <div className="dest_info ">
                   <div className="flex gap-[20px]  "></div>
-                  <div className={`Check_IN ${storeTheme==="dark" ? "!border-white":"border-black"}`}>
+                  <motion.div animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.3}} whileInView={{y:0}} className={`Check_IN ${storeTheme==="dark" ? "!border-white":"border-black"}`}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DemoContainer components={['DateTimePicker']}>
                         <DateTimePicker
@@ -363,8 +364,8 @@ const CheckDestination = () => {
                         />
                       </DemoContainer>
                     </LocalizationProvider>
-                  </div>
-                  <div className="Check_OUT">
+                  </motion.div>
+                  <motion.div  animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.4}} whileInView={{y:0}} className="Check_OUT">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DemoContainer components={['DateTimePicker']}>
                         <DateTimePicker
@@ -380,9 +381,9 @@ const CheckDestination = () => {
                         />
                       </DemoContainer>
                     </LocalizationProvider>
-                  </div>
+                  </motion.div>
                 </div>
-                <input
+                <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.5}} whileInView={{y:0}}
                   type="submit"
                   value="Submit"
                   className=" submit_button border bg-white text-black mt-[15px] p-[5px]"
@@ -392,7 +393,7 @@ const CheckDestination = () => {
             </form>
             <div className="make_your_reservation">
               <div className="sm:w-[100%] p-[10px] make_your_reservation-text w-[50%] mx-auto ">
-                <h2 className=" text-[38px] font-bold w-[100%] ">Easy scheduling ahead</h2>
+                <motion.h2 animate={{scale:0}} transition={{type:'spring' , stiffness:100,delay:0.2}} whileInView={{scale:1}} className=" text-[38px] font-bold w-[100%] ">Easy scheduling ahead</motion.h2>
                 <p>
                   Calendly is your scheduling automation platform for eliminating the back-and-forth emails to find the perfect time — and so much more.
                 </p>

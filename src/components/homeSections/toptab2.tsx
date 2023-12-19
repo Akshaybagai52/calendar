@@ -9,6 +9,7 @@ import imgs6 from './images/top6.png';
 import { StaticImageData } from 'next/image';
 import { useAppSelector } from '@/store/hooks';
 
+import {motion} from 'framer-motion'
 import Image from 'next/image';
 
 interface Point {
@@ -21,7 +22,8 @@ interface Point {
     content1: string,
     title2: string,
     content2: string,
-    img1: string | StaticImageData
+    img1: string | StaticImageData,
+    delay:number
 
 }
 
@@ -41,6 +43,7 @@ function Toptab2() {
             title2: '360%',
             content2: 'increase in partner calls',
             img1: imgs1,
+            delay:0.1
         },
         {
             id: "2",
@@ -53,7 +56,7 @@ function Toptab2() {
             title2: '114%',
             content2: 'more meetings booked YOY',
             img1: imgs2,
-
+            delay:0.2
         },
         {
             id: "3",
@@ -66,6 +69,7 @@ function Toptab2() {
             title2: '2,077',
             content2: 'hours saved',
             img1: imgs3,
+            delay:0.3
         },
         {
             id: "4",
@@ -78,6 +82,7 @@ function Toptab2() {
             title2: '13,607',
             content2: 'hours reclaimed',
             img1: imgs4,
+            delay:0.4
         },
         {
             id: "5",
@@ -90,6 +95,7 @@ function Toptab2() {
             title2: '20%',
             content2: 'fewer scheduling errors',
             img1: imgs5,
+            delay:0.5
         },
         {
             id: "6",
@@ -102,6 +108,7 @@ function Toptab2() {
             title2: '90%',
             content2: 'of sales calls scheduled with Calendly',
             img1: imgs6,
+            delay:0.6
         }
     ];
     const handleTabClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -110,13 +117,13 @@ function Toptab2() {
     return (
         <div>
             <section className={`${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-[rgb(240,243,248)]"}`}>
-                <div className="container w-full max-w-[1200px] py-[120px] ">
-                    <div className='tabs flex flex-col gap-16 w-full'>
-                        <div className='flex'>
+                <div className="container max-w-[1200px] py-[120px] ">
+                    <div className=' tabs flex flex-col gap-16 sm:w-[98%] w-[100%]'>
+                        <div className='sm:block flex'>
                             <div className=''>
                                 <h2 className={`text-[2.375rem] leading-[1.2] font-bold text-center mb-6 ${text_colors}`}>Discover how businesses grow with Calendly</h2>
                             </div>
-                            <div className='w-full max-w-[50%] min-w-[373px] h-auto'>
+                            <div className='sm:max-w-[50%] sm:mx-auto w-full max-w-[50%] min-w-[373px] h-auto'>
                                 <p className='text-left text-[rgb(71,103,136)] text-lg leading-[1.4] font-[normal] pb-4'>Learn how teams of all sizes are using Calendlys scheduling automation platform to create value.</p>
 
                                 <button className='cursor-pointer text-[rgb(0,107,255)] text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center justify-center gap-2 text-left font-semibold p-0 rounded-lg'>
@@ -125,15 +132,15 @@ function Toptab2() {
                             </div>
                         </div>
                     </div>
-                    <div className=' content tablist flex justify-between gap-3 w-full'>
+                    <div className='sm:grid sm:grid-cols-2 sm:place-items-center content tablist flex justify-between gap-3 w-full'>
                         {tabs.map((tab: Point) =>
 
-                            <button className='cursor-pointer inline-flex w-full max-w-[180px] flex-[1_0_140px] 
+                            <motion.button animate={{y:-50}} transition={{delay:tab.delay}} whileInView={{y:0}} className='cursor-pointer inline-flex w-full max-w-[180px] flex-[1_0_140px] 
                         justify-center items-center shadow-[rgba(71,103,136,0.06)_0px_15px_30px,rgba(71,103,136,0.03)_0px_8px_15px,rgba(71,103,136,0.04)_0px_4px_4.5px]
                          bg-white p-[22px] rounded-[10px] border-[1.5px] border-solid border-[rgb(0,107,255)]'
                                 key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>
                                 <Image src={tab.img1} width={100} height={50} alt="top tab image" />
-                            </button>
+                            </motion.button>
                         )}
 
                     </div>
@@ -143,11 +150,11 @@ function Toptab2() {
                             {tabs.map((tab, i) =>
                                 <div key={i} className="w-[100%] ">
                                     {currentTab === `${tab.id}` &&
-                                        <div className="flex justify-between gap-6 w-full">
+                                        <div className=" flex justify-between gap-6 w-full">
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] border-solid'>
-                                                    <h3 className={`text-left  text-[4.25rem] leading-[1.2] font-bold ${text_colors}`}>{tab.title}</ h3>
-                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content}</p>
+                                                    <h3 className={`sm:text-[30px] text-left  text-[4.25rem] leading-[1.2] font-bold ${text_colors}`}>{tab.title}</ h3>
+                                                    <p className={`sm:text-[10px] text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content}</p>
 
                                                 </ div>
                                                 <button className={`text-justify cursor-pointer ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-lg leading-[1.6] relative h-fit flex-row inline-flex opacity-100 items-center gap-2 font-semibold p-0 rounded-lg`}>{tab.btn}</ button>
@@ -155,15 +162,15 @@ function Toptab2() {
                                             </div>
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] '>
-                                                    <h3 className={`text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title1}</h3>
-                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content1}</p>
+                                                    <h3 className={`sm:text-[30px] text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title1}</h3>
+                                                    <p className={`sm:text-[10px] text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content1}</p>
                                                 </div>
                                             </ div>
 
                                             <div className="flex flex-col gap-3 w-full max-w-[336px]">
                                                 <div className='border-b-2 border-b-[rgb(0,107,255)] border-solid'>
-                                                    <h3 className={`text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title2}</h3>
-                                                    <p className={`text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content2}</p>
+                                                    <h3 className={`sm:text-[30px] text-left ${text_colors} text-[4.25rem] leading-[1.2] font-bold`}>{tab.title2}</h3>
+                                                    <p className={`sm:text-[10px] text-left ${storeTheme==="dark"?"text-white":"text-[rgb(71,103,136)]"} text-2xl leading-[1.4] font-semibold mb-6`}>{tab.content2}</p>
                                                 </div>
                                             </ div>
                                         </div>}
