@@ -12,6 +12,7 @@ import tab4 from "../../components/homeSections/images/tab4.webp";
 import tab5 from "../../components/homeSections/images/tab6.webp";
 import tab6 from "../../components/homeSections/images/tab6.webp";
 import Image from 'next/image'
+import { motion } from "framer-motion";
 import { useAppSelector } from "@/store/hooks";
 const Toptabs = () => {
     const storeTheme = useAppSelector((state) => state.theme);
@@ -28,6 +29,7 @@ const Toptabs = () => {
             title2: 'Close more deals',
             content2: 'Customize reminder and follow-up workflows to move deals along, integrate with sales tools, and remove logistical tasks to focus on selling.',
             img1: tab1,
+            delay:0.1
         },
         {
             id: "2",
@@ -40,6 +42,7 @@ const Toptabs = () => {
             title2: 'Boost conversion rates',
             content2: 'Reduce friction in the sales funnel and close more deals.',
             img1: tab2,
+            delay:0.2
 
         },
         {
@@ -53,6 +56,7 @@ const Toptabs = () => {
             title2: 'Improve NPS and customer health',
             content2: 'Change the way you schedule meetings to increase customer satisfaction and keep engagement high with reminder and follow-up workflows.',
             img1: tab3,
+            delay:0.3
         },
         {
             id: "4",
@@ -65,6 +69,7 @@ const Toptabs = () => {
             title2: 'Improve the candidate experience',
             content2: 'Eliminate friction and make your recruiting process a competitive advantage.',
             img1: tab4,
+            delay:0.4
         },
         {
             id: "5",
@@ -77,6 +82,7 @@ const Toptabs = () => {
             title2: 'Drive adoption and ROI across teams',
             content2: 'Partner with our team to onboard, drive adoption, and identify success metrics to achieve greater value, faster.',
             img1: tab5,
+            delay:0.5
         },
         {
             id: "6",
@@ -89,6 +95,7 @@ const Toptabs = () => {
             title2: 'Deliver a better educational experience',
             content2: 'Focus on what matters most: supporting and connecting with your students, so they can succeed.',
             img1: tab6,
+            delay:0.6
         }
 
     ];
@@ -100,13 +107,17 @@ const Toptabs = () => {
     return (
         <>
             <div className='container'>
-                <h1 className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</h1>
+                <motion.h1 
+                animate={{x:-160}} transition={{type:"spring" , stiffness:100 , delay:0.2}} whileInView={{x:0}}
+                className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</motion.h1>
                 <div className='tabs flex justify-between'>
                     <div className="flex items-center justify-center w-[98%]">
                         {tabs.map((tab) =>
-                            <button className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid bg-[lightgray] text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
+                            <motion.button 
+                            animate={{y:-50}}
+                            transition={{type:"spring",stiffness:100,delay:tab.delay}} whileInView={{y:0}} className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid bg-[lightgray] text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
                          transition-all duration-[0.3s] ease-[ease-out] pb-[25px] border-[none] hover:text-[grey] hover:bg-[rgba(255,255,255,0.15)] disabled:text-[white] "
-                                key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.img6} {tab.tabTitle}</button>
+                                key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.img6} {tab.tabTitle}</motion.button>
                         )}
                     </div>
 
@@ -117,7 +128,8 @@ const Toptabs = () => {
                         {tabs.map((tab, i) =>
                             <div key={i} className="w-[100%] ">
                                 {currentTab === `${tab.id}` &&
-                                    <div className="sm:block flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
+                                    <div
+                                    className="sm:block flex items-center flex-row w-full max-w-[1080px] pt-2.5 pb-16 px-10 m-auto">
                                         <div className={` sm:w-full content w-[50%] pr-[25px] `}>
                                             <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content}</p>
@@ -126,10 +138,10 @@ const Toptabs = () => {
                                             <h3 className={`text-[medium] text-xl font-semibold ${storeTheme==="dark"?"text-white":"text-[black]"}`}>{tab.title2}</h3>
                                             <p className="text-lg text-[grey] pt-1.5 pb-[5px]">{tab.content2}</p>
                                         </div>
-                                        <div className="image sm:w-full w-[50%]">
+                                        <motion.div animate={{scale:0}} transition={{type:"spring",stiffness:100,delay:0.1}} whileInView={{scale:1}} className="image sm:w-full w-[50%]">
                                             {/* Use local image or an image from the same domain */}
-                                            <Image src={tab.img1} width={500} height={400} className=" me-3" alt="Image" />
-                                        </div>
+                                            < Image  src={tab.img1} width={500} height={400} className=" me-3" alt="Image" />
+                                        </motion.div>
                                     </div>}
                             </div>
                         )}

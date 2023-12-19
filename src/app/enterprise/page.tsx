@@ -8,7 +8,7 @@ import ContactSales from "@/components/enterpriseSections/contactSales";
 export default function EnterPrise() {
 
   return (
-    <div className="mt-40 sm:container">
+    <div className="sm:container">
       <BannerSection />
       <div className="container">
         <Marquee />
