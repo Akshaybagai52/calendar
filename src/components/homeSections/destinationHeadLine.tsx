@@ -10,6 +10,7 @@ const DestinationHeadLine = () => {
         <div className="eleven shadow-[0px_0px_4px_0px] p-[10px]">
             <p className="text-center">welcome to booking your meetimg</p>
           <h1 className={`${storeTheme==="dark"?"!text-white":"text-black"}`}>Booking your meeting</h1>
+       
         </div>
       </div>
     
