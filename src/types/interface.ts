@@ -24,3 +24,6 @@ export const enum Theme {
     theme: null | Theme;
   }
   
+  export interface User{
+    
+  }
