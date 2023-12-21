@@ -11,6 +11,10 @@
   @apply sm:h-[162vh] content-['']  absolute w-full z-[1] opacity-60 inset-0 h-[630px];
   background: black;
 }
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+  color: black;
+}
 
 .Home_page_sub-main {
   @apply sm:block flex gap-2 relative z-[9] mt-[60px];

@@ -79,9 +79,9 @@ export default function Navbar() {
                   <Link href="/login">Login</Link>
                 </li>
                 <li className="sm:hidden">
-                  <li>
+                 
                     <ModeIcon />
-                  </li>
+                 
                 </li>
 
                 <span
