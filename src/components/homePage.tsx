@@ -10,7 +10,7 @@ import Toptabs from "./homeSections/toptabs";
 import Card from "./homeSections/card";
 import Bottom from "./homeSections/bottom";
 import Toptab2 from "./homeSections/toptab2";
-import { SlickSlider } from "./sliderBox/slider";
+// import { SlickSlider } from "./sliderBox/slider";
 
 const HomePage = () => {
 
