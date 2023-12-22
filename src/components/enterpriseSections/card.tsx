@@ -2,20 +2,13 @@
 import React from 'react'
 import Image, { StaticImageData } from "next/image";
 import { useAppSelector } from '@/store/hooks'
-// import img1 from "../enterpriseSections/Images/img1.png";
-// import img2 from "../enterpriseSections/Images/img2.png";
-// import img3 from "../enterpriseSections/Images/img3.png";
 import img1 from "../../assets/img1.png"
 import img2 from "../../assets/img2.png"
 import img3 from "../../assets/img3.png"
-
-
 import card1 from "../../assets/card1.webp";
 import card2 from "../../assets/card2.webp"
 import card3 from "../../assets/card3.webp"
 import card4 from "../../assets/card4.webp"
-
-import { motion } from 'framer-motion';
 
 
 
@@ -90,9 +83,7 @@ function Card() {
                 <div className="container w-full max-w-[1200px] py-[30px]">
                     <div className='flex relative z-10 items-center flex-col gap-14 w-full'>
                         <div className='flex relative items-center flex-col gap-4 w-full'>
-                            <motion.h2
-                            animate={{x:-200}} transition={{type:'spring',stiffness:100,delay:0.2}} whileInView={{x:0}}
-                            className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Accomplish goals that matter to your business</motion.h2>
+                            <h2 className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Accomplish goals that matter to your business</h2>
                         </div>
                         <div className='sm:block flex justify-between w-[100%]'>
                             {data.map((item, index) =>
@@ -114,7 +105,7 @@ function Card() {
                 <div className="container w-full max-w-[1200px] py-[30px]">
                     <div className='flex relative z-10 items-center flex-col gap-14 w-full'>
                         <div className='flex relative items-center flex-col gap-4 w-full'>
-                            <motion.h2 animate={{scale:0}} transition={{type:'spring',stiffness:100,delay:0.2}} whileInView={{scale:1}} className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Equip teams to exceed expectations</motion.h2>
+                            <h2 className='text-[3.125rem] leading-[1.2] z-10 max-w-[770px] text-center text-[rgb(11,53,88)] font-bold'>Equip teams to exceed expectations</h2>
                         </div>
                         <div className='sm:block flex justify-between w-[100%]'>
                             {data.map((item, index) =>
@@ -140,14 +131,14 @@ function Card() {
                         </div>
                         <div className=' sm:block flex justify-between w-[100%]'>
                             {data1.map((item, index) =>
-                                <div key={index} className='overflow-hidden sm:w-[100%] rounded-lg border-solid border-[rgb(231,237,246)] w-[23%]  border'>
-                                    <motion.div animate={{x:-200}} transition={{delay:0.3}} whileInView={{x:0}} className=''>
+                                <div key={index} className='sm:w-[100%] rounded-lg border-solid border-[rgb(231,237,246)] w-[23%]  border'>
+                                    <div className=''>
                                         <Image src={item.imge} alt="" width={450} height={200} />
                                         <div className='p-[1.625rem]'>
                                             <h3 className='text-xl leading-[1.4] text-left text-[rgb(11,53,88)] font-bold pb-[15px]'>{item.head2}</h3>
                                             <p className='pb-[15px] w-full h-full text-left text-[rgb(71,103,136)] text-lg leading-[1.6] font-normal'>{item.thirdPara}</p>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 </div>
                             )}
                         </div>

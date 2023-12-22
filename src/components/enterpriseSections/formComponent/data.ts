@@ -4,6 +4,7 @@ export const formBasic = [
     name:'fname',
     placeholder: " Prdaeep",
     type: "text",
+
   },
   {
     label: "Last Name",
