@@ -51,9 +51,9 @@ export default function Navbar() {
                   <Link href="/products">Products</Link>
                 </li>
 
-                <li className={isLinkActive("/docs")}>
+                {/* <li className={isLinkActive("/docs")}>
                   <Link href="/docs">Docs</Link>
-                </li>
+                </li> */}
 
                 <li className={`${isLinkActive("/blogs")} !border-none `}>
                   <Link href="/blogs">Blogs</Link>
