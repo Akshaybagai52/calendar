@@ -1,40 +1,66 @@
-"use client"
+"use client";
 import { FcCheckmark } from "react-icons/fc";
 import { useAppSelector } from "@/store/hooks";
+import { checkOut } from "@/lib/checkOut";
+import { promises } from "dns";
 export default function Plans() {
-  const storeTheme= useAppSelector((state)=>state.theme)
+  const storeTheme = useAppSelector((state) => state.theme);
   const subscriptionData = [
     {
       title: "Ideas Unfiltered",
       description:
-      "There are many variations available, but the majority have suffered.",
-      price: 10.00,
-      point1:"Unlimited placeholder texts",
-      point2:"Consectetur adipiscing elit",
-      point3:"Excepteur sint occaecat cupidatat",
-      point4:"Officia deserunt mollit anim",
+        "There are many variations available, but the majority have suffered.",
+      price: 10.0,
+      point1: "Unlimited placeholder texts",
+      point2: "Consectetur adipiscing elit",
+      point3: "Excepteur sint occaecat cupidatat",
+      point4: "Officia deserunt mollit anim",
     },
     {
       title: "Ideas Brewed",
       description:
         "There are many variations available, but the majority have suffered.",
-      price: 25.00,
-      point1:"Unlimited placeholder texts",
-      point2:"Consectetur adipiscing elit",
-      point3:"Excepteur sint occaecat cupidatat",
-      point4:"Predefined chunks as necessary",
+      price: 25.0,
+      point1: "Unlimited placeholder texts",
+      point2: "Consectetur adipiscing elit",
+      point3: "Excepteur sint occaecat cupidatat",
+      point4: "Predefined chunks as necessary",
     },
     {
       title: "Ideas Instant",
       description:
         "There are many variations available, but the majority have suffered.",
       price: 38.25,
-      point1:"Unlimited placeholder texts",
-      point2:"Consectetur adipiscing elit",
-      point3:"Excepteur sint occaecat cupidatat",
-      point4:"Officia deserunt mollit anim",
+      point1: "Unlimited placeholder texts",
+      point2: "Consectetur adipiscing elit",
+      point3: "Excepteur sint occaecat cupidatat",
+      point4: "Officia deserunt mollit anim",
     },
   ];
+  
+  
+  const PayId1 = process.env.NEXT_PUBLIC_STRIPE_MONTH1_PAYID as string ;
+  const PayId2 = process.env.NEXT_PUBLIC_STRIPE_MONTH2_PAYID as string ; 
+  const PayId3 = process.env.NEXT_PUBLIC_STRIPE_MONTH3_PAYID as string ; 
+
+    const checkOutPayment = (plans:string) => {
+      switch (plans) {
+        case "Ideas Unfiltered":
+          checkOut(PayId1)
+          break;
+      case "Ideas Brewed":
+        checkOut(PayId2)
+        break;
+        case "Ideas Instant":
+          checkOut(PayId3)
+          break;
+        default:
+          break;
+      }
+    
+      
+    };
+  
   return (
     <div>
       <main className=" flex min-h-screen flex-col items-center justify-between p-[4rem]">
@@ -42,24 +68,56 @@ export default function Plans() {
           {subscriptionData.map((data, i) => (
             <div
               key={i}
-              className={`grid grid-cols-1 p-6  rounded-[9px] text-start shadow-[0px_0px_2px_1px] ${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-white"}`}
+              className={`grid grid-cols-1 p-6  rounded-[9px] text-start shadow-[0px_0px_2px_1px] ${
+                storeTheme === "dark"
+                  ? "bg-black duration-300 text-white"
+                  : "bg-white"
+              }`}
             >
               <div className="font-[600] text-[18px]">{data.title}</div>
               <p className="text-2xl font-medium">
                 ${data.price === 0 ? "FREE" : `${data.price}`}
                 {data.price !== 0 && (
-                  <span className="text-sm align-top text-slate-500 font-medium"> /mo</span>
+                  <span className="text-sm align-top text-slate-500 font-medium">
+                    {" "}
+                    /mo
+                  </span>
                 )}
               </p>
-              <p className="text-[16px] text-slate-500 font-medium">{data.description}</p>
-              
-              <p className="font-bold">Includes:</p>
-              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5"><span className="text-xl mr-[3px] mt-0.5"><FcCheckmark/></span>{data?.point1}</p>
-              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5"><span className="text-xl mr-[3px] mt-0.5"><FcCheckmark/></span>{data?.point2}</p>
-              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5"><span className="text-xl mr-[3px] mt-0.5"><FcCheckmark/></span>{data?.point3}</p>
-              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5"><span className="text-xl mr-[3px] mt-0.5"><FcCheckmark/></span>{data?.point4}</p>
+              <p className="text-[16px] text-slate-500 font-medium">
+                {data.description}
+              </p>
 
-              <button className="signup-btn w-full mt-[20px] rounded bg-indigo-500 text-white text-base cursor-pointer h-[45px] border-[none]">
+              <p className="font-bold">Includes:</p>
+              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5">
+                <span className="text-xl mr-[3px] mt-0.5">
+                  <FcCheckmark />
+                </span>
+                {data?.point1}
+              </p>
+              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5">
+                <span className="text-xl mr-[3px] mt-0.5">
+                  <FcCheckmark />
+                </span>
+                {data?.point2}
+              </p>
+              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5">
+                <span className="text-xl mr-[3px] mt-0.5">
+                  <FcCheckmark />
+                </span>
+                {data?.point3}
+              </p>
+              <p className="text-[16px] text-slate-500 font-medium mb-1 flex mr-2 mt-0.5">
+                <span className="text-xl mr-[3px] mt-0.5">
+                  <FcCheckmark />
+                </span>
+                {data?.point4}
+              </p>
+
+              <button
+                className="signup-btn w-full mt-[20px] rounded bg-indigo-500 text-white text-base cursor-pointer h-[45px] border-[none]"
+                onClick={()=>checkOutPayment(data.title)}
+              >
                 Purchase plan
               </button>
             </div>
