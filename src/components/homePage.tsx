@@ -10,6 +10,7 @@ import Toptabs from "./homeSections/toptabs";
 import Card from "./homeSections/card";
 import Bottom from "./homeSections/bottom";
 import Toptab2 from "./homeSections/toptab2";
+import Weather from "./homeSections/wheater/whether";
 // import { SlickSlider } from "./sliderBox/slider";
 
 const HomePage = () => {
@@ -18,6 +19,7 @@ const HomePage = () => {
         <>
 
             <Banner />
+            <Weather />
             <CheckDestination />
             <MillionUsers />
             <Toptabs />
