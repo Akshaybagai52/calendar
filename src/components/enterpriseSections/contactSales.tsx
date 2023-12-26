@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { useForm } from "react-hook-form"
+import {useForm} from 'react-hook-form'
 import { useAppSelector } from "@/store/hooks";
 import { formBasic, selectOption, textArea } from './formComponent/data';
 import InputField from './formComponent/InputField';
