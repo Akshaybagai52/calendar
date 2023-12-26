@@ -2,7 +2,7 @@
 import { FcCheckmark } from "react-icons/fc";
 import { useAppSelector } from "@/store/hooks";
 import { checkOut } from "@/lib/checkOut";
-import { promises } from "dns";
+
 export default function Plans() {
   const storeTheme = useAppSelector((state) => state.theme);
   const subscriptionData = [

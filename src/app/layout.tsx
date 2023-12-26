@@ -1,14 +1,14 @@
-'use client'
-import type { Metadata } from 'next'
-import Navbar from '@/components/Navbar/Navbar'
+"use client";
+import type { Metadata } from "next";
+import Navbar from "@/components/Navbar/Navbar";
 // import { SessionProvider } from "next-auth/react";
-import { PersistGate } from 'redux-persist/integration/react';
+import { PersistGate } from "redux-persist/integration/react";
 
-import './globals.css'
+import "./globals.css";
 // import { store } from '@/store/store'
 // import {store} from '../components/../store'
-import {persistor, store } from '../store/store'; 
-import { Provider } from 'react-redux'
+import { persistor, store } from "../store/store";
+import { Provider } from "react-redux";
 
 // export const metadata: Metadata = {
 //   title: 'Calendar',
@@ -18,7 +18,7 @@ import { Provider } from 'react-redux'
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -33,29 +33,28 @@ export default function RootLayout({
         <meta name="twitter:image:type" content="<generated>" />
         <meta name="twitter:image:width" content="<generated>" />
         <meta name="twitter:image:height" content="<generated>" />
+
         {/* <link
           rel="styleSheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         ></link> */}
         <title>Calendar</title>
+
       </head>
       <body>
-   
         <div>
           {/* <SessionProvider> */}
-            <Provider store={store}>
+          <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <section>
                 <Navbar />
-                <main>
-                  {children}
-                </main>
+                <main>{children}</main>
               </section>
-              </PersistGate>
-            </Provider>
+            </PersistGate>
+          </Provider>
           {/* </SessionProvider>, */}
         </div>
       </body>
     </html>
-  )
+  );
 }
