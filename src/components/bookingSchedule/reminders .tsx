@@ -27,27 +27,16 @@
 
 
 "use client"
-import React, { useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-// import events from "./events";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import React, { useState } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import events from './events'
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
-export interface EventType {
-  start: Date;
-  end: Date;
-  title: string;
- 
-};
-
-
-export default function Reminders() {
-  const [eventsData, setEventsData] = useState<EventType[]>();
-
-  // const [eventsData, setEventsData] = useState<EventType[]>();
+export default function ReactBigCalendar() {
+  const [eventsData, setEventsData] = useState<any>(events);
 
   const handleSelect = ({ start, end }:any) => {
     console.log(start);
@@ -55,6 +44,7 @@ export default function Reminders() {
     const title = window.prompt("New Event name");
     if (title)
       setEventsData([
+        ...eventsData,
         {
           start,
           end,
@@ -63,7 +53,7 @@ export default function Reminders() {
       ]);
   };
   return (
-    <div >
+    <div className="App">
       <Calendar
         views={["day", "agenda", "work_week", "month"]}
         selectable
