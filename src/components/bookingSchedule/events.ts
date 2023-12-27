@@ -261,3 +261,19 @@ export default [
     end: new Date(2024, 11, 4,0,0,0),
   },
 ];
+
+
+export const holidays = [
+  {
+    start: new Date(2023, 12, 25),
+    end: new Date(2023, 12, 25),
+    title: "Christmas Day",
+    allDay: true
+  },
+  {
+    start: new Date(2023, 11, 24),
+    end: new Date(2023, 11, 24),
+    title: "Thanksgiving Day",
+    allDay: true
+  }
+ ];
