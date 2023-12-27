@@ -2,9 +2,9 @@
 
 "use client"
 import React, { useState } from 'react';
-import { Calendar, Navigate, momentLocalizer } from 'react-big-calendar';
+import { Calendar, Navigate, View, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import events, { holidays } from './events'
+import events from './events'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 moment.locale("en-GB");
@@ -13,7 +13,7 @@ const localizer = momentLocalizer(moment);
 
 export default function ReactBigCalendar() {
   const [eventsData, setEventsData] = useState<any>(events);
-  const [viewCalendar, setViewCalendar] = useState<string>("month")
+  const [viewCalendar, setViewCalendar] = useState<View>("month")
 
   const [date, setDate] = useState(new Date());
 
@@ -23,7 +23,7 @@ export default function ReactBigCalendar() {
     const title = window.prompt("New Event name");
     if (title)
       setEventsData([
-        ...eventsData,...holidays,
+        ...eventsData,
         {
           start,
           end,
