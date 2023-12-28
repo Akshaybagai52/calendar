@@ -36,8 +36,8 @@ const notificationDetails = () => {
                 <div className="flex justify-between items-center shadow-[0px_0px_2px_1px] shadow-white mx-0 my-[7px] p-[5px] rounded-[7px]">
                   <div className="text-white">
                     <h3>{item.title}</h3>
-                    <p>{item.startDate}</p>
-                    <p>{item.endDate}</p>
+                    <p> {new Date(item.startDate).toDateString()}</p>
+                    <p>{new Date(item.endDate).toDateString()}</p>
                   </div>
                   <div>
                     <button
