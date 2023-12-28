@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns:[
       {
         protocol: 'https',
-        hostname: 'logodix.com',
+        hostname: 'openweathermap.org',
         pathname: '**',
       }
     ]
