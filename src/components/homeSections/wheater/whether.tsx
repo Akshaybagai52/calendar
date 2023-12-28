@@ -2,7 +2,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import moment from 'moment'
 import React, { useState } from 'react'
-
+import forcasting from "../../../assets/wheatherForecasting.png"
 
 function Weather() {
     const [defaultCity, setDefaultCity] = useState('delhi');
@@ -16,10 +16,10 @@ function Weather() {
         sunrise: 0,
         sunset: 0,
         country: "",
-        desc:"",
-        icon:'',
-        pressure:0,
-        windSpeed:0
+        desc: "",
+        icon: '',
+        pressure: 0,
+        windSpeed: 0
     })
     const getData = (city: any) => {
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=d8596b1261b43be39522177d29112a96`)
@@ -40,7 +40,7 @@ function Weather() {
                 })
                 console.log(response);
             })
-            
+
     }
 
     const handleOnChange = (e: { target: { value: any } }) => {
@@ -53,8 +53,31 @@ function Weather() {
     }
     // getData()
     return (
-        <div>
-            <div className="area" >
+        <div style={{ background: 'linear-gradient(80deg, #000428, #004e92)',  }}>
+            <div className='container text-white shadow-[rgba(200,200,200,0.3)_0px_1px_2px_0px,rgba(200,200,200,0.15)_0px_1px_3px_1px] px-5  py-5 rounded-2xl h-[600px]'>
+                <div className='flex justify-between '>
+                    <div className="">
+                        <Image src={forcasting} width={100} height={80} alt="Wheater ForeCasting" />
+                    </div>
+                    <div>
+                        <h4>Calendar</h4>
+                    </div>
+                    <div>
+                        <h4>Wheater</h4>
+                    </div>
+
+                </div>
+                <div>
+                    <input
+                        className="w-[220px] h-10 float-left text-[#ccc] bg-transparent px-[5px]  rounded-[3px_0_0_3px] border-0"
+                        type="text"
+                        placeholder="Search events..."
+                        value=""
+                        onChange={handleOnChange}
+                    />
+                </div>
+            </div>
+            {/* <div className="area" >
                 <ul className="circles">
                     <li></li>
                     <li></li>
@@ -88,17 +111,17 @@ function Weather() {
                         <div className="box"><h4>Max Temp:-{data.temp_max} °C</h4>
                             <div className="border">
                             </div>
-                            {/* <h3>{data.temp_max} °C</h3> */}
+                            <h3>{data.temp_max} °C</h3>
                         </div>
                         <div className="box"><h4>Min Temp:-{data.temp_min}</h4>
                             <div className="border">
                             </div>
-                            {/* <h3>{data.temp_min} °C</h3> */}
+                            <h3>{data.temp_min} °C</h3>
                         </div>
                         <div className="box"><h3>Wind Speed:-{data?.windSpeed}</h3>
                             <div className="border">
                             </div>
-                            {/* <h3>{data.windSpeed}</h3> */}
+                            <h3>{data.windSpeed}</h3>
 
                             <div className="box"><h3>Feels Like</h3>
                                 <div className="border">
@@ -111,18 +134,18 @@ function Weather() {
                                 </div>
                                 <div className="box"><h3>Sunset</h3>
                                     <div className="border">
-                                        {/* <Image src={sunset} className="img" alt="sunset" /> */}
+                                         <Image src={sunset} className="img" alt="sunset" />
                                     </div>
                                     <h3>{moment(data.sunset * 1000).format("hh:mm a")}</h3>
                                 </div>
                                 <div className="box"><h3>Pressure</h3>
                                     <div className="border">
-                                        {/* <Image src={pressure} className="img" alt="pressure" /> */}
+                                        <Image src={pressure} className="img" alt="pressure" />
                                     </div>
                                     <h3>{data.pressure}</h3>
                                     <div className="box"><h3>Humidity</h3>
                                         <div className="border">
-                                            {/* <Image src={humidity} className="img" alt="humidity" /> */}
+                                            <Image src={humidity} className="img" alt="humidity" />
                                         </div>
                                         <h3>{data.humidity}</h3>
                                     </div>
@@ -131,9 +154,9 @@ function Weather() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     );
 }
- export default Weather;
+export default Weather;
