@@ -53,8 +53,8 @@ export default function ReactBigCalendar() {
 
 
   return (
-    <div>
-      <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey]' >
+    <div className=''>
+      <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ' >
         <input
           className="w-[220px] h-10 float-left text-[#ccc] bg-transparent px-[5px]  rounded-[3px_0_0_3px] border-0"
           type="text"
@@ -67,7 +67,7 @@ export default function ReactBigCalendar() {
             <div>
               {eventsData.map((deta: any, ind: number) => {
                 return (
-                  <li key={ind}>
+                  <li key={ind} className='bg-slate-600'>
                     {deta.title} {deta.start.toString()}
                   </li>
                 );
@@ -81,7 +81,7 @@ export default function ReactBigCalendar() {
         )}
 
       </div>
-      <Calendar
+      <Calendar 
         views={["day", "agenda", "work_week", "month"]}
         selectable
         view={viewCalendar}
