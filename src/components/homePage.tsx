@@ -10,7 +10,8 @@ import Toptabs from "./homeSections/toptabs";
 import Card from "./homeSections/card";
 import Bottom from "./homeSections/bottom";
 import Toptab2 from "./homeSections/toptab2";
-import  NotificationAlerts  from "./notification/notificationAlerts";
+import Weather from "./homeSections/wheater/whether";
+import NotificationAlerts from "./notification/notificationAlerts";
 // import { SlickSlider } from "./sliderBox/slider";
 
 const HomePage = () => {
@@ -19,6 +20,7 @@ const [aletNotification,setAlertNotification]=useState<boolean>(false)
         <>
 
             <Banner />
+            <Weather />
             <CheckDestination />
             <MillionUsers />
             <NotificationAlerts/>

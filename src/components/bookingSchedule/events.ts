@@ -3,51 +3,50 @@ const now = new Date();
 export default [
   {
     id: 0,
-    title: "All Day Event very long title",
-    allDay: true,
-    start: new Date(2015, 3, 0),
-    end: new Date(2015, 3, 1)
+    title: "New Year's Day",
+    start: new Date(2024,0, 1,0,0,0),
+    end: new Date(2024, 0, 2,0,0,0),
   },
   {
     id: 1,
-    title: "Long Event",
-    start: new Date(2015, 3, 7),
-    end: new Date(2015, 3, 10)
+    title: "Lohri",
+    start: new Date(2024, 0, 13,0,0,0),
+    end: new Date(2023, 0, 14,0,0,0),
   },
 
   {
     id: 2,
-    title: "DTS STARTS",
-    start: new Date(2016, 2, 13, 0, 0, 0),
-    end: new Date(2016, 2, 20, 0, 0, 0)
+    title: "Makar Sankranti",
+    start: new Date(2024, 0, 14,0,0,0),
+    end: new Date(2024, 0, 15,0,0,0),
   },
 
   {
     id: 3,
-    title: "DTS ENDS",
-    start: new Date(2016, 10, 6, 0, 0, 0),
-    end: new Date(2016, 10, 13, 0, 0, 0)
+    title: "Pongal",
+    start: new Date(2024, 0, 15,0,0,0),
+    end: new Date(2024, 0, 16,0,0,0),
   },
 
   {
     id: 4,
-    title: "Some Event",
-    start: new Date(2015, 3, 9, 0, 0, 0),
-    end: new Date(2015, 3, 10, 0, 0, 0)
+    title: "Guru Govind Singh Jayanti",
+    start: new Date(2024, 0, 17,0,0,0),
+    end: new Date(2024, 0, 18,0,0,0),
   },
   {
     id: 5,
-    title: "Conference",
-    start: new Date(2015, 3, 11),
-    end: new Date(2015, 3, 13),
-    desc: "Big conference for important people"
+    title: "Hazarat Ali's Birthday",
+    start: new Date(2024, 0, 25,0,0,0),
+    end: new Date(2024, 0, 26,0,0,0),
+    desc: "Big conference for important people",
   },
   {
     id: 6,
-    title: "Meeting",
-    start: new Date(2015, 3, 12, 10, 30, 0, 0),
-    end: new Date(2015, 3, 12, 12, 30, 0, 0),
-    desc: "Pre-meeting meeting, to prepare for the meeting"
+    title: "Republic Day",
+    start: new Date(2024, 0, 26,0,0,0),
+    end: new Date(2024, 0, 26,0,0,0),
+    desc: "Pre-meeting meeting, to prepare for the meeting",
   },
   {
     id: 7,
@@ -58,139 +57,207 @@ export default [
   },
   {
     id: 8,
-    title: "Meeting",
-    start: new Date(2015, 3, 12, 14, 0, 0, 0),
-    end: new Date(2015, 3, 12, 15, 0, 0, 0)
+    title: "Vasant Panchami",
+    start: new Date(2024, 1, 14,0,0,0),
+    end: new Date(2024, 1, 15,0,0,0),
   },
   {
     id: 9,
-    title: "Happy Hour",
-    start: new Date(2015, 3, 12, 17, 0, 0, 0),
-    end: new Date(2015, 3, 12, 17, 30, 0, 0),
-    desc: "Most important meal of the day"
+    title: "Valentine's Day",
+    start: new Date(2024, 1, 14,0,0,0),
+    end: new Date(2024, 1, 15,0,0,0),
+    desc: "Most important meal of the day",
   },
   {
     id: 10,
-    title: "Dinner",
-    start: new Date(2015, 3, 12, 20, 0, 0, 0),
-    end: new Date(2015, 3, 12, 21, 0, 0, 0)
+    title: "Shivaji Jayanti",
+    start: new Date(2024, 1, 19,0,0,0),
+    end: new Date(2024, 1, 20,0,0,0),
   },
   {
     id: 11,
-    title: "Planning Meeting with Paige",
-    start: new Date(2015, 3, 13, 8, 0, 0),
-    end: new Date(2015, 3, 13, 10, 30, 0)
-  },
-  {
-    id: 11.1,
-    title: "Inconvenient Conference Call",
-    start: new Date(2015, 3, 13, 9, 30, 0),
-    end: new Date(2015, 3, 13, 12, 0, 0)
-  },
-  {
-    id: 11.2,
-    title: "Project Kickoff - Lou's Shoes",
-    start: new Date(2015, 3, 13, 11, 30, 0),
-    end: new Date(2015, 3, 13, 14, 0, 0)
-  },
-  {
-    id: 11.3,
-    title: "Quote Follow-up - Tea by Tina",
-    start: new Date(2015, 3, 13, 15, 30, 0),
-    end: new Date(2015, 3, 13, 16, 0, 0)
+    title: "Guru Ravidas Jayanti",
+    start: new Date(2024, 1, 24,0,0,0),
+    end: new Date(2024, 1, 25,0,0,0),
   },
   {
     id: 12,
-    title: "Late Night Event",
-    start: new Date(2015, 3, 17, 19, 30, 0),
-    end: new Date(2015, 3, 18, 2, 0, 0)
-  },
-  {
-    id: 12.5,
-    title: "Late Same Night Event",
-    start: new Date(2015, 3, 17, 19, 30, 0),
-    end: new Date(2015, 3, 17, 23, 30, 0)
+    title: "Maharishi Dayanand Saraswati Jayanti",
+    start: new Date(2024, 2, 6,0,0,0),
+    end: new Date(2024, 2, 7,0,0,0),
   },
   {
     id: 13,
-    title: "Multi-day Event",
-    start: new Date(2015, 3, 20, 19, 30, 0),
-    end: new Date(2015, 3, 22, 2, 0, 0)
+    title: "Maha Shivaratri/Shivaratri",
+    start: new Date(2024, 2, 8,0,0,0),
+    end: new Date(2024,2,9,0,0,0),
   },
   {
     id: 14,
-    title: "Today",
-    start: new Date(new Date().setHours(new Date().getHours() - 3)),
-    end: new Date(new Date().setHours(new Date().getHours() + 3))
+    title: "Ramadan Start (Tentative Date)",
+    start: new Date(2024, 2,12,0,0,0),
+    end: new Date(2024, 2,13,0,0,0),
   },
   {
     id: 15,
-    title: "Point in Time Event",
-    start: now,
-    end: now
+    title: "March Equinox",
+    start: new Date(2024, 2,20,0,0,0),
+    end: new Date(2024, 2,21,0,0,0),
   },
   {
     id: 16,
-    title: "Video Record",
-    start: new Date(2015, 3, 14, 15, 30, 0),
-    end: new Date(2015, 3, 14, 19, 0, 0)
+    title: "Holika Dahana",
+    start: new Date(2024, 2,24,0,0,0),
+    end: new Date(2024, 2,25,0,0,0),
   },
   {
     id: 17,
-    title: "Dutch Song Producing",
-    start: new Date(2015, 3, 14, 16, 30, 0),
-    end: new Date(2015, 3, 14, 20, 0, 0)
+    title: "Holi ",
+    start: new Date(2024, 2,25,0,0,0),
+    end: new Date(2024, 2,26,0,0,0),
   },
   {
     id: 18,
-    title: "Itaewon Halloween Meeting",
-    start: new Date(2015, 3, 14, 16, 30, 0),
-    end: new Date(2015, 3, 14, 17, 30, 0)
+    title: "Christmas",
+    start: new Date(2023, 11, 25,0,0,0),
+    end: new Date(2023, 11, 26,0,0,0),
   },
   {
     id: 19,
-    title: "Online Coding Test",
-    start: new Date(2015, 3, 14, 17, 30, 0),
-    end: new Date(2015, 3, 14, 20, 30, 0)
+    title: "Point in Time Event",
+    start: now,
+    end: now,
   },
   {
     id: 20,
-    title: "An overlapped Event",
-    start: new Date(2015, 3, 14, 17, 0, 0),
-    end: new Date(2015, 3, 14, 18, 30, 0)
+    title: "Dolyatra",
+    start: new Date(2024, 2, 25,0,0,0),
+    end: new Date(2024, 2, 26,0,0,0),
   },
   {
     id: 21,
-    title: "Phone Interview",
-    start: new Date(2015, 3, 14, 17, 0, 0),
-    end: new Date(2015, 3, 14, 18, 30, 0)
+    title: "Gudi Padwa",
+    start: new Date(2024, 3,9,0,0,0),
+    end: new Date(2024, 3,10,0,0,0),
   },
   {
     id: 22,
-    title: "Cooking Class",
-    start: new Date(2015, 3, 14, 17, 30, 0),
-    end: new Date(2015, 3, 14, 19, 0, 0)
+    title: "Ramzan Id/Eid-ul-Fitar (Tentative Date)",
+    start: new Date(2024, 3, 11,0,0,0),
+    end: new Date(2024, 3, 12,0,0,0),
   },
   {
     id: 23,
-    title: "Go to the gym",
-    start: new Date(2015, 3, 14, 18, 30, 0),
-    end: new Date(2015, 3, 14, 20, 0, 0)
-  }
-];
-
-
-export const holidays = [
-  {
-    start: new Date(2023, 12, 25),
-    end: new Date(2023, 12, 25),
-    title: "Christmas Day",
-    allDay: true
+    title: "Vaisakhi",
+    start: new Date(2024, 3, 13,0,0,0),
+    end: new Date(2024, 3, 14,0,0,0),
   },
   {
-    start: new Date(2023, 11, 24),
-    end: new Date(2023, 11, 24),
-    title: "Thanksgiving Day",
-    allDay: true
-  }
- ];
+    id: 24,
+    title: "Ambedkar Jayanti",
+    start: new Date(2024, 3, 14,0,0,0),
+    end: new Date(2024, 3, 15,0,0,0),
+  },
+  {
+    id: 25,
+    title: "Rama Navami",
+    start: new Date(2024, 3, 17,0,0,0),
+    end: new Date(2024,3,18,0,0,0),
+  },
+  {
+    id: 26,
+    title: "Mahavir Jayanti",
+    start: new Date(2024, 3, 21,0,0,0),
+    end: new Date(2024, 3, 22,0,0,0),
+  },
+  {
+    id: 27,
+    title: "Mothers' Day",
+    start: new Date(2024, 4, 12,0,0,0),
+    end: new Date(2024, 4, 13,0,0,0),
+  },  {
+    id: 28,
+    title: "Fathers' Day",
+    start: new Date(2024, 5, 16,0,0,0),
+    end: new Date(2024, 5, 17,0,0,0),
+  },  {
+    id: 29,
+    title: "Bakrid/Eid ul-Adha (Tentative Date)",
+    start: new Date(2024, 5, 17,0,0,0),
+    end: new Date(2024, 5,18,0,0,0),
+  },  {
+    id: 30,
+    title: "Muharram/Ashura (Tentative Date)",
+    start: new Date(2024, 6, 17,0,0,0),
+    end: new Date(2024, 6, 18,0,0,0),
+  },  {
+    id: 31,
+    title: "Independence Day",
+    start: new Date(2024, 7, 15,0,0,0),
+    end: new Date(2024, 7, 16,0,0,0),
+  },  {
+    id: 32,
+    title: "	Raksha Bandhan (Rakhi)",
+    start: new Date(2024, 7, 19,0,0,0),
+    end: new Date(2024, 7, 20,0,0,0),
+  },  {
+    id: 33,
+    title: "Janmashtami",
+    start: new Date(2024, 7, 26,0,0,0),
+    end: new Date(2024, 7, 27,0,0,0),
+  },  {
+    id: 34,
+    title: "Ganesh Chaturthi/Vinayaka Chaturthi",
+    start: new Date(2024, 8, 7,0,0,0),
+    end: new Date(2024, 8, 8,0,0,0),
+  },  {
+    id: 35,
+    title: "Mahatma Gandhi Jayanti",
+    start: new Date(2024, 9, 2,0,0,0),
+    end: new Date(2024, 9, 3,0,0,0),
+  },  {
+    id: 36,
+    title: "Dussehra",
+    start: new Date(2024, 9, 12,0,0,0),
+    end: new Date(2024, 9, 13,0,0,0),
+  },  {
+    id: 37,
+    title: "Diwali/Deepavali",
+    start: new Date(2024, 9, 31,0,0,0),
+    end: new Date(2024, 10, 1,0,0,0),
+  },  {
+    id: 38,
+    title: "Govardhan Puja",
+    start: new Date(2024, 10, 2,0,0,0),
+    end: new Date(2024, 10, 3,0,0,0),
+  },  {
+    id: 39,
+    title: "Bhai Duj",
+    start: new Date(2024, 10, 3,0,0,0),
+    end: new Date(2024, 10, 4,0,0,0),
+  },
+  {
+    id: 39,
+    title: "Chhat Puja (Pratihar Sashthi/Surya Sashthi)",
+    start: new Date(2024, 10, 7,0,0,0),
+    end: new Date(2024, 10, 8,0,0,0),
+  },
+  {
+    id: 39,
+    title: "Guru Nanak Jayanti",
+    start: new Date(2024, 10, 15,0,0,0),
+    end: new Date(2024, 10, 16,0,0,0),
+  },
+  {
+    id: 39,
+    title: "Christmas",
+    start: new Date(2024, 11, 25,0,0,0),
+    end: new Date(2024, 11, 26,0,0,0),
+  },
+  {
+    id: 39,
+    title: "Bhai Duj",
+    start: new Date(2024, 11, 3,0,0,0),
+    end: new Date(2024, 11, 4,0,0,0),
+  },
+];

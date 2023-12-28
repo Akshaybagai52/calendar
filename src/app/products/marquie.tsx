@@ -1,5 +1,6 @@
 
 import MarqueeItem from "./marqueeItem";
+import Mercedise_Benz from "../../assets/Mercedes-Benz.jpg"
 import "../products/style.css"
 const Marquee = () => {
   const images = [
