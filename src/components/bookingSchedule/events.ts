@@ -51,9 +51,9 @@ export default [
   },
   {
     id: 7,
-    title: "Lunch",
-    start: new Date(2015, 3, 12, 12, 0, 0, 0),
-    end: new Date(2015, 3, 12, 13, 0, 0, 0),
+    title: "chritmas",
+    start: new Date(2023, 11, 25, 12, 0, 0, 0),
+    end: new Date(2023, 3, 12, 13, 0, 0, 0),
     desc: "Power lunch"
   },
   {
