@@ -10,7 +10,7 @@ export default function Bottom() {
         <div className={`mb-[50px] mt-[50px] ${storeTheme==="dark"?"bg-black duration-300 text-white":""}`} >
             <div className='container'>
                 <div className='w-full max-w-[1200px] py-0'>
-                    <div className={`flex items-center justify-center flex-col gap-6 w-full max-w-[1170px] min-h-[222px] border p-[72px] rounded-[32px] border-solid border-[rgb(212,224,237)] ${storeTheme === 'dark' ? 'bg-black text-white' : 'bg-[rgb(240,243,248)]'}`}>
+                    <div className={`flex items-center justify-center m-auto flex-col gap-6 w-full max-w-[1170px] min-h-[222px] border p-[72px] rounded-[32px] border-solid border-[rgb(212,224,237)] ${storeTheme === 'dark' ? 'bg-black text-white' : 'bg-[rgb(240,243,248)]'}`}>
                         <div className='w-full max-w-[770px] h-auto'>
                             <h1 className={`text-[2.375rem] leading-[1.2] font-bold text-center mb-6 ${textColorClass}`}>Power up your scheduling</h1>
                             <div className={`w-full h-auto text-center text-xl leading-[1.4] font-normal ${textColorClass}`}>

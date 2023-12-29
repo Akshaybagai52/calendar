@@ -24,8 +24,6 @@ export default function ReactBigCalendar() {
 
 
   const handleSelect = ({ start, end }: any) => {
-    console.log(start, "ooooop");
-    console.log(end);
     const title = window.prompt("New Event name");
     if (title)
       setEventsData([
@@ -56,7 +54,7 @@ export default function ReactBigCalendar() {
     <div className=''>
       <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ' >
         <input
-          className="w-[220px] h-10 float-left text-[#ccc] bg-transparent px-[5px]  rounded-[3px_0_0_3px] border-0"
+          className="w-[220px] h-10 float-left text-[white] bg-transparent px-[5px] bg-[grey] rounded-[3px_0_0_3px] border-0"
           type="text"
           placeholder="Search events..."
           value={searchTerm}
@@ -64,10 +62,10 @@ export default function ReactBigCalendar() {
         />
         {searchTerm.length > 2 ? (
           eventsData.length > 0 ? (
-            <div>
+            <div className="relative z-[99]">
               {eventsData.map((deta: any, ind: number) => {
                 return (
-                  <li key={ind} className='bg-slate-600'>
+                  <li key={ind} className='bg-[whitesmoke] list-none pt-[10px] pl-[10px]'>
                     {deta.title} {deta.start.toString()}
                   </li>
                 );
