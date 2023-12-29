@@ -20,8 +20,19 @@ export const enum Theme {
     DARK = 'dark',
   }
   
+
+  
   export interface AppState {
     theme: null | Theme;
+    
+  }
+
+
+  export interface NotificationData {
+    id: number;
+    title: string |null;
+    startDate: any;
+    endDate: any
   }
   
   export interface WeatherDetail {

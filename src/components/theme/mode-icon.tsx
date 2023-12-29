@@ -4,11 +4,12 @@ import { Theme } from "../../types/interface";
 import { setTheme } from "@/store/app.slice";
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function ModeIcon() {
   const dispatch = useAppDispatch();
   const storeTheme = useAppSelector((state) => state.theme);
+
   const prefTheme = window.matchMedia("dark").matches
     ? Theme.DARK
     : Theme.LIGHT;
@@ -23,17 +24,21 @@ function ModeIcon() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const toggleTheme = () => {
+    dispatch(setTheme(currentTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK));
+  };
+
   return (
     <>
       <div className="sm:text-black flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
-        <button onClick={() => dispatch(setTheme(Theme.LIGHT))}>
+        <button onClick={() => dispatch(setTheme(Theme.DARK))} >
           <FaSun />
         </button>
-        <button onClick={() => dispatch(setTheme(Theme.DARK))}>
+        <button onClick={() => dispatch(setTheme(Theme.LIGHT))} >
           <FaMoon />
         </button>
-        <span className={`absolute rounded-full bg-black z-10  transition-all h-[20px] w-[20px]  ${
-          currentTheme === "dark" ? 'right-[7px] duration-500' : 'right-[33px] duration-500'}`} ></span>
+        <span className={`absolute rounded-full bg-black z-10  transition-all h-[20px] w-[20px]   ${
+         currentTheme === Theme.DARK ? 'right-[7px] duration-500' : 'right-[33px] duration-500'}`} onClick={toggleTheme} ></span>
       </div>
 
     </>

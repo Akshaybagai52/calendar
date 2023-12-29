@@ -3,6 +3,7 @@ import { AppState,Theme } from '@/types/interface';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const initialState: AppState = {
   theme: null,
 };
@@ -14,8 +15,8 @@ export const appSlice = createSlice({
     setTheme: (state, action: PayloadAction<Theme>) => {
       state.theme = action.payload;
       document.documentElement.setAttribute('data-theme', action.payload);
-    },
-  },
+    }
+  }
 });
 
 export const { setTheme } = appSlice.actions;

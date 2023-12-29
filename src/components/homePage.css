@@ -40,6 +40,10 @@ nav ul li{
   @apply w-[80%]   relative shadow-[0px_1px_4px_2px] z-[9] mx-auto p-[10px];
   background: white;
 }
+.notification_num{
+  @apply w-[-2px] text-[9px] w-3 h-[13px] text-center rounded-[100%];
+  background: red;
+}
 
 
 /* // checkdestion  */

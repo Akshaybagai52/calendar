@@ -6,14 +6,16 @@ import { FaBars } from "react-icons/fa";
 import ModeIcon from "../theme/mode-icon";
 import Image from "next/image";
 import { useState } from "react";
-import '../homePage.css'
+import "../homePage.css";
+import { BellSvg } from "../notification/svg";
+import NotificationDetails from "../notification/notificationDetails";
+
 export default function Navbar() {
   const [FaBarsToggle, setFaBarsToggle] = useState<boolean>(false);
   const router = usePathname();
-  // if(session){
-  //     console.log("fine",session);
-
-  // }
+  let localNotification: any = localStorage.getItem("notification");
+  const storeNotification: any = JSON.parse(localNotification);
+  const [showNotification, setShowNotification] = useState<boolean>(false);
 
   const isLinkActive = (href: string) => {
     return router === href
@@ -29,7 +31,6 @@ export default function Navbar() {
           <div className="flex justify-between items-center relative ">
             {/* Logo */}
             <Link href={"/"} className="text-red-500 font-bold text-4xl">
-        
               <Image src={logo} alt="logo" className="sm:w-[64px] w-[100px]" />
             </Link>
 
@@ -78,10 +79,18 @@ export default function Navbar() {
                 <li className="sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white">
                   <Link href="/login">Login</Link>
                 </li>
-                <li className="sm:hidden">
-                 
-                    <ModeIcon />
-                 
+                <li className="sm:hidden inline-flex items-center gap-1 relative">
+                  <ModeIcon />
+                  <span className="cursor-pointer">
+                  <BellSvg />{" "}
+                  <span
+                    className="notification_num text-white absolute top-[6px] left-[74px] right-0 z-1"
+                    onClick={() => setShowNotification(!showNotification)}
+                  >
+                    {!storeNotification?0:storeNotification.length}
+                  </span>
+                  </span>
+             
                 </li>
 
                 <span
@@ -92,6 +101,11 @@ export default function Navbar() {
                 </span>
               </ul>
             </div>
+         
+              <div className={`absolute top-[96px] ${showNotification?"right-[-150px] duration-500":"right-[-500px]  duration-500"}  `}>
+                <NotificationDetails />
+              </div>
+            
           </div>
         </div>
       </header>

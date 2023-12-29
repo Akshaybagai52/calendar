@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import React,{useState} from "react"
 import './homePage.css';
 import Banner from "./homeSections/banner";
 // import BookingPlace from "./homeSections/bookingPlace";
@@ -11,10 +11,11 @@ import Card from "./homeSections/card";
 import Bottom from "./homeSections/bottom";
 import Toptab2 from "./homeSections/toptab2";
 import Weather from "./homeSections/wheater/whether";
+import NotificationAlerts from "./notification/notificationAlerts";
 // import { SlickSlider } from "./sliderBox/slider";
 
 const HomePage = () => {
-
+const [aletNotification,setAlertNotification]=useState<boolean>(false)
     return (
         <>
 
@@ -22,6 +23,7 @@ const HomePage = () => {
             <Weather />
             <CheckDestination />
             <MillionUsers />
+            <NotificationAlerts/>
             <Toptabs />
             <Card />
             <Toptab2/>
