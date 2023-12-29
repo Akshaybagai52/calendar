@@ -29,8 +29,8 @@ function ContactSales() {
     return (
         <div className={`${storeTheme === "dark" ? 'bg-black text-white duration-300' : 'bg-[#f4f8ff]'} `} >
             <div>
-                <div className="container m-auto">
-                    <div className='p-2 flex pt-[75px] pb-[75px]'>
+                <div className="container">
+                    <div className='p-2 flex justify-between pt-[75px] pb-[75px] m-auto'>
                         <div className="cont">
                             <div>
                                 <p className='w-full text-left text-[rgb(0,107,255)]
