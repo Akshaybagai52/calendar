@@ -1,12 +1,11 @@
 "use client";
 import { getNotificationLocal } from "@/lib/getNotification";
-import React, { useEffect } from "react";
+import React from "react";
 
 const notificationDetails = () => {
-  let removeId: any = [];
-  console.log(removeId, "lll");
+
   const removeNotification = (id: number) => {
-    removeId.push(id);
+
     const updatedNotifications = getNotificationLocal().filter(
       (notification: any) => notification.id !== id
     );
@@ -17,12 +16,10 @@ const notificationDetails = () => {
       "notification",
       JSON.stringify(updatedNotifications)
     );
-    // for update data
+
   };
 
-  useEffect(() => {
-    getNotificationLocal();
-  }, [removeId]);
+  
 
   return (
     <div className={`notification_details bg-black p-2 rounded-[10px] w-[300px] ${!getNotificationLocal()?null:getNotificationLocal().length+1>=3?`h-[${180*getNotificationLocal().length+1>721?300:180*getNotificationLocal().length+1}px] overflow-scroll`:""} `}>
