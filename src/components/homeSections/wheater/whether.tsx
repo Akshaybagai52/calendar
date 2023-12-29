@@ -262,7 +262,8 @@ function Weather() {
                             <h4 className='pt-[50px] text-2xl tracking-normal text-[rgba(255,255,255,0.7)] font-semibold leading-none text-center m-0 pb-[30px]'>WEEKLY FORECAST
                             </h4>
 
-                            </div>*/}
+         </div>*/}
+         
           </div>
         </div>
       </div>
