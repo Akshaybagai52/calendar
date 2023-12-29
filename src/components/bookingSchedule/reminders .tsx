@@ -108,7 +108,7 @@ const CustomToolbar = () => (
   };
 
   return (
-    <div className=''>
+    <div className='duration-500'>
       <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ' >
         <input
           className="w-[220px] h-10 float-left text-[#ccc] bg-transparent px-[5px]  rounded-[3px_0_0_3px] border-0"
@@ -145,7 +145,7 @@ const CustomToolbar = () => (
         defaultDate={new Date()}
         defaultView="month"
         events={eventsData}
-        style={{ height: "100vh" }}
+        style={{ height: "100vh" ,color:storeTheme==="dark"?"white":"black"}}
         onSelectEvent={(event) => alert(event.title)}
         onSelectSlot={handleSelect}
         date={date}
