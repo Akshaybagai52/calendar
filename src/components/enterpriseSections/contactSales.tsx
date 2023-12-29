@@ -24,7 +24,6 @@ function ContactSales() {
         setData(data)
         console.log(data);
         alert(JSON.stringify(data, null, 2));
-
     }
     return (
         <div className={`${storeTheme === "dark" ? 'bg-black text-white duration-300' : 'bg-[#f4f8ff]'} `} >
