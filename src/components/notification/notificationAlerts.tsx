@@ -55,8 +55,6 @@ console.log(upcomingEvents,"ll")
     
   }, [getNotificationLocal()]);
 
-
-  
   return (
     <>
     </>

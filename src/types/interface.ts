@@ -35,9 +35,6 @@ export const enum Theme {
     endDate: any
   }
   
-<<<<<<< HEAD
-  
-=======
   export interface WeatherDetail {
     dt: number;
     main: {
@@ -92,4 +89,3 @@ export const enum Theme {
       sunset: number;
     };
   }
->>>>>>> upstream/main
