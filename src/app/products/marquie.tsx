@@ -25,9 +25,9 @@ const Marquee = () => {
   return (
     <div className="marquee mt-[40px]">
       <div className="marquee-content">
-        {images.map((image, index) => (
+        {/* {images.map((image, index) => (
           <MarqueeItem  key={index} src={image.src} alt={image.alt} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

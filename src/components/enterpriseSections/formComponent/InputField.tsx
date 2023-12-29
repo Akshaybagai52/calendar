@@ -40,7 +40,7 @@ function InputField({ user, selectOpt, textarea }: any) {
                 {user.map((val: any, index: number) => {
                     return (
                         <div key={index} className='flex flex-wrap -mx-3 mb-[5px]'>
-                            <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
+                            <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0 m-auto'>
                                 <label className='block uppercase tracking-wide text-gray-700 text-[16px] font-bold mb-2' htmlFor="">{val.label}</label>
                                 <input
                                     className='appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-500 rounded 

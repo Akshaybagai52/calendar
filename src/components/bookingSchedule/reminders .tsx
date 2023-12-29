@@ -10,20 +10,12 @@ import Autocomplete from '@mui/material/Autocomplete';
 import events from './events'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { title } from 'process';
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { getNotificationLocal } from '@/lib/getNotification';
-
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
 
 export default function ReactBigCalendar() {
-  const dispatch = useAppDispatch();
-  const storeTheme = useAppSelector((state) => state.theme);
-
-
-
   const [eventsData, setEventsData] = useState<any>(events);
   const [viewCalendar, setViewCalendar] = useState<View>("month")
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,68 +23,18 @@ export default function ReactBigCalendar() {
   const [date, setDate] = useState(new Date());
 
 
-const storeNotificationData=(updatedData:any)=>{
-  console.log(updatedData,"updatedData")
-  localStorage.setItem("notification", JSON.stringify(updatedData));
-}
-
-
-const handleSelect = ({ start, end }: any) => {
-  console.log(start, "start");
-  console.log(end, "end");
-
-  const title = window.prompt("New Event name");
-
-  if (title) {
-    const EventData = {
-      id: Math.floor(Math.random() * 10400122),
-      title: title,
-      endDate: end,
-      startDate: start
-    };
-    console.log(EventData,"EventData")
-
-    const existingNotificationData = localStorage.getItem("notification");
-    const parsedData = existingNotificationData ? JSON.parse(existingNotificationData) : [];
-    const all_calendarData = [...parsedData, EventData];
-
-    storeNotificationData(all_calendarData)
-
-    
-    setEventsData([
-      ...eventsData,
-      {
-        start,
-        end,
-        title
-      }
-    ]);
-
-    getNotificationLocal()
-  }
-};
-
-const updateEvents = () => {
-  // Example: Modifying an event's title
-  const updatedEvents = eventsData.map((event:any) => {
-    if (event.title === "Event to Update") {
-      return {
-        ...event,
-        title: "Updated Event Title",
-      };
-    }
-    return event;
-  });
-
-  setEventsData(updatedEvents);
-};
-
-const CustomToolbar = () => (
-  <div>
-    <button onClick={updateEvents}>Update Events</button>
-  </div>
-);
-
+  const handleSelect = ({ start, end }: any) => {
+    const title = window.prompt("New Event name");
+    if (title)
+      setEventsData([
+        ...eventsData,
+        {
+          start,
+          end,
+          title
+        }
+      ]);
+  };
 
   const handleSearch = (e: any) => {
     const searchValue = e.target.value.toLowerCase();
@@ -107,11 +49,12 @@ const CustomToolbar = () => (
     setEventsData(filteredEvents);
   };
 
+
   return (
-    <div className='duration-500'>
+    <div className=''>
       <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ' >
         <input
-          className="w-[220px] h-10 float-left text-[#ccc] bg-transparent px-[5px]  rounded-[3px_0_0_3px] border-0"
+          className="w-[220px] h-10 float-left text-[white] bg-transparent px-[5px] bg-[grey] rounded-[3px_0_0_3px] border-0"
           type="text"
           placeholder="Search events..."
           value={searchTerm}
@@ -119,10 +62,10 @@ const CustomToolbar = () => (
         />
         {searchTerm.length > 2 ? (
           eventsData.length > 0 ? (
-            <div>
+            <div className="relative z-[99]">
               {eventsData.map((deta: any, ind: number) => {
                 return (
-                  <li key={ind} className='bg-slate-600'>
+                  <li key={ind} className='bg-[whitesmoke] list-none pt-[10px] pl-[10px]'>
                     {deta.title} {deta.start.toString()}
                   </li>
                 );
@@ -145,12 +88,11 @@ const CustomToolbar = () => (
         defaultDate={new Date()}
         defaultView="month"
         events={eventsData}
-        style={{ height: "100vh" ,color:storeTheme==="dark"?"white":"black"}}
+        style={{ height: "100vh" }}
         onSelectEvent={(event) => alert(event.title)}
         onSelectSlot={handleSelect}
         date={date}
-       onNavigate={(date) => setDate(date)}
-        
+        onNavigate={(date) => setDate(date)}
       />
     </div>
   );
