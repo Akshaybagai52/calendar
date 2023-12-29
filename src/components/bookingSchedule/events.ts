@@ -50,10 +50,10 @@ export default [
   },
   {
     id: 7,
-    title: "Lunar New Year",
-    start: new Date(2024, 1, 10,0,0,0),
-    end: new Date(2024, 1, 11,0,0,0),
-    desc: "Power lunch",
+    title: "chritmas",
+    start: new Date(2023, 11, 25, 12, 0, 0, 0),
+    end: new Date(2023, 3, 12, 13, 0, 0, 0),
+    desc: "Power lunch"
   },
   {
     id: 8,
