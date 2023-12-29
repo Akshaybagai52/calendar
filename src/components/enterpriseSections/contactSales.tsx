@@ -65,5 +65,4 @@ function ContactSales() {
         </div>
     )
 }
-
 export default ContactSales
