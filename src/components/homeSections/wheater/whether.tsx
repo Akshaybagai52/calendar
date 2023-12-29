@@ -10,8 +10,11 @@ import { WiSunrise } from "react-icons/wi";
 import { FaTemperatureLow } from "react-icons/fa6";
 import { LuDroplets } from "react-icons/lu";
 import { TiArrowMaximise } from "react-icons/ti";
+import { useAppSelector } from '@/store/hooks'
 
 function Weather() {
+    const storeTheme = useAppSelector((state) => state.theme);
+
     const [defaultCity, setDefaultCity] = useState('delhi');
     const [timeGap, setTimeGap] = useState("")
     const [data, setData] = useState({
@@ -72,7 +75,7 @@ function Weather() {
     }
     // getData()
     return (
-        <div style={{ background: 'linear-gradient(80deg, #000428, #004e92)', }}>
+        <div className={`${storeTheme==="dark"?"bg-dark": "bg-dark"}`}>
             <div className='container text-white shadow-[rgba(200,200,200,0.3)_0px_1px_2px_0px,rgba(200,200,200,0.15)_0px_1px_3px_1px] px-5  py-5 rounded-2xl h-[600px]'>
                 <div className='main_weather_box'>
                     <div className='flex justify-between'>

@@ -268,7 +268,8 @@ import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from "uuid";
 import { Span } from "next/dist/trace";
 import dayjs, { Dayjs } from "dayjs";
-uuidv4();
+import {SubmitButton } from "../buttons/buttons";
+uuidv4()
 
 const CheckDestination = () => {
   const storeTheme = useAppSelector((state) => state.theme);
@@ -282,6 +283,7 @@ const CheckDestination = () => {
   const baseUrl = "http://localhost:3000";
 
   const sendEmail = async (e: any) => {
+   
     e.preventDefault();
     const CheckIndDate = checkIn ? dayjs(checkIn).format('MMM D, YYYY h:mm A ') : null;
     const CheckOutDate = checkOut ? dayjs(checkOut).format('MMM D, YYYY h:mm A ') : null;
@@ -383,11 +385,12 @@ const CheckDestination = () => {
                     </LocalizationProvider>
                   </motion.div>
                 </div>
-                <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.5}} whileInView={{y:0}}
+                {/* <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.5}} whileInView={{y:0}}
                   type="submit"
                   value="Submit"
-                  className=" submit_button border bg-white text-black mt-[15px] p-[5px]"
-                />
+                  className=" submit_button border bg-white text-black mt-[15px] p-[5px]" */}
+                {/* /> */}
+                <SubmitButton btnName="Submit" pathName="submit" onSubmit={sendEmail} />
               </div>
 
             </form>

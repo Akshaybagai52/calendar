@@ -9,6 +9,8 @@ import { useState } from "react";
 import "../homePage.css";
 import { BellSvg } from "../notification/svg";
 import NotificationDetails from "../notification/notificationDetails";
+import { Button } from "../buttons/buttons";
+import { string } from "yup";
 
 export default function Navbar() {
   const [FaBarsToggle, setFaBarsToggle] = useState<boolean>(false);
@@ -76,12 +78,13 @@ export default function Navbar() {
 
             <div>
               <ul className=" flex gap-2 items-center ">
-                <li className="sm:hidden text-[black] rounded px-3.5 py-1.5 bg-white">
-                  <Link href="/login">Login</Link>
+                <li>
+                  {/* <Link href="/login">Login</Link> */}
+                  <Button btnName="Login" pathname="login"/>
                 </li>
                 <li className="sm:hidden inline-flex items-center gap-1 relative">
                   <ModeIcon />
-                  <span className="cursor-pointer">
+                  <span className="cursor-pointer" >
                   <BellSvg />{" "}
                   <span
                     className="notification_num text-white absolute top-[6px] left-[74px] right-0 z-1"

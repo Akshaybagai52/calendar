@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useAppSelector } from '@/store/hooks';
+import { Button } from '../buttons/buttons';
 
 export default function Bottom() {
     const storeTheme = useAppSelector((state) => state.theme);
@@ -16,8 +17,10 @@ export default function Bottom() {
                             <div className={`w-full h-auto text-center text-xl leading-[1.4] font-normal ${textColorClass}`}>
                                 <p className='w-full h-auto pb-8'>Get started with the worlds leading Scheduling Automation Platform in seconds for free.</p>
                                 <div className=' flex items-center gap-4 w-full justify-center'>
-                                    <Link className={`cursor-pointer ${textColorClass} border bg-[rgb(0,107,255)] text-lg leading-[1.6] relative h-fit flex-row-reverse inline-flex opacity-100 items-center justify-center gap-2 text-center font-semibold px-[18px] py-2.5 rounded-lg border-solid border-[rgb(0,107,255)] sm:text-[10px]`} href='/register'>Sign up for free</Link>
-                                    <button className={`cursor-pointer text-black bg-white border text-lg leading-[1.6] relative h-fit flex-row-reverse inline-flex opacity-100 items-center justify-center gap-2 text-center font-semibold px-[18px] py-2.5 rounded-lg border-solid border-[rgb(0,107,255)] sm:text-[10px]`}>Talk to sales</button>
+                                    {/* <Link className={`cursor-pointer ${textColorClass} border bg-[rgb(0,107,255)] text-lg leading-[1.6] relative h-fit flex-row-reverse inline-flex opacity-100 items-center justify-center gap-2 text-center font-semibold px-[18px] py-2.5 rounded-lg border-solid border-[rgb(0,107,255)] sm:text-[10px]`} href='/register'>Sign up for free</Link> */}
+                                    <Button btnName="Sign up for free" pathName="Sign up for free"/>
+                                    <Button btnName="Talk to sales" pathName="Talk to sales"/>
+                                    {/* <button className={`cursor-pointer text-black bg-white border text-lg leading-[1.6] relative h-fit flex-row-reverse inline-flex opacity-100 items-center justify-center gap-2 text-center font-semibold px-[18px] py-2.5 rounded-lg border-solid border-[rgb(0,107,255)] sm:text-[10px]`}>Talk to sales</button> */}
                                 </div>
                             </div>
                         </div>
