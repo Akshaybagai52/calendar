@@ -64,7 +64,7 @@ export default function ReactBigCalendar() {
   return (
     <div className="reminders_main">
       <div className="container">
-        <div className="feedback">
+        <div className="feedback m-0">
           <FeedbackBtn />
         </div>
       </div>
