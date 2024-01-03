@@ -28,7 +28,7 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
     });
   };
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
