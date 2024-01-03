@@ -1,16 +1,16 @@
 "use client";
 import { getNotificationLocal } from "@/lib/getNotification";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 
 const notificationDetails = () => {
 
 
-const [throughLine,setThroughLine]=useState<any>([])
+const [ThroughLine,setThroughLine]=useState<any>([])
 
   const removeNotification = (id: number) => {
-    if (!throughLine.includes(id)) {
+    if (!ThroughLine.includes(id)) {
       // If not, add the user to the throughLine array as active
-      const updatedThroughLine = [...throughLine, id];
+      const updatedThroughLine = [...ThroughLine, id];
       setThroughLine(updatedThroughLine);
     }
 
@@ -42,7 +42,7 @@ const [throughLine,setThroughLine]=useState<any>([])
               <div className="" key={item.id}>
                 <div className="flex justify-between items-center shadow-[0px_0px_2px_1px] shadow-white mx-0 my-[7px] p-[5px] rounded-[7px]">
                  {
-              throughLine?.includes(item.id)?( <div className="text-white">
+              ThroughLine?.includes(item.id)?( <div className="text-white">
                   <h3 className={`line-through`}>{item.title}</h3>
                   <p className={`line-through`}> {new Date(item.startDate).toDateString()}</p>
                   <p className={`line-through`}>{new Date(item.endDate).toDateString()}</p>
