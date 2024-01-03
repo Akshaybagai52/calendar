@@ -118,7 +118,7 @@ export default function Plans() {
                 </span>
                 {data?.point4}
               </p>
-              <SubmitButton btnName=" Purchase plan" pathName="checkout" OnClick={() => checkOutPayment(data.title)} />
+              <SubmitButton btnName=" Purchase plan" pathName="checkout" onSubmit={()=>console.log("submit")} OnClick={() => checkOutPayment(data.title)} />
             </div>
           ))}
         </div>{" "}

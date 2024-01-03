@@ -28,7 +28,7 @@ export const Button = ({ btnName, pathname }: any) => {
 };
 
 
-
+  
 
 
 export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, onSubmit,OnClick }) => {

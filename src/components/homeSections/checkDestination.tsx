@@ -390,7 +390,7 @@ const CheckDestination = () => {
                   value="Submit"
                   className=" submit_button border bg-white text-black mt-[15px] p-[5px]" */}
                 {/* /> */}
-                <SubmitButton btnName="Submit" pathName="submit" onSubmit={sendEmail} />
+                <SubmitButton btnName="Submit" pathName="submit" onSubmit={sendEmail} OnClick={()=>console.log("data")} />
               </div>
 
             </form>
