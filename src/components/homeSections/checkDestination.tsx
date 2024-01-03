@@ -320,7 +320,7 @@ const CheckDestination = () => {
   }
   return (
     <>
-      <div className={`sm:mt-[20px] check_destination_main  p-[10px]${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`}>
+      <div className={`sm:mt-[20px] check_destination_main  p-[10px] ${storeTheme==="dark"?"!bg-dark text-white duration-300":"bg-white"}`}>
         <div className="container">
           <DestinationHeadLine />
           <div className="sm:block check_destination_sub-main flex items-center">

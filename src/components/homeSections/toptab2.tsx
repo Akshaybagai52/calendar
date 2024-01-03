@@ -116,7 +116,7 @@ function Toptab2() {
     }
     return (
         <div>
-            <section className={`${storeTheme==="dark"?"bg-black duration-300 text-white":"bg-[rgb(240,243,248)]"}`}>
+            <section className={`${storeTheme==="dark"?"bg-dark duration-300 text-white":"bg-[rgb(240,243,248)]"}`}>
                 <div className="container max-w-[1200px] py-[120px] ">
                     <div className=' tabs flex flex-col gap-16 sm:w-[98%] w-[100%]'>
                         <div className='sm:block flex'>

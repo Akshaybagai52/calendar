@@ -1,12 +1,10 @@
 import React from 'react';
 import "./button-33.css";
 import { useRouter } from "next/navigation";
+import { SubmitButtonProps } from '@/types/types';
 export const Button = ({ btnName, pathname }: any) => {
   const router = useRouter();
-  let loginCss =
-    btnName === "login" || btnName === "bookingtoday"
-      ? "button-33"
-      : "btn-grad";
+
   const handleClick = () => {
     switch (pathname) {
       case "login":
@@ -32,18 +30,19 @@ export const Button = ({ btnName, pathname }: any) => {
 
 
 
-interface SubmitButtonProps {
-  btnName: string;
-  pathName: string;
-  onSubmit: (event: React.MouseEvent<HTMLButtonElement>) => Promise<void> | void;
-}
 
-export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, onSubmit }) => {
+export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, onSubmit,OnClick }) => {
   const handleClick =async(event: React.MouseEvent<HTMLButtonElement>) => {
     switch (pathName) {
       case 'submit':
-       await onSubmit(event);
+        if (onSubmit) {
+          await onSubmit(event);
+        }
         break;
+        case 'checkout':
+          if (OnClick) {
+            await OnClick(event);
+          }
       default:
         break;
     }

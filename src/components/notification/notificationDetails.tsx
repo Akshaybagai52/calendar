@@ -1,25 +1,35 @@
 "use client";
 import { getNotificationLocal } from "@/lib/getNotification";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const notificationDetails = () => {
 
+
+const [throughLine,setThroughLine]=useState<any>([])
+
   const removeNotification = (id: number) => {
+    if (!throughLine.includes(id)) {
+      // If not, add the user to the throughLine array as active
+      const updatedThroughLine = [...throughLine, id];
+      setThroughLine(updatedThroughLine);
+    }
 
-    const updatedNotifications = getNotificationLocal().filter(
-      (notification: any) => notification.id !== id
-    );
 
-    getNotificationLocal();
+    // const updatedNotifications = getNotificationLocal().filter(
+    //   (notification: any) => notification.id !== id
+    // );
 
-    window.localStorage.setItem(
-      "notification",
-      JSON.stringify(updatedNotifications)
-    );
+    // getNotificationLocal();
+
+    // window.localStorage.setItem(
+    //   "notification",
+    //   JSON.stringify(updatedNotifications)
+    // );
 
   };
 
-  
+
+
 
   return (
     <div className={`notification_details bg-black p-2 rounded-[10px] w-[300px] ${!getNotificationLocal()?null:getNotificationLocal().length+1>=3?`h-[${180*getNotificationLocal().length+1>721?300:180*getNotificationLocal().length+1}px] overflow-scroll`:""} `}>
@@ -31,11 +41,17 @@ const notificationDetails = () => {
             return (
               <div className="" key={item.id}>
                 <div className="flex justify-between items-center shadow-[0px_0px_2px_1px] shadow-white mx-0 my-[7px] p-[5px] rounded-[7px]">
-                  <div className="text-white">
-                    <h3>{item.title}</h3>
-                    <p> {new Date(item.startDate).toDateString()}</p>
-                    <p>{new Date(item.endDate).toDateString()}</p>
+                 {
+              throughLine?.includes(item.id)?( <div className="text-white">
+                  <h3 className={`line-through`}>{item.title}</h3>
+                  <p className={`line-through`}> {new Date(item.startDate).toDateString()}</p>
+                  <p className={`line-through`}>{new Date(item.endDate).toDateString()}</p>
+                </div>): <div className="text-white">
+                    <h3 >{item.title}</h3>
+                    <p > {new Date(item.startDate).toDateString()}</p>
+                    <p >{new Date(item.endDate).toDateString()}</p>
                   </div>
+                 }
                   <div>
                     <button
                       className="bg-red-500 rounded p-1 text-white"

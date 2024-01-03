@@ -2,6 +2,7 @@
 import { FcCheckmark } from "react-icons/fc";
 import { useAppSelector } from "@/store/hooks";
 import { checkOut } from "@/lib/checkOut";
+import { SubmitButton } from "@/components/buttons/buttons";
 
 export default function Plans() {
   const storeTheme = useAppSelector((state) => state.theme);
@@ -46,12 +47,16 @@ export default function Plans() {
     const checkOutPayment = (plans:string) => {
       switch (plans) {
         case "Ideas Unfiltered":
+          alert("Unfiltered")
           checkOut(PayId1)
+
           break;
       case "Ideas Brewed":
+        alert("Brewed")
         checkOut(PayId2)
         break;
         case "Ideas Instant":
+          alert("Instant")
           checkOut(PayId3)
           break;
         default:
@@ -113,13 +118,7 @@ export default function Plans() {
                 </span>
                 {data?.point4}
               </p>
-
-              <button
-                className="signup-btn w-full mt-[20px] rounded bg-indigo-500 text-white text-base cursor-pointer h-[45px] border-[none]"
-                onClick={()=>checkOutPayment(data.title)}
-              >
-                Purchase plan
-              </button>
+              <SubmitButton btnName=" Purchase plan" pathName="checkout" OnClick={() => checkOutPayment(data.title)} />
             </div>
           ))}
         </div>{" "}
