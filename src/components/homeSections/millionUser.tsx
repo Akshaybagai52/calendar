@@ -4,12 +4,15 @@ import image2 from '../../assets/download (2).png'
 import image3 from '../../assets/download (3).png'
 import image4 from '../../assets/download (4).png'
 import Image from "next/image";
+import { useAppSelector } from "@/store/hooks";
 const MillionUsers = () => {
+  const storeTheme = useAppSelector((state) => state.theme);
+  
   return (
-    <div className="million_user_main my-[50px]">
+    <div className={`million_user_main py-[50px] ${storeTheme==='dark'?'bg-dark text-white':'bg-white'}`}>
       <div className="container">
         <div className="million_user_content">
-          <h2 className="font-bold text-[30px] text-center my-[20px] ">Loved by 20 million+ users</h2>
+          <h2 className="font-bold text-[30px] text-center  ">Loved by 20 million+ users</h2>
           <div className="slider">
             <figure id="fig">
               <div className="slide">

@@ -7,9 +7,9 @@ import { motion } from 'framer-motion'
 
 function Card() {
     const storeTheme=useAppSelector((state)=>state.theme)
-    const text_colors = storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"
+    const text_colors = storeTheme==="dark"?" bg-dark text-white":"text-[rgb(11,53,88)]"
     return (
-        <div className='mt-[30px] mb-[60px]'>
+        <div className={`pt-[30px] pb-[60px] ${text_colors}`}>
             <div className='container'>
                 <div className='sm:block flex m-auto w-[100%]'>
                     <motion.div animate={{rotate:176}} whileInView={{rotate:0}} transition={{type:"spring" , stiffness:100,delay:0.2}} className='sm:w-[100%] images_card w-[50%]'>
