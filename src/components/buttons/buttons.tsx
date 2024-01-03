@@ -1,7 +1,7 @@
 import React from 'react';
 import "./button-33.css";
 import { useRouter } from "next/navigation";
-import { SubmitButtonProps } from '@/types/types';
+import { Feedback1Props, SubmitButtonProps } from '@/types/types';
 export const Button = ({ btnName, pathname }: any) => {
   const router = useRouter();
 
@@ -43,6 +43,11 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, o
           if (OnClick) {
             await OnClick(event);
           }
+          break;
+          case 'feedback':
+          if (onSubmit) {
+            await onSubmit(event);
+          }
       default:
         break;
     }
@@ -54,3 +59,23 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, o
     </button>
   );
 };
+
+
+
+import style from '../feedback/feedback.module.css'
+ export const FeedbackBtn :React.FC<Feedback1Props>=({btnName,pathName,OnClick})=>{
+  const handleClick =async(event: React.MouseEvent<HTMLButtonElement>) => {
+    switch (pathName) {
+      case 'feedback':
+          await OnClick(event);
+        break;
+      default:
+        break;
+    }
+  };
+    return(
+        <>
+      <button onClick={handleClick} className={style.feedback_btn}>{btnName}</button>
+        </>
+    )
+}
