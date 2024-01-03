@@ -59,6 +59,8 @@ export default function ReactBigCalendar() {
     setEventsData(filteredEvents);
   };
 
+
+
   return (
     <div className="reminders_main">
       <div className="container">
