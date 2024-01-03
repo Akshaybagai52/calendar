@@ -7,8 +7,10 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import events from "./events";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { title } from "process";
-import { FeedbackBtn } from "../feedback/feedBack";
+
+import { FeedbackBtn } from "../buttons/buttons";
+import { FeedbackForm } from "../feedback/feedbackForm";
+import { Ratings } from "../ratings/stars";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -17,6 +19,8 @@ export default function ReactBigCalendar() {
   const [eventsData, setEventsData] = useState<any>(events);
   const [viewCalendar, setViewCalendar] = useState<View>("month");
   const [searchTerm, setSearchTerm] = useState("");
+
+  const [ShowFeedbackForm,setShowfeedbackform]=useState<boolean>(false)
 
   const [date, setDate] = useState(new Date());
 
@@ -60,13 +64,24 @@ export default function ReactBigCalendar() {
   };
 
 
+const handleClickFeedback=()=>{
+  setShowfeedbackform(!ShowFeedbackForm)
+}
+
 
   return (
-    <div className="reminders_main">
+    <div className="reminders_main ">
       <div className="container">
-        <div className="feedback m-0">
-          <FeedbackBtn />
+        <div className="feedback m-0 float-right">
+          <FeedbackBtn btnName="Feedback" pathName="feedback" OnClick={()=>handleClickFeedback()} />
         </div>
+        <div className="ratings">
+<Ratings/>
+        </div>
+        <div className={`${ ShowFeedbackForm ? 'block duration-150 ':' hidden'}  `}>
+          <FeedbackForm setShowfeedbackform={setShowfeedbackform} />
+        </div>
+        
       </div>
       <div className="search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ">
         <input
