@@ -2,7 +2,7 @@
 import { getNotificationLocal } from "@/lib/getNotification";
 import React, {useState } from "react";
 
-const notificationDetails = () => {
+const NotificationDetails = () => {
 
 
 const [ThroughLine,setThroughLine]=useState<any>([])
@@ -71,4 +71,4 @@ const [ThroughLine,setThroughLine]=useState<any>([])
   );
 };
 
-export default notificationDetails;
+export default NotificationDetails;
