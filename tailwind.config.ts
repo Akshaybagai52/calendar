@@ -9,8 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       backgroundColor:{
-dark:"#23233e",
+dark:"#000814",
  "custom_gradient": 'linear-gradient(80deg, #000428, #004e92)',
+      },
+      colors:{
+        "softorange":"#f4a259",
+        "COLORS$softorange$tomatored":" #f25c66",
+        "mediumblu":"#1e272d"
       },
   
      

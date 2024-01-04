@@ -33,3 +33,11 @@ model ScheduleMetting {
   checkIn DateTime
   checkOut DateTime
 }
+
+model Feedback_user{
+  id String  @id @default(uuid())
+  user_id String
+  user_email String
+  feedback String
+  user_name String 
+}

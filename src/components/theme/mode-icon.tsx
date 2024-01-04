@@ -30,11 +30,11 @@ function ModeIcon() {
 
   return (
     <>
-      <div className="sm:text-black flex rounded-[20px] bg-white h-[34px] w-[60px] gap-3 p-2 relative ">
-        <button onClick={() => dispatch(setTheme(Theme.DARK))} >
+      <div className={`sm:text-black flex rounded-[20px] w-[60px] gap-3 p-2 relative ${currentTheme===Theme.DARK?'bg-white text-black':'bg-white text-black'}`} >
+        <button onClick={ toggleTheme} >
           <FaSun />
         </button>
-        <button onClick={() => dispatch(setTheme(Theme.LIGHT))} >
+        <button onClick={(toggleTheme)} >
           <FaMoon />
         </button>
         <span className={`absolute rounded-full bg-black z-10  transition-all h-[20px] w-[20px]   ${

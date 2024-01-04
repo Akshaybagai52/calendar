@@ -1,0 +1,7 @@
+.ratingStar {
+    width: 20%;
+    background: black;
+    color: white;
+    padding: 3px;
+    border-radius: 10px;
+}
