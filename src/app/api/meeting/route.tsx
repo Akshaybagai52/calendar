@@ -14,7 +14,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     // const CheckInTime = checkIn ? dayjs(checkIn).format('h:mm A') : null;
     // const CheckInOutTime = checkOut ? dayjs(checkOut).format('h:mm A') : null;
 
-    const createdMeeting = await prisma.event.create({
+    const createdMeeting = await prisma.eventBooking.create({
       data: {
         email: email,
         checkIn: checkIn,
@@ -36,13 +36,13 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const mailOption = {
       from: '"Pradeep Chauhan 👻" <pradeepchauhan8051@gmail.com>',
       to: email,
-      subject: `Your Meeting Schedule Confirmation At ${CheckIndDate} and ${CheckTime}`,
+      subject: `Your Meeting Schedule Confirmation At ${checkIn} to ${checkOut}`,
       html: `
         <p>Dear ${email},</p>
         <p>We hope this message finds you well.</p>
         <p>This is to confirm the scheduled meetings you have arranged with us. Here are the details:</p>
         <ul>
-          <li>Meeting Date: ${CheckIndDate}</li>
+          <li>Meeting Date: ${checkIn}</li>
           <li>Meeting Time: ${CheckTime}</li>
         </ul>
         <p>Please make sure to mark your calendar and set a reminder for this meeting. If for any reason you need to reschedule or have any queries, feel free to reach out to us.</p>
