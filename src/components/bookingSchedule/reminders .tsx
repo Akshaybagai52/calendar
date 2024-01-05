@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, Navigate, View, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import Box from "@mui/material/Box";
@@ -11,6 +11,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { FeedbackBtn } from "../buttons/buttons";
 import { FeedbackForm } from "../feedback/feedbackForm";
 import { Ratings } from "../ratings/stars";
+import { getApiWithId } from "@/utils/api";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -67,6 +68,13 @@ export default function ReactBigCalendar() {
 const handleClickFeedback=()=>{
   setShowfeedbackform(!ShowFeedbackForm)
 }
+
+
+
+useEffect(()=>{
+  let user_email ="pradeep@gmail.com"
+getApiWithId(user_email)
+},[])
 
 
   return (

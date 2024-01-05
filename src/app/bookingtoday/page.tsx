@@ -4,7 +4,7 @@ import Reminders  from '@/components/bookingSchedule/reminders ';
 import React from 'react'
  const BookingToday =()=>{
     return(
-        <div className='mt-[117px]'>
+        <div className='mt-[78px] pt-5'>
         <Reminders/>
         </div>
     )

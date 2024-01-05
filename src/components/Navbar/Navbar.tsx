@@ -11,11 +11,13 @@ import { BellSvg } from "../notification/svg";
 import NotificationDetails from "../notification/notificationDetails";
 import { Button } from "../buttons/buttons";
 import { useAppSelector } from "@/store/hooks";
+import { OnscrollFile } from "@/lib/onScrollFile";
 
 export default function Navbar() {
   const [FaBarsToggle, setFaBarsToggle] = useState<boolean>(false);
   const router = usePathname();
   let localNotification: any = localStorage.getItem("notification");
+  const [NavbarDrop,setNavbarDrop]=useState<boolean>(false)
   const storeNotification: any = JSON.parse(localNotification);
   const storeTheme = useAppSelector((state) => state.theme);
 
@@ -37,16 +39,43 @@ export default function Navbar() {
       }
     };
     document.addEventListener("mousedown", handler);
+
+
     return () => {
       document.removeEventListener("mousedown", handler);
+   
     };
   });
-
+// console.log(OnscrollFile(),"ppp")
   // outside click EventListener 
+
+
+  const changeBackground = () => {
+    console.log(window.scrollY)
+    if (window.scrollY >= 20) {
+      setNavbarDrop(true)
+    } else {
+      setNavbarDrop(false)
+    }
+  }
+
+  useEffect(() => {
+    changeBackground()
+    // adding the event when scroll change background
+    window.addEventListener("scroll", changeBackground)
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+   
+    };
+  })
+
+
+
+
   return (
     <div>
       {/* <Navbar /> */}
-      <header className={`border-solid fixed z-[999] top-0 inset-x-0  ${storeTheme === 'dark' ? 'bg-dark text-white' : 'bg-black'} `}>
+      <header className={` border-solid fixed z-[999] top-0 inset-x-0  ${storeTheme === 'dark' ? NavbarDrop?'backdrop-blur-xl bg-[#18161666]':'bg-dark text-white' :NavbarDrop?'backdrop-blur-xl':'bg-black'} `}>
         <div className="container ">
           <div className="flex justify-between items-center relative ">
             {/* Logo */}

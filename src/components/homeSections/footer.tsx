@@ -7,7 +7,7 @@ const Footer = () => {
     const storeTheme = useAppSelector((state) => state.theme)
     return (
 
-        <footer className={`${storeTheme==="dark"?'bg-black text-white duration-300 border-t border-white':'bg-[white]'}`}>
+        <footer className={`${storeTheme==="dark"?'bg-dark text-white duration-300 border-t border-white':'bg-[white]'}`}>
         
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="footer_menus">

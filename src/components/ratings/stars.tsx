@@ -1,17 +1,35 @@
+import { useEffect, useState } from "react";
+import './ratings.css'
+
 export const Ratings = () => {
-  let stars: number[] = [1, 2, 3, 4, 5];
+  let stars:number[]=[1,2,3,4,5]
+const [ratings,setRatings]=useState<any[]>([])
+console.log(ratings,"stars")
+
+
+const handleClickStar=(ele:any)=>{
+  let starNew: number[] = [];
+  for(  let i:any= 1;i<=ele;i++){
+
+    starNew.push(i)
+  }
+  setRatings(starNew)
+}
+
   return (
     <div className="flex gap-1  items-center">
          <p>Ratings:</p>
-      {stars.map((ele) => {
+      {stars.map((ele:number) => {
         return (
           <div key={ele} >
            
             <svg
+           onClick={()=>handleClickStar(ele)}
               aria-hidden="true"
               height="16"
               viewBox="0 0 16 16"
               version="1.1"
+             fill={`${ratings.includes(ele)?"#1de9b6":"black"}`}
               width="16"
               data-view-component="true"
               className="octicon octicon-star-fill starred-button-icon d-inline-block mr-2"
