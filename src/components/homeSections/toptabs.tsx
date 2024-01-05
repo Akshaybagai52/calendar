@@ -14,6 +14,7 @@ import tab6 from "../../components/homeSections/images/tab6.webp";
 import Image from 'next/image'
 import { motion } from "framer-motion";
 import { useAppSelector } from "@/store/hooks";
+import { TabButtons } from "../buttons/buttons";
 const Toptabs = () => {
     const storeTheme = useAppSelector((state) => state.theme);
     const [currentTab, setCurrentTab] = useState('1');
@@ -101,6 +102,7 @@ const Toptabs = () => {
     ];
 
     const handleTabClick = (e: any) => {
+       
         setCurrentTab(e.target.id);
     }
 
@@ -111,14 +113,20 @@ const Toptabs = () => {
                 animate={{x:-160}} transition={{type:"spring" , stiffness:100 , delay:0.2}} whileInView={{x:0}}
                 className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?" text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</motion.h1>
                 <div className='tabs flex justify-between'>
-                    <div className="flex items-center justify-center w-[98%]">
-                        {tabs.map((tab) =>
+                    <div className="flex items-center gap-2 w-[100%]">
+                    {tabs.map((tab) =>
+             
+
+                     <TabButtons key={tab.id} id={tab.id}  icon={tab.img6} tabName={tab.tabTitle} onClick={handleTabClick}/>
+                 
+                        )}
+                        {/* {tabs.map((tab) =>
                             <motion.button 
                             animate={{y:-50}}
                             transition={{type:"spring",stiffness:100,delay:tab.delay}} whileInView={{y:0}} className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid bg-[lightgray] text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
                          transition-all duration-[0.3s] ease-[ease-out] pb-[25px] border-[none] hover:text-[grey] hover:bg-[rgba(255,255,255,0.15)] disabled:text-[white] "
-                                key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.img6} {tab.tabTitle}</motion.button>
-                        )}
+                                key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.im}{tab.tabTitle}</motion.button>
+                        )} */}
                     </div>
 
                 </div>

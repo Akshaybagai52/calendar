@@ -3,9 +3,11 @@ import Image from "next/image";
 import Illustration from "../../assets/Illustration.webp";
 import MillionUsers from "@/components/homeSections/millionUser";
 import Marquee from "./marquie";
-import Bottom from "@/components/homeSections/bottom";
+
 import Footer from "@/components/homeSections/footer";
 import { useAppSelector } from "@/store/hooks";
+import { Button } from "@/components/buttons/buttons";
+import Bottom from "@/components/homeSections/bottom";
 // import "../products/product.css";
 
 export default function Product() {
@@ -31,12 +33,14 @@ export default function Product() {
                 advanced security features
               </p>
               <div className="flex gap-4 justify-center">
-                <button className="cursor-pointer text-white border bg-[rgb(0,107,255)] text-lg font-semibold px-8 py-2.5 rounded-lg">
+                <Button btnName="Sign Up for Free" pathName="Sign Up for Free" />
+                {/* <button className="cursor-pointer text-white border bg-[rgb(0,107,255)] text-lg font-semibold px-8 py-2.5 rounded-lg">
                   Sign Up for Free
-                </button>
-                <button className="cursor-pointer text-[rgb(0,107,255)] bg-white border text-lg font-semibold px-8 py-2.5 rounded-lg">
+                </button> */}
+                   <Button btnName="Talk to sales" pathName="Sign Up for Free" />
+                {/* <button className="cursor-pointer text-[rgb(0,107,255)] bg-white border text-lg font-semibold px-8 py-2.5 rounded-lg">
                   Talk to sales
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="container max-w-[1040px]">

@@ -2,20 +2,50 @@ import { FeedBackProps } from "@/types/types";
 import { FeedbackData, FeedbackDataMessage } from "@/data/feedbackFormData";
 import { useForm, FieldError } from "react-hook-form";
 import { SubmitButton } from "../buttons/buttons";
-import { useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { CorssSvg } from "../corssSvg/corsSvg";
-import './feedbackForm.css'
+import "./feedbackForm.css";
+import { FeedbackSaveApi, getApiWithId } from "@/utils/api";
+import { Loader } from "../loader/loader";
 export const FeedbackForm = ({ setShowfeedbackform }: any) => {
+  const [uniqueUser, setUniqueUser] = useState<any>();
+  const [isLoader, setIsLoader] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
+reset,
     setError,
   } = useForm();
 
-  const onSubmit = async (data: any) => {
-    console.log(data, "iiii");
+  useEffect(() => {
+    let user_email = "pradeep@gmail.com";
+    const getData = async () => {
+      let userData: any = await getApiWithId(user_email);
+
+      setUniqueUser(userData);
+    };
+    getData();
+  }, []);
+
+  console.log(uniqueUser, "unique");
+  const onSubmit = async (feeddata: any | string) => {
+    if (!feeddata) {
+      console.log("feedback not found");
+    }
+    let feedUserData = { ...feeddata, user_id: uniqueUser.id };
+    let responseApi: any = await FeedbackSaveApi(feedUserData);
+    console.log(responseApi, "oooooo");
+   reset()
+    if (responseApi.status === 200) {
+
+      setIsLoader(true);
+    } else {
+      setIsLoader(false);
+    }
   };
+
   const errorMessages: Record<string, string> = {
     user_name: "Please enter a valid name.",
     user_email: "Please enter a valid email address.",
@@ -51,7 +81,7 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
           className="contact-form feedback_main w-[300px] mx-auto border border-black p-2 overflow-hidden   rounded-[10px]"
         >
           <form onSubmit={handleSubmit(onSubmit)} className="relative">
-<div
+            <div
               className="close_popup float-right  cursor-pointer"
               onClick={() => setShowfeedbackform(false)}
             >
@@ -65,11 +95,7 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
               const inputError = errors[inputs.name] as FieldError | undefined;
               return (
                 <div key={index} className="mt-3 form-group">
-                 
-                 <p
-                    
-                    className=" user_label !inline-block font-bold  "
-                  >
+                  <p className=" user_label !inline-block font-bold  ">
                     {inputs.label} -:
                   </p>
                   {inputs.type === "email" ? (
@@ -82,15 +108,13 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
                           await validateAtLeastOneField(inputs.name);
                         }}
                       />
-                       <div className="h-6">
+                      <div className="h-6">
                         {errors[inputs.name] && (
                           <span className="text-[15px] text-red-600">
                             {inputError?.message || "fields required"}
                           </span>
                         )}
                       </div>
-                      
-                     
                     </>
                   ) : (
                     <>
@@ -140,18 +164,20 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
                 </div>
               );
             })}
-
-            <SubmitButton
-              btnName="Submit Feedback"
-              pathName="feedback"
-              onSubmit={handleSubmit(onSubmit)}
-              OnClick={() => console.log("feedback")}
-            />
+            <div className="submitFeedback relative">
+              <SubmitButton
+                btnName={isLoader ? "feedback submitted" : "Submit Feedback"}
+                pathName="feedback"
+                onSubmit={handleSubmit(onSubmit)}
+                OnClick={() => console.log("feedback")}
+              />
+              {/* <div className="loader_des absolute top-[10px] right-[29px] ">
+                <Loader isLoader={isLoader} />
+              </div> */}
+            </div>
           </form>
         </div>
       </div>
     </div>
   );
 };
-
-

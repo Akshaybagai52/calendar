@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "../../assets/Logo/logo_booking2.png";
+import logo from "../../assets/logo-white.png";
 import { FaBars } from "react-icons/fa";
 import ModeIcon from "../theme/mode-icon";
 import Image from "next/image";
@@ -75,12 +75,12 @@ export default function Navbar() {
   return (
     <div>
       {/* <Navbar /> */}
-      <header className={` border-solid fixed z-[999] top-0 inset-x-0  ${storeTheme === 'dark' ? NavbarDrop?'backdrop-blur-xl bg-[#18161666]':'bg-dark text-white' :NavbarDrop?'backdrop-blur-xl':'bg-black'} `}>
+      <header className={` border-solid fixed z-[999] top-0 inset-x-0  ${storeTheme === 'dark' ? NavbarDrop?'backdrop-blur-xl !bg-[#18161666]':'bg-dark text-white' :NavbarDrop?'backdrop-blur-xl bg-[#18161666]':'bg-black'} `}>
         <div className="container ">
           <div className="flex justify-between items-center relative ">
             {/* Logo */}
             <Link href={"/"} className="text-red-500 font-bold text-4xl">
-              <Image src={logo} alt="logo" className="sm:w-[64px] w-[100px] mx-0 my-[5px] px-[5px] py-[7px] rounded-[9px] bg-white" />
+              <Image src={logo} alt="logo" className="sm:w-[64px] w-[70px] mx-0 my-[5px] px-[5px] py-[7px]  " />
             </Link>
 
             {/* Navigation Links */}
@@ -157,7 +157,7 @@ export default function Navbar() {
               className={`absolute top-[96px] ${
                 showNotification
                   ? "right-[-150px] duration-500"
-                  : "right-[-500px]  duration-500"
+                  : "right-[-1000px]  duration-500 hidden "
               }  `}
             >
               <NotificationDetails />
