@@ -59,7 +59,7 @@ export const GET = async (req: Request, res: Response) => {
 //       id: "780b9979-1262-4ff2-8562-373c72017553",
 //     },
 // })
-    return NextResponse.json({ msg: "OK", ret }, { status: 200 });
+    return NextResponse.json({ msg: "OK" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ msg: "Unable to retrieve users.", error }, { status: 500 });
   }
