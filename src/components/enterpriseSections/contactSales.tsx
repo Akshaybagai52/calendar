@@ -54,8 +54,8 @@ function ContactSales() {
                                  justify-center gap-2 text-left font-semibold p-0 rounded-lg'>contact Support</button>
                             </div>
                         </div>
-                        <div className='form relative box-border z-10 flex flex-col items-start bg-white border shadow-[rgba(45,40,77,0.1)_0px_12px_32px] 
-                p-8 rounded-lg border-solid border-[rgb(231,237,246)]'>
+                        <div className={`form relative box-border z-10 flex flex-col items-start border shadow-[rgba(45,40,77,0.1)_0px_12px_32px] 
+                p-8 rounded-lg border-solid border-[rgb(231,237,246)] ${storeTheme === "dark" ? 'bg-black text-white duration-300' : 'bg-[white]'}`}>
                             <InputField user={formBasic} selectOpt={selectOption} textarea={textArea} />
                         </div>
 

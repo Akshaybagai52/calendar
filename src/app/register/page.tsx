@@ -118,7 +118,7 @@ export default function Register() {
 
     return (
         <div>
-            <div className="bg-slate-200 h-[570px]">
+            <div className="bg-slate-200 h-[570px] mt-[100px]">
                 <ToastContainer position="top-center"
                     autoClose={3000}
                     hideProgressBar={false}
