@@ -1,17 +1,31 @@
 import dayjs from "dayjs";
 import { NextResponse, NextRequest } from "next/server";
+import prisma from "../../../../lib/db";
 const nodemailer = require("nodemailer");
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
-    const { fname,lName, email, city, event, CheckOutTime, checkIn } =
+    const { fname,lName, email, city, event, checkOut, checkIn } =
       await req.json();
     const CheckIndDate = checkIn
       ? dayjs(checkIn).format("MMM D, YYYY h:mm A")
       : null;
-    const CheckTime = CheckOutTime
-      ? dayjs(CheckOutTime).format("h:mm A")
+    const CheckTime = checkOut
+      ? dayjs(checkOut).format("h:mm A")
       : null;
+
+      const createdMeeting = await prisma.calendarBooking.create({
+        data: {
+          fname:fname,
+          lName:lName,
+          email: email,
+          city:city,
+          event:event,
+          checkIn: checkIn,
+          checkOut: checkOut,
+          // Add other fields as required by your Meeting model
+        },
+      });
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -26,7 +40,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const mailOption = {
       from: '"Pradeep Chauhan 👻" <pradeepchauhan8051@gmail.com>',
       to: email,
-      subject: `Your Meeting ${event} Schedule Confirmation At ${checkIn} and ${CheckOutTime}`,
+      subject: `Your Meeting ${event} Schedule Confirmation At ${checkIn} and ${checkOut}`,
       html: `
         <p>Dear ${fname} ${lName},</p>
         <p>We hope this message finds you well.</p>
@@ -46,7 +60,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     await transporter.sendMail(mailOption);
 
     return NextResponse.json(
-      { message: "Email Sent Successfully", mailOption },
+      { message: "Email Sent Successfully", mailOption,createdMeeting },
       { status: 200 }
     );
   } catch (error) {

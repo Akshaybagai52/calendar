@@ -49,3 +49,14 @@ model Feedback_user{
   feedback String
   user_name String 
 }
+
+model calendarBooking {
+  id String @id @default(uuid())
+  fname String
+  lName String
+  email String
+  city String
+  event String
+  checkIn String
+  checkOut String
+}

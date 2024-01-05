@@ -7,10 +7,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ErrorMessage } from "@hookform/error-message"
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Schema } from '../enterpriseSections/formComponent/validations';
 import { yupResolver } from "@hookform/resolvers/yup"
 import { formBasic, details } from "../enterpriseSections/formComponent/data"
+import { SubmitButton } from '../buttons/buttons';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -23,47 +24,43 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-// interface buttonProps {
-//     handleClose:(event:React.FC<>)
-// }
+
 export default function Popup({ setOpen, open, handleClose }: any) {
     // console.log(formBasic, "fff");
 
     const [data, setData] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(Schema) });
     const baseUrl = "http://localhost:3000";
-    
-    const onSubmit = async (data: any, e: any) => {
-        console.log(data,"data");
-        e.preventDefault();
-    
-        
-        setData(data);
-        console.log(data, "datasend");
-        alert(data?.fname)
 
-        const res = await fetch(`${baseUrl}/api/eventbooking`, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        })
-            // HANDLING ERRORS
-            .then((res) => {
-                console.log(res);
-                if (res.status > 199 && res.status < 300) {
-                    alert("Send Successfully !");
-                    setData("")
-                }
+    const onSubmit = async (data: any, e: any) => {
+        e.preventDefault();
+
+        try {
+            const res = await fetch(`${baseUrl}/api/eventbooking`, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
             });
-    }
-    // const handleOpen=()=>setOpen(true);
-    // const handleClose = () => setOpen(false);
+
+            if (res.ok) {
+                alert("Send Successfully !");
+                setData("");
+            } else {
+                alert("Failed to send data. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while sending the data. Please try again later.");
+        }
+    };
+
     return (
         <div>
-            {/* <Button onClick={handleOpen}>button</Button> */}
+          
+          
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -78,15 +75,15 @@ export default function Popup({ setOpen, open, handleClose }: any) {
                 }}
             >
                 <Fade in={open} >
-                    <form onSubmit={handleSubmit(onSubmit)} className=' absolute boxshadow-[24] top-[50%] -translate-x-2/4 -translate-y-2/4 left-[50%] w-[500px] h-[450px] max-w-lg bg-[white] overflow-scroll '>
+                    <form onSubmit={handleSubmit(onSubmit)} className=' absolute boxshadow-[24] top-[50%] -translate-x-2/4 -translate-y-2/4 left-[50%] w-[500px] h-[450px] max-w-lg bg-[white] overflow-x-hidden   '>
                         {
                             formBasic.map((val: any, index: number) => {
                                 return (
-                                    <div key={index} className='flex flex-wrap mb-[5px]'>
-                                        <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0 m-auto'>
+                                    <div key={index} className='flex flex-wrap mb-[5px] mt-[20px]'>
+                                        <div className='w-full md:w-1/2 pl-7 pr-3 md:mb-0 m-0'>
                                             <label className='block uppercase tracking-wide text-gray-700 text-[16px] font-bold mb-2' htmlFor="">{val.label}</label>
                                             <input
-                                                className='appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-500 rounded 
+                                                className='appearance-none block w-[97%] bg-gray-200 text-gray-700 border border-grey-500 rounded 
                                             py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
                                                 {...register(val.name, {
                                                     required: true,
@@ -102,7 +99,7 @@ export default function Popup({ setOpen, open, handleClose }: any) {
                                 )
                             })
                         }
-                        <div className='flex flex-wrap -mx-3 mb-2'>
+                        {/* <div className='flex flex-wrap -mx-3 mb-2'> */}
                             <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>
                                 {
                                     details.map((val: any, index: number) => {
@@ -111,7 +108,7 @@ export default function Popup({ setOpen, open, handleClose }: any) {
                                                 <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0 m-auto'>
                                                     <label className='block uppercase tracking-wide text-gray-700 text-[16px] font-bold mb-2' htmlFor="">{val.label}</label>
                                                     <input
-                                                        className='appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-500 rounded 
+                                                        className='appearance-none block w-[97%] bg-gray-200 text-gray-700 border border-grey-500 rounded 
                                             py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
                                                         {...register(val.name, {
                                                             required: true,
@@ -127,9 +124,9 @@ export default function Popup({ setOpen, open, handleClose }: any) {
                                         )
                                     })
                                 }
-                            </div>
+                            {/* </div> */}
                             <button
-                                className="signup-btn w-full rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
+                                className="signup-btn w-[93%] ml-2 mr-[52px]  rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
                                 type="submit">
                                 Submit
                             </button>
