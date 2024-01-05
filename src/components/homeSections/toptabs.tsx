@@ -105,11 +105,11 @@ const Toptabs = () => {
     }
 
     return (
-        <>
-            <div className='container'>
+        <div className={`${storeTheme==="dark"?"bg-dark":"bg-[white]"} duration-300`}>
+            <div className='container '>
                 <motion.h1 
                 animate={{x:-160}} transition={{type:"spring" , stiffness:100 , delay:0.2}} whileInView={{x:0}}
-                className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?"text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</motion.h1>
+                className={`sm:text-[2.125rem] text-[3.125rem] leading-[1.2] font-bold  text-center mb-14 ${storeTheme==="dark"?" text-white":"text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams<br /> who conduct meetings at scale</motion.h1>
                 <div className='tabs flex justify-between'>
                     <div className="flex items-center justify-center w-[98%]">
                         {tabs.map((tab) =>
@@ -122,7 +122,7 @@ const Toptabs = () => {
                     </div>
 
                 </div>
-                <div className={`content  font-light leading-[30px] text-base pb-[50px] ${storeTheme==="dark"?"bg-black":"bg-[white]"}`}>
+                <div className={`content  font-light leading-[30px] text-base pb-[50px] `}>
 
                     <div className="main">
                         {tabs.map((tab, i) =>
@@ -151,7 +151,7 @@ const Toptabs = () => {
                 </div>
             </div>
 
-        </>
+        </div>
     );
 };
 export default Toptabs;

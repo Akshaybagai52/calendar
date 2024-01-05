@@ -268,7 +268,8 @@ import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from "uuid";
 import { Span } from "next/dist/trace";
 import dayjs, { Dayjs } from "dayjs";
-uuidv4();
+import {SubmitButton } from "../buttons/buttons";
+uuidv4()
 
 const CheckDestination = () => {
   const storeTheme = useAppSelector((state) => state.theme);
@@ -282,6 +283,7 @@ const CheckDestination = () => {
   const baseUrl = "http://localhost:3000";
 
   const sendEmail = async (e: any) => {
+   
     e.preventDefault();
     const CheckIndDate = checkIn ? dayjs(checkIn).format('MMM D, YYYY h:mm A ') : null;
     const CheckOutDate = checkOut ? dayjs(checkOut).format('MMM D, YYYY h:mm A ') : null;
@@ -318,7 +320,7 @@ const CheckDestination = () => {
   }
   return (
     <>
-      <div className={`sm:mt-[20px] check_destination_main  p-[10px]${storeTheme==="dark"?"!bg-[#000000] text-white duration-300":"bg-white"}`}>
+      <div className={`sm:mt-[20px] check_destination_main  p-[10px] ${storeTheme==="dark"?"!bg-dark text-white duration-300":"bg-white"}`}>
         <div className="container">
           <DestinationHeadLine />
           <div className="sm:block check_destination_sub-main flex items-center">
@@ -383,11 +385,12 @@ const CheckDestination = () => {
                     </LocalizationProvider>
                   </motion.div>
                 </div>
-                <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.5}} whileInView={{y:0}}
+                {/* <motion.input animate={{x:0,y:-50}} transition={{ type: "spring", stiffness: 100,delay:0.5}} whileInView={{y:0}}
                   type="submit"
                   value="Submit"
-                  className=" submit_button border bg-white text-black mt-[15px] p-[5px]"
-                />
+                  className=" submit_button border bg-white text-black mt-[15px] p-[5px]" */}
+                {/* /> */}
+                <SubmitButton btnName="Submit" pathName="submit" onSubmit={sendEmail} OnClick={()=>console.log("data")} />
               </div>
 
             </form>

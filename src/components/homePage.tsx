@@ -15,9 +15,9 @@ import NotificationAlerts from "./notification/notificationAlerts";
 // import { SlickSlider } from "./sliderBox/slider";
 
 const HomePage = () => {
-const [aletNotification,setAlertNotification]=useState<boolean>(false)
+  
     return (
-        <>
+        <div>
 
             <Banner />
             <Weather />
@@ -30,7 +30,7 @@ const [aletNotification,setAlertNotification]=useState<boolean>(false)
             {/* <SlickSlider/> */}
             <Bottom />
             <Footer /> 
-        </>
+        </div>
     )
 }
 export default HomePage;

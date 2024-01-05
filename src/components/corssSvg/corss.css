@@ -1,0 +1,33 @@
+
+
+/* $softorange: #f4a259;
+COLORS$softorange$tomatored: #f25c66;
+$mediumblu: #1e272d; */
+
+
+.close-container{
+    @apply relative w-[40px] h-[50px] cursor-pointer ;
+  }
+  .leftright {
+    @apply h-1 w-[20px] absolute bg-softorange rotate-45 transition-all duration-[0.3s] ease-[ease-in] mt-6 rounded-sm;
+  }
+  .rightleft {
+    @apply h-1 w-[20px] absolute bg-softorange -rotate-45 transition-all duration-[0.3s] ease-[ease-in] mt-6 rounded-sm;
+  }
+  label {
+    @apply text-[white] text-[0.6em] uppercase tracking-[2px] transition-all duration-[0.3s] ease-[ease-in] opacity-0;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .close {
+    @apply absolute ml-[5px] mr-0 mt-[60px] mb-0;
+  }
+  .close-container:hover .leftright {
+    @apply -rotate-45 bg-[$tomatored];
+  }
+  .close-container:hover .rightleft {
+    @apply rotate-45 bg-[tomatored];
+  }
+  .close-container:hover label {
+    @apply opacity-100;
+  }
+  

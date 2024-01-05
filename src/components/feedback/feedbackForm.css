@@ -1,0 +1,74 @@
+.contact-form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    animation: fadeInUp 1s ease;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+.close-container {
+    position: relative;
+    cursor: pointer;
+    margin-top: -34px;
+    margin-right: -28px;
+    background: red;
+    width: 31px;
+    height: 40px;
+    border-radius: 18px;
+}
+.rightleft {
+    position: absolute;
+    margin-top: 1.5rem;
+    height: 0.25rem;
+    width: 20px;
+    margin-left: 2px;
+    --tw-rotate: -45deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-radius: 0.125rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(244 162 89 / var(--tw-bg-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+.leftright {
+    position: absolute;
+    margin-top: 1.5rem;
+    /* padding: 0px; */
+    margin-left: 1px;
+    height: 0.25rem;
+    width: 20px;
+    --tw-rotate: 45deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-radius: 0.125rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(244 162 89 / var(--tw-bg-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
