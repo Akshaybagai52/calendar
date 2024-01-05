@@ -13,7 +13,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
     // const CheckInTime = checkIn ? dayjs(checkIn).format('h:mm A') : null;
     // const CheckInOutTime = checkOut ? dayjs(checkOut).format('h:mm A') : null;
-    console.log(prisma.event);
 
     const createdMeeting = await prisma.event.create({
       data: {
