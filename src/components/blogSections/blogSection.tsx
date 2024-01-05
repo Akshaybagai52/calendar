@@ -4,12 +4,14 @@ import { tabs } from "../../components/data/blogsData.ts/blogs"
 import Image from 'next/image'
 import { motion } from "framer-motion";
 import { useAppSelector } from "@/store/hooks";
+import "../../app/globals.css"
 
 const BlogSection = () => {
     const storeTheme = useAppSelector((state) => state.theme);
     const [currentTab, setCurrentTab] = useState('1');
     const [readMore, setReadMore] = useState('');
     const [isShowMore, setIsShowMore] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
 
     const toggleReadMoreLess = (idd: any) => {
@@ -45,11 +47,11 @@ const BlogSection = () => {
 
                             <div key={idx} className="relative">
                                 <div className={` sm:w-full  w-[300px] content pt-[45px] mb-[10px]  `}>
-                                    <motion.div animate={{ scale: 0 }} transition={{ type: "spring", stiffness: 100, delay: 0.1 }} whileInView={{ scale: 1 }} className="image sm:w-full w-[100%]  ">
-                                        < Image src={item.img1} width={300} height={200} className="" alt="Image" />
+                                    <motion.div animate={{ scale: 0 }} onMouseLeave={() => setIsHovered(false)} onMouseEnter={() => setIsHovered(true)} transition={{ type: "spring", stiffness: 100, delay: 0.1 }} whileInView={{ scale: 1 }} className="image sm:w-full w-[100%]  ">
+                                        < Image src={item.img1} width={300} height={200}  className="image_card opacity-100 transition-opacity duration-500 hover:opacity-60" alt="Image" />
                                     </motion.div>
                                     <div className="">
-                                        <span className="bg-blue-400 text-xs text-white uppercase px-2 py-1 rounded-full absolute top-[45px]">{item.tag}</span>
+                                        <span className={`techno absolute bg-blue-400 text-xs text-white uppercase px-2 py-1 rounded-full  top-[45px] opacity-0 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>{item.tag}</span>
                                         <h3 className={`text-[20px] font-semibold hover:underline m-0  ${storeTheme === "dark" ? "text-white" : "text-[black] "}`}>{item.title}</h3>
 
                                         <p className="text-[15px] text-[grey] pt-1.5 pb-[5px]">

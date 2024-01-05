@@ -11,27 +11,35 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(uuid())
-  name  String
-  email String  @unique
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
   password String
 }
+
 model createUsers {
-  id String @id @default(uuid())
-  name String
-  email String @unique
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
   password String
 }
 
 model ScheduleMetting {
-  id   String @id @default(uuid())
-  name String
-  email String 
-  country String
-  state String
-  city String
-  checkIn DateTime
+  id       String   @id @default(uuid())
+  name     String
+  email    String
+  country  String
+  state    String
+  city     String
+  checkIn  DateTime
   checkOut DateTime
+}
+
+model eventBooking {
+  id       String   @id @default(uuid())
+  email    String
+  checkIn  String
+  checkOut String
 }
 
 model Feedback_user{
@@ -40,4 +48,15 @@ model Feedback_user{
   user_email String
   feedback String
   user_name String 
+}
+
+model calendarBooking {
+  id String @id @default(uuid())
+  fname String
+  lName String
+  email String
+  city String
+  event String
+  checkIn String
+  checkOut String
 }

@@ -20,7 +20,7 @@ export const formBasic = [
   },
 ];
 
-const meetingType = [
+export const meetingType = [
   "Hosting Meeting MySelf",
   "with a small team (2-10) users",
   "with a larger team (11+) users",
@@ -42,4 +42,31 @@ export const textArea = [
     label: "How can we help?. (optional)",
     placeholder:'Enter a description...'
   },
-];
+]; 
+export const details=[
+  {
+    name:"city",
+    label: "City",
+    placeholder:'Enter Your City',
+    type: "text",
+  },
+  {
+    name:"event",
+    label: "Event",
+    placeholder:'Events Name',
+    type: "text",
+  },
+  {
+    name:"chechIn",
+    label: "Check In",
+    placeholder:'Check In Time',
+    type: "text",
+  },
+  {
+    name:"checkOut",
+    label: "Check Out",
+    placeholder:'Check Out Time',
+    type: "text",
+  },
+
+]

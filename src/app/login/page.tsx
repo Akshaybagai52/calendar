@@ -11,12 +11,17 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useAppSelector } from "@/store/hooks";
 interface Errors {
   email: string;
   password: string;
 }
 
 export default function Login() {
+
+  const storeTheme = useAppSelector((state) => state.theme);
+  const textColorClass = storeTheme === 'dark' ? 'text-white' : 'text-[rgb(71,103,136)]';
+
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,13 +35,13 @@ export default function Login() {
   //   const user= data?.user?.email
   //   console.log(user,"user");
   //   console.log(data?.expires,"fdgfdgdf")
-    
+
   // }
   // if(status==='unauthenticated'){
   //   console.log(data,"dfgd");
-    
+
   // }
- 
+
 
   const validateEmail = () => {
     let error = '';
@@ -120,7 +125,7 @@ export default function Login() {
       // } else {
       //   // setErrors{("invalid email or password")};
       //   console.log("invalid email or password");
-        
+
       // }
 
     } else {
@@ -131,8 +136,8 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <div className="bg-slate-200 h-[570px]">
+    <div className={`${storeTheme==="dark"?"bg-black duration-300 text-white":""}`}>
+      <div className={`bg-slate-200 h-[570px] mt-[100px]`}>
         <ToastContainer position="top-center"
           autoClose={3000}
           hideProgressBar={false}
@@ -143,11 +148,11 @@ export default function Login() {
           draggable
           pauseOnHover
           theme="light" />
-        <div className="grid place-items-center ">
-          <div className="signup-form w-[480px] sm:w-[330px] bg-white shadow-[2px_4px_8px_#6b728040] text-center p-8 rounded-lg mt-[30px] ">
+        <div className={`grid place-items-center`}>
+          <div className={`signup-form w-[480px] sm:w-[330px] ${textColorClass} shadow-[2px_4px_8px_#6b728040] text-center p-8 rounded-lg mt-[30px] `}>
             <div className="container">
               <div className="header mb-12">
-                <h1 className="font-[bolder] text-[28px] text-indigo-500">Login Account</h1>
+                <h1 className={`font-[bolder] text-[28px] ${textColorClass}`}>Login Account</h1>
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="input">
@@ -189,9 +194,9 @@ export default function Login() {
                   }
                 </button>
               </form>
-              <p className="text-sm text-gray-500">Create a new account?. <Link href="/register">Signup</Link></p>
+              <p className={`text-sm ${textColorClass}`}>Create a new account?. <Link href="/register">Signup</Link></p>
               {/* <p>or Signup With </p> */}
-              <button type='button' className='google-btn shadow-[4px_2px_10px_rgba(0,0,0,0.2)] w-full rounded bg-white text-Black text-base cursor-pointer mx-0 my-3 px-0 py-2 border-2 border-solid border-[black] hover:bg-[black] hover:text-[white]' onClick={() => signIn("google")}>
+              <button type='button' className={`google-btn shadow-[4px_2px_10px_rgba(0,0,0,0.2)] w-full rounded bg-white {textColorClass} text-base cursor-pointer mx-0 my-3 px-0 py-2 border-2 border-solid border-[black] hover:bg-[black] hover:text-[white]`} onClick={() => signIn("google")}>
                 <FcGoogle className="inline text-xl mr-1.5 mb-[3px]" />Sign In With Google</button>
               <button type='button' className='github-btn shadow-[4px_2px_10px_rgba(0,0,0,0.2)] w-full rounded bg-white text-Black text-base cursor-pointer mx-0 my-3 px-0 py-2 border-2 border-solid border-[black] hover:bg-[black] hover:text-[white]' onClick={() => signIn("github")}>
                 <FaGithub className="inline text-xl mr-1.5 mb-[3px]" />Sign In With Github</button>

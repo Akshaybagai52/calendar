@@ -49,7 +49,11 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, o
           if (onSubmit) {
             await onSubmit(event);
           }
-
+          break;
+          case 'submit1':
+        if (onSubmit) {
+          await onSubmit(event);
+        }
       default:
         break;
     }

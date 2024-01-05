@@ -72,9 +72,9 @@ nav ul li{
 }
 
 .tabs button:disabled {
-  border-bottom: 3px solid rgb(0, 107, 255);
+  /* border-bottom: 3px solid rgb(0, 107, 255); */
   color: rgb(0, 107, 255);
-  @apply bg-[linear-gradient(to_right,#003973_0%,#E5E5BE_51%,#003973_100%)]  transition-[0.5s] text-[white] shadow-[0_0_20px_#eee] rounded-[10px]  hover:text-white hover:no-underline
+  @apply bg-[#FFC300]  transition-[0.5s] text-[white]  rounded-[10px]  hover:text-white hover:no-underline
   /* background: rgb(197,214,134);
   background: linear-gradient(90deg, rgba(197,214,134,0.7679446778711485) 0%, rgba(79,18,18,0.8295693277310925) 50%, rgba(39,188,200,0.8435749299719888) 100%) */
 }

@@ -1,49 +1,54 @@
 import dayjs from "dayjs";
-import prisma from "../../../../lib/db";
 import { NextResponse, NextRequest } from "next/server";
-// import nodemailer from "nodemailer";
-const nodemailer = require("nodemailer")
+import prisma from "../../../../lib/db";
+const nodemailer = require("nodemailer");
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
-    const { email, checkOut, checkIn } = await req.json();
-    const CheckIndDate = checkIn ? dayjs(checkIn).format('MMM D, YYYY h:mm A') : null;
-    // const CheckTime = CheckInOutTime ? dayjs(CheckInOutTime).format('en-US') : null;
-    const CheckTime = checkOut ? dayjs(checkOut).format('h:mm A') : null;
+    const { fname,lName, email, city, event, checkOut, checkIn } =
+      await req.json();
+    const CheckIndDate = checkIn
+      ? dayjs(checkIn).format("MMM D, YYYY h:mm A")
+      : null;
+    const CheckTime = checkOut
+      ? dayjs(checkOut).format("h:mm A")
+      : null;
 
-    // const CheckInTime = checkIn ? dayjs(checkIn).format('h:mm A') : null;
-    // const CheckInOutTime = checkOut ? dayjs(checkOut).format('h:mm A') : null;
-
-    const createdMeeting = await prisma.eventBooking.create({
-      data: {
-        email: email,
-        checkIn: checkIn,
-        checkOut: checkOut,
-        // Add other fields as required by your Meeting model
-      },
-    });
+      const createdMeeting = await prisma.calendarBooking.create({
+        data: {
+          fname:fname,
+          lName:lName,
+          email: email,
+          city:city,
+          event:event,
+          checkIn: checkIn,
+          checkOut: checkOut,
+          // Add other fields as required by your Meeting model
+        },
+      });
 
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      host: "smtp.gmail.com",
       port: 587,
       secure: false,
       auth: {
-        user: 'pradeepchauhan8051@gmail.com',
-        pass: 'rzdd wngd awgs xoax'
-      }
+        user: "pradeepchauhan8051@gmail.com",
+        pass: "rzdd wngd awgs xoax",
+      },
     });
 
     const mailOption = {
       from: '"Pradeep Chauhan 👻" <pradeepchauhan8051@gmail.com>',
       to: email,
-      subject: `Your Meeting Schedule Confirmation At ${checkIn} to ${checkOut}`,
+      subject: `Your Meeting ${event} Schedule Confirmation At ${checkIn} and ${checkOut}`,
       html: `
-        <p>Dear ${email},</p>
+        <p>Dear ${fname} ${lName},</p>
         <p>We hope this message finds you well.</p>
         <p>This is to confirm the scheduled meetings you have arranged with us. Here are the details:</p>
         <ul>
-          <li>Meeting Date: ${checkIn}</li>
+          <li>Meeting Date: ${CheckIndDate}</li>
           <li>Meeting Time: ${CheckTime}</li>
+          <li>City:${city}
         </ul>
         <p>Please make sure to mark your calendar and set a reminder for this meeting. If for any reason you need to reschedule or have any queries, feel free to reach out to us.</p>
         <p>Best Regards,</p>
@@ -52,11 +57,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         <p>pradeepchauhan8051@gmail.com</p>
       `,
     };
-
     await transporter.sendMail(mailOption);
 
     return NextResponse.json(
-      { message: "Email Sent Successfully", mailOption, createdMeeting },
+      { message: "Email Sent Successfully", mailOption,createdMeeting },
       { status: 200 }
     );
   } catch (error) {
@@ -66,4 +70,4 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       { status: 500 }
     );
   }
-}
+};
