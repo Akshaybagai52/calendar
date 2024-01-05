@@ -10,6 +10,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import events from './events'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { title } from 'process';
+import Popup from "../bookingSchedule/popup"
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -21,9 +22,17 @@ export default function ReactBigCalendar() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const [date, setDate] = useState(new Date());
+  const [open, setOpen] = React.useState(false);
 
+  // const handleSelect = ({ start, end }: any) => {
+  //   const title = window.prompt("New Event name");
 
-  const handleSelect = ({ start, end }: any) => {
+  const handleSelect = () => {
+    setOpen(true)
+
+    // console.log(eventsData,"dsf")
+  };
+  const handleClose = ({ start, end }: any) => {
     const title = window.prompt("New Event name");
     if (title)
       setEventsData([
@@ -34,7 +43,11 @@ export default function ReactBigCalendar() {
           title
         }
       ]);
-  };
+
+    setOpen(false)
+
+  }
+  const handleOpen = () => setOpen(true)
 
   const handleSearch = (e: any) => {
     const searchValue = e.target.value.toLowerCase();
@@ -49,9 +62,9 @@ export default function ReactBigCalendar() {
     setEventsData(filteredEvents);
   };
 
-
   return (
     <div className=''>
+      <Popup setOpen={setOpen} open={open} handleClose={handleClose} />
       <div className='search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ' >
         <input
           className="w-[220px] h-10 float-left text-[white] bg-transparent px-[5px] bg-[grey] rounded-[3px_0_0_3px] border-0"
@@ -79,7 +92,7 @@ export default function ReactBigCalendar() {
         )}
 
       </div>
-      <Calendar 
+      <Calendar
         views={["day", "agenda", "work_week", "month"]}
         selectable
         view={viewCalendar}
