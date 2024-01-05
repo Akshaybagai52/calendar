@@ -18,3 +18,9 @@ export interface FeedBackProps{
   type:string,
 }
 
+export interface feedbackApiProps{
+  user_id:any | string,
+  user_name:string,
+  user_email:string,
+  feedback:string
+}
