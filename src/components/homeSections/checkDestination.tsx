@@ -274,7 +274,7 @@ const CheckDestination = () => {
   const storeTheme = useAppSelector((state) => state.theme);
   
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
 
@@ -289,7 +289,7 @@ const CheckDestination = () => {
 
     let dataSend = {
       email: email,
-      message: message,
+      // message: message,
       checkIn: CheckIndDate,
       checkOut: CheckOutDate
 
@@ -311,7 +311,7 @@ const CheckDestination = () => {
         if (res.status > 199 && res.status < 300) {
           alert("Send Successfully !");
           setEmail('')
-          setMessage('')
+          // setMessage('')
           setCheckIn(null)
         }
       });

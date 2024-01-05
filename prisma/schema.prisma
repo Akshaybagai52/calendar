@@ -11,25 +11,33 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(uuid())
-  name  String
-  email String  @unique
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
   password String
 }
+
 model createUsers {
-  id String @id @default(uuid())
-  name String
-  email String @unique
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
   password String
 }
 
 model ScheduleMetting {
-  id   String @id @default(uuid())
-  name String
-  email String 
-  country String
-  state String
-  city String
-  checkIn DateTime
+  id       String   @id @default(uuid())
+  name     String
+  email    String
+  country  String
+  state    String
+  city     String
+  checkIn  DateTime
+  checkOut DateTime
+}
+
+model event {
+  id       String   @id @default(uuid())
+  email    String
+  checkIn  DateTime
   checkOut DateTime
 }

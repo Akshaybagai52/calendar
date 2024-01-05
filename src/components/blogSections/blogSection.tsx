@@ -4,6 +4,7 @@ import { tabs } from "../../components/data/blogsData.ts/blogs"
 import Image from 'next/image'
 import { motion } from "framer-motion";
 import { useAppSelector } from "@/store/hooks";
+import "../../app/globals.css"
 
 const BlogSection = () => {
     const storeTheme = useAppSelector((state) => state.theme);
@@ -34,7 +35,7 @@ const BlogSection = () => {
                         {tabs.map((tab) =>
                             <button
                                 className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid  text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
-                         duration-[0.3s] ease-[ease-out] border-[none] hover:bg-[rgba(255,255,255,0.15)] disabled:text-[white] bg-[white] text-center uppercase transition-[0.5s] bg-[200%_auto]  px-[45px] py-[15px] rounded-[10px] hover:bg-[right_center] hover:text-black hover:no-underline"
+                         duration-[0.3s] ease-[ease-out] border-[none] hover:bg-[white] disabled:text-[white] bg-[white] text-center uppercase transition-[0.5s] bg-[200%_auto]  px-[45px] py-[15px] rounded-[10px] hover:bg-[right_center] hover:text-black hover:no-underline"
                                 key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.tabTitle}</button>
                         )}
                     </div>
@@ -46,10 +47,10 @@ const BlogSection = () => {
                             <div key={idx} className="relative">
                                 <div className={` sm:w-full  w-[300px] content pt-[45px] mb-[10px]  `}>
                                     <motion.div animate={{ scale: 0 }} transition={{ type: "spring", stiffness: 100, delay: 0.1 }} whileInView={{ scale: 1 }} className="image sm:w-full w-[100%]  ">
-                                        < Image src={item.img1} width={300} height={200} className="" alt="Image" />
+                                        < Image src={item.img1} width={300} height={200}  className="image_card opacity-100 transition-opacity duration-500 " alt="Image" />
                                     </motion.div>
                                     <div className="">
-                                        <span className="bg-blue-400 text-xs text-white uppercase px-2 py-1 rounded-full absolute top-[45px]">{item.tag}</span>
+                                        <span className="techno bg-blue-400 text-xs text-white uppercase px-2 py-1 rounded-full  top-[45px] opacity-0 ">{item.tag}</span>
                                         <h3 className={`text-[20px] font-semibold hover:underline m-0  ${storeTheme === "dark" ? "text-white" : "text-[black] "}`}>{item.title}</h3>
 
                                         <p className="text-[15px] text-[grey] pt-1.5 pb-[5px]">

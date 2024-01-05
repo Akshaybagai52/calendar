@@ -78,3 +78,10 @@ body {
       pointer-events: all;
     }
    } */
+
+   .image_card:hover .techno{
+    opacity: 1;
+   }
+   .image_card:hover{
+    opacity: 0.6;
+   }
