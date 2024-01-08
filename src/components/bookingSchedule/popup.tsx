@@ -125,11 +125,18 @@ export default function Popup({ setOpen, open, handleClose }: any) {
                                     })
                                 }
                             {/* </div> */}
-                            <button
-                                className="signup-btn w-[93%] ml-2 mr-[52px]  rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
+                           <div className='flex justify-center'>
+                           <button
+                                className="signup-btn w-[50%] ml-2 mr-[52px]  rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
                                 type="submit">
+                                Cancel
+                            </button>
+                            <button
+                                className="signup-btn w-[50%] ml-2 mr-[52px]  rounded bg-indigo-500 text-white text-base cursor-pointer mx-0 my-2.5 px-0 py-2 border-[none]"
+                                type="button">
                                 Submit
                             </button>
+                           </div>
                         </div>
 
                     </form>
