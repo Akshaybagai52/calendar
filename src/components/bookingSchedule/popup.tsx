@@ -26,7 +26,7 @@ const style = {
 };
 
 export default function Popup({ setOpen, open, handleClose }: any) {
-    // console.log(formBasic, "fff");
+
 
     const [data, setData] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(Schema) });
@@ -56,6 +56,7 @@ export default function Popup({ setOpen, open, handleClose }: any) {
             alert("An error occurred while sending the data. Please try again later.");
         }
     };
+
 
     return (
         <div>

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import "./button-33.css";
 import { useRouter } from "next/navigation";
@@ -59,7 +60,7 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, o
   };
 
   return (
-    <button onClick={handleClick} className={`btn-grad`} type="button">
+    <button onClick={handleClick} className={`${btnName==="feedback submitted" && "!bg-green-500"} btn-grad`} type="button">
       {btnName}
     </button>
   );
@@ -83,4 +84,22 @@ import style from '../feedback/feedback.module.css'
       <button onClick={handleClick} className={style.feedback_btn}>{btnName}</button>
         </>
     )
+}
+
+interface tabProps{
+  tabName:string | any,
+  key:any,
+  id:any,
+  icon:any | string,
+  onClick:(event:React.MouseEvent<HTMLButtonElement>) => void | Promise<void>;
+}
+export const TabButtons:React.FC<tabProps> =({tabName,onClick,key,id,icon})=>{
+  const handleClickTab=(event: React.MouseEvent<HTMLButtonElement>)=>{
+    onClick(event)
+  }
+  return(
+    <>
+    <button key={key} id={id} className="glow-on-hover " type="button"  onClick={handleClickTab}> {tabName} </button>
+    </>
+  )
 }
