@@ -1,10 +1,18 @@
 import { NextResponse, NextRequest } from "next/server";
 const nodemailer = require("nodemailer");
-
+import prisma from "../../../../lib/db";
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
     const { fname, lname, email, select, textArea } = await req.json();
-
+    const contactForm = await prisma.contactForm.create({
+      data: {
+        fname: fname,
+        lname: lname,
+        email: email,
+        select:select,
+        textArea:textArea,
+      },
+    });
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -18,20 +26,22 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const mailOption = {
       from: '"Pradeep Chauhan 👻" <pradeepchauhan8051@gmail.com>',
       to: email,
-      subject: `Hey, ${fname} ${lname}
-      ! Thanks for texting us! Unfortunately, we are currently too busy. We will get back to you as soon as possible! `,
+      subject: `Your Meeting ${fname} ${lname} Schedule Confirmation`,
       html: `
-        <p>Dear ${fname},</p>
-        <p> Your appointment ${select} at Calendar is really close. We will await you on weekday! Text us back to cancel or reschedule.</p>
-       <p>${textArea}</p>
+        <p>Dear ${email},</p>
+        <p>We hope this message finds you well.</p>
+        <p>This is to confirm the scheduled meetings you have arranged with us. Here are the details:</p>
+        <p>Please make sure to mark your calendar and set a reminder for this meeting. If for any reason you need to reschedule or have any queries, feel free to reach out to us.</p>
         <p>Best Regards,</p>
+        <p>Book Your Meeting</p>
         <p>Nodemailer for Mail</p>
         <p>pradeepchauhan8051@gmail.com</p>
       `,
     };
     await transporter.sendMail(mailOption);
+
     return NextResponse.json(
-      { message: "Email Sent Successfully", mailOption },
+      { message: "Email Sent Successfully", mailOption,contactForm },
       { status: 200 }
     );
   } catch (error) {

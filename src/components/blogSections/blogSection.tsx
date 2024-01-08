@@ -11,7 +11,6 @@ const BlogSection = () => {
     const [currentTab, setCurrentTab] = useState('1');
     const [readMore, setReadMore] = useState('');
     const [isShowMore, setIsShowMore] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
     const [hoveredItemId, setHoveredItemId] = useState('');
 
 

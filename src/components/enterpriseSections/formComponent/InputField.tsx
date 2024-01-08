@@ -12,6 +12,7 @@ function InputField({ user, selectOpt, textarea }: any) {
 
     const onSubmit = async (data: any, e: any) => {
         e.preventDefault();
+        alert("dffdffg")
         setData(data);
         console.log(data, "datasend");
         alert(data?.fname)
