@@ -5,7 +5,7 @@ export const CorssSvg = () => {
         <div className='close-container'>
         <div className="leftright"></div>
         <div className="rightleft"></div>
-        <label className="close">close</label>
+        {/* <label className="close">close</label> */}
       </div>
     </div>
   );

@@ -54,6 +54,11 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({ btnName, pathName, o
         if (onSubmit) {
           await onSubmit(event);
         }
+        break;
+        case 'rating':
+          if (OnClick) {
+            await OnClick(event);
+          }
       default:
         break;
     }
