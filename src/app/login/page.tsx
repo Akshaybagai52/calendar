@@ -97,6 +97,7 @@ export default function Login() {
 
         if (response.ok) {
           toast.success("User logged in successfully!")
+          
           setEmail('')
           setPassword('')
           router.push("/")

@@ -83,9 +83,7 @@ export default function ReactBigCalendar() {
             OnClick={() => handleClickFeedback()}
           />
         </div>
-        <div className="ratings">
-          <Ratings />
-        </div>
+        {/* <Ratings/> */}
         <div
           className={`${
             ShowFeedbackForm ? "block duration-150 " : " hidden"

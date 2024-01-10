@@ -4,11 +4,7 @@ export const FeedbackData =[
         label:'Name',
         type:'text'
     },
-    {
-        name:'user_email',
-        label:'Email',
-        type:'email'
-    },
+    
 
 ]
 export const FeedbackDataMessage=[
