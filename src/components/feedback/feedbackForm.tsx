@@ -111,7 +111,7 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
                         {inputs.label} -:
                       </p>
                       <input
-                        type={inputs.type}
+                        type={inputs.type} placeholder={inputs.placeHolder}
                         className=" !inline-block w-[100%] border-[black] border border-solid rounded-[10px] p-2"
                         {...register(`${inputs.name}`, { required: true })}
                       />
@@ -132,9 +132,9 @@ export const FeedbackForm = ({ setShowfeedbackform }: any) => {
               return (
                 <div key={index}>
                   <p className=" user_label !inline-block font-bold  !text-white">
-                    {inputs.label}
+                    {inputs.label} 
                   </p>
-                  <textarea
+                  <textarea placeholder={inputs.placeHolder}
                     className="!inline-block w-[100%] border-[black] border border-solid rounded-[10px] p-2"
                     {...register(`${inputs.name}`, { required: true })}
                   />

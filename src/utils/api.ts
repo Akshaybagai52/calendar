@@ -1,5 +1,5 @@
-export const url = "http://localhost:3000/api/";
-console.log(window.location.href,"ooo")
+export const url = window.location.href.split('/').slice(0, 3).join('/')==="http://localhost:3000"?"http://localhost:3000/api/":"https://bookingcalendar.vercel.app/";
+
 import axios from "axios";
 
 export const getApiWithId = async (user_email: any) => {
@@ -34,6 +34,25 @@ export const FeedbackSaveApi = async (feedUserData: any) => {
     return error;
   }
 };
+
+
+export const RatingSaveApi = async ({rating_message,ratings,userId}:any) => {
+  let ratingNum =(`${ratings}`)
+  
+
+  try {
+    const userdata = await axios.post(url + `rating`,{rating_message:rating_message,user_rating:ratingNum,feedback_user_id:userId}, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let userFeed = userdata;
+    return userFeed;
+  } catch (error) {
+    return error;
+  }
+};
+
 
 
 // http://localhost:3000/api/getusers/feeddata/feeddata?user_email=pradeep@gmail.com

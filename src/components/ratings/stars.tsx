@@ -10,7 +10,7 @@ export const Ratings = () => {
 const [feedUserData,setFeedUserData]=useState<any>()
 const [rating_message,setRating_message] =useState<string>()
 const [ratingNum,setRatingNum]=useState<number | any>()
-console.log(feedUserData,"ooo")
+console.log(feedUserData,"feed")
   const handleClickStar = (ele: any) => {
     setRatingNum(ele)
     let starNew: number[] = [];
@@ -79,7 +79,7 @@ feeduser()
       </div>
      
        <div  className={`textarea `}>
-              <TextArea rating_message={rating_message} setRating_message={setRating_message} ratings={ratingNum} />
+              <TextArea rating_message={rating_message} setRating_message={setRating_message} ratings={ratingNum} feedUserData={feedUserData} />
             </div>
     </div>
     </div>
