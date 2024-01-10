@@ -30,7 +30,7 @@ function ModeIcon() {
 
   return (
     <>
-      <div className={`sm:text-black flex items-center rounded-[20px] w-[60px] gap-3 p-2 relative ${currentTheme===Theme.DARK?'bg-white text-black':'bg-white text-black'}`} >
+      <div className={`sm:text-black flex items-center rounded-[20px] w-[60px] gap-3 p-2 relative ${currentTheme===Theme.DARK?'bg-[#FFD60A] text-black':'bg-[#FFD60A] text-black'}`} >
         <button onClick={ toggleTheme} >
           <FaSun />
         </button>

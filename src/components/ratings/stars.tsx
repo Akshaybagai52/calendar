@@ -4,7 +4,7 @@ import './ratings.css'
 export const Ratings = () => {
   let stars:number[]=[1,2,3,4,5]
 const [ratings,setRatings]=useState<any[]>([])
-console.log(ratings,"stars")
+// console.log(ratings,"stars")
 
 
 const handleClickStar=(ele:any)=>{

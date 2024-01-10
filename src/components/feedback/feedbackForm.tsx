@@ -29,7 +29,7 @@ reset,
     getData();
   }, []);
 
-  console.log(uniqueUser, "unique");
+  // console.log(uniqueUser, "unique");
   const onSubmit = async (feeddata: any | string) => {
     if (!feeddata) {
       console.log("feedback not found");

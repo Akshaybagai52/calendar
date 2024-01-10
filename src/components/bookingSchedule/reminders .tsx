@@ -8,12 +8,12 @@ import Autocomplete from "@mui/material/Autocomplete";
 import events from "./events";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { title } from "process";
-import Popup from "../bookingSchedule/popup";
+import Popup from "./popup";
 import { FeedbackBtn } from "../buttons/buttons";
 import { FeedbackForm } from "../feedback/feedbackForm";
 import { Ratings } from "../ratings/stars";
 import { getApiWithId } from "@/utils/api";
-
+import { useAppSelector } from "@/store/hooks";
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
@@ -28,23 +28,40 @@ export default function ReactBigCalendar() {
 
   // const handleSelect = ({ start, end }: any) => {
   //   const title = window.prompt("New Event name");
+const selecterr=useAppSelector((state)=>state.submitValue)
 
   const handleSelect = () => {
     setOpen(true);
 
-    console.log(eventsData, "dsf");
+    // console.log(eventsData, "dsf");
   };
-  const handleClose = ({ start, end }: any) => {
-    const title = window.prompt("New Event name");
+  const handleSubmit = ({ start, end ,eventValue}: any) => {
+    // const title = window.prompt("New Event name");
+    console.log(eventValue,"fff");
+    
     if (title)
       setEventsData([
         ...eventsData,
         {
           start,
           end,
-          title,
+          title:selecterr,
         },
       ]);
+    // alert("fdgfd")
+  }
+  const handleClose = ({ start, end }: any) => {
+
+    // const title = window.prompt("New Event name");
+    // if (title)
+    //   setEventsData([
+    //     ...eventsData,
+    //     {
+    //       start,
+    //       end,
+    //       title,
+    //     },
+    //   ]);
 
     setOpen(false);
   };
@@ -74,7 +91,7 @@ export default function ReactBigCalendar() {
 
   return (
     <div className="">
-      <Popup setOpen={setOpen} open={open} handleClose={handleClose} />
+      <Popup setOpen={setOpen} open={open} handleClose={handleClose} onClick={handleSubmit} />
       <div className="container">
         <div className="feedback m-0 float-right">
           <FeedbackBtn
@@ -87,9 +104,8 @@ export default function ReactBigCalendar() {
           <Ratings />
         </div>
         <div
-          className={`${
-            ShowFeedbackForm ? "block duration-150 " : " hidden"
-          }  `}
+          className={`${ShowFeedbackForm ? "block duration-150 " : " hidden"
+            }  `}
         >
           <FeedbackForm setShowfeedbackform={setShowfeedbackform} />
         </div>

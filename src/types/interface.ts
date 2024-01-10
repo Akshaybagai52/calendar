@@ -24,7 +24,7 @@ export const enum Theme {
   
   export interface AppState {
     theme: null | Theme;
-    
+    submitValue:any|String
   }
 
 
