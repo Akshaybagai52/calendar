@@ -24,15 +24,13 @@ model createUsers {
   password String
 }
 
-model ScheduleMetting {
+model contactForm {
   id       String   @id @default(uuid())
-  name     String
+  fname     String
+  lname String
   email    String
-  country  String
-  state    String
-  city     String
-  checkIn  DateTime
-  checkOut DateTime
+  select     String
+  textArea  String
 }
 
 model eventBooking {

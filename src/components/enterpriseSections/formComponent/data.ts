@@ -8,7 +8,7 @@ export const formBasic = [
   },
   {
     label: "Last Name",
-    name:'lname',
+    name:'lName',
     placeholder: "Chauhan",
     type: "text",
   },
@@ -57,7 +57,7 @@ export const details=[
     type: "text",
   },
   {
-    name:"chechIn",
+    name:"checkIn",
     label: "Check In",
     placeholder:'Check In Time',
     type: "text",

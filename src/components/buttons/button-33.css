@@ -34,7 +34,7 @@
   .btn-grad {
     background-color: #FFD60A ;
     /* box-shadow: rgba(255, 255, 255, 0.2) 0 -25px 18px -14px inset,rgba(236, 253, 243, 0.15) 0 1px 2px,rgba(253, 255, 254, 0.15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px; */
-    color: '#FFD60A';
+    color: black;
    width: 100%;
    margin: 10px 0;
    padding: 10px 0;

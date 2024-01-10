@@ -11,7 +11,6 @@ const BlogSection = () => {
     const [currentTab, setCurrentTab] = useState('1');
     const [readMore, setReadMore] = useState('');
     const [isShowMore, setIsShowMore] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
     const [hoveredItemId, setHoveredItemId] = useState('');
 
 
@@ -36,8 +35,8 @@ const BlogSection = () => {
                     <div className="flex items-center justify-center w-[97%]">
                         {tabs.map((tab) =>
                             <button
-                                className="inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid  text-[#888888] cursor-pointer w-full bg-[rgba(255,255,255,0.1)]
-                         duration-[0.3s] ease-[ease-out] border-[none] hover:bg-[rgba(255,255,255,0.15)] disabled:text-[white] bg-[white] text-center uppercase transition-[0.5s] bg-[200%_auto]  px-[45px] py-[15px] rounded-[10px] hover:bg-[right_center] hover:text-black hover:no-underline"
+                                className="font-bold inline-grid justify-evenly border-b-[3px] border-b-[gray] border-solid  text-[#888888] cursor-pointer w-full
+                         duration-[0.3s] ease-[ease-out] border-[none] disabled:text-[white] bg-[white] text-center uppercase transition-[0.5s] bg-[200%_auto]  px-[45px] py-[15px] rounded-[10px] hover:bg-[right_center] hover:text-black hover:no-underline"
                                 key={tab.id} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={handleTabClick}>{tab.tabTitle}</button>
                         )}
                     </div>
@@ -59,10 +58,10 @@ const BlogSection = () => {
                                         )}
                                         <h3 className={`text-[20px] font-semibold hover:underline m-0  ${storeTheme === "dark" ? "text-white" : "text-[black] "}`}>{item.title}</h3>
 
-                                        <p className="text-[15px] text-[grey] pt-1.5 pb-[5px]">
+                                        <p className="text-[15px] text-[grey] pt-1.5">
                                             {
                                                 isShowMore && readMore === item._idd ? item.content : item.content.slice(0, 50)}</p>
-                                        <button onClick={() => toggleReadMoreLess(item._idd)} className="text-[red] underline m-0 hover:text-blue-700">
+                                        <button onClick={() => toggleReadMoreLess(item._idd)} className="text-[darkred] underline m-0 hover:text-[#FFD60A] pb-[6px]">
                                             {isShowMore && readMore === item._idd ? "Read Less" : "Read More"}
                                         </button>
                                         <div className="flex flex-row ">
