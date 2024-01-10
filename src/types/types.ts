@@ -42,3 +42,20 @@ export interface detailsData {
   checkIn: Date;
   checkOut: Date;
 }
+
+export interface feedbackApiProps{
+  user_id:any | string,
+  user_name:string,
+  user_email:string,
+  feedback:string,
+  rating_message: string
+}
+
+export interface ratingProps{
+  rating_message:string,
+  feedback_user_id:any | string,
+  user_rating:string | any
+}
+
+
+

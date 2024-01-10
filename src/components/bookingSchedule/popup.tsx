@@ -69,7 +69,8 @@ export default function Popup({ setOpen, open, handleClose,onClick }: any) {
                 setLoading(false);
                 reset();
                 setOpen(false)
-                getEvents();
+                // getEvents()
+                
             } else {
                 toast.error("Failed to send data. Please try again.")
                 // alert("Failed to send data. Please try again.");

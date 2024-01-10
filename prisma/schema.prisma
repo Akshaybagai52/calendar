@@ -34,27 +34,60 @@ model contactForm {
 }
 
 model eventBooking {
-  id       String   @id @default(uuid())
+  id       String @id @default(uuid())
   email    String
   checkIn  String
   checkOut String
 }
 
-model Feedback_user{
-  id String  @id @default(uuid())
-  user_id String
-  user_email String
-  feedback String
-  user_name String 
+
+model feedback_calendar {
+ id           String    @id @default(uuid())
+ user_id      String
+ user_email   String
+ feedback     String
+ user_name    String
+ rating       Rating[]
 }
 
+model Rating {
+ id            String        @id @default(uuid())
+ rating_user_id String 
+ createdAt     DateTime      @default(now())
+ updatedAt     DateTime      @updatedAt
+ rating_message String
+ user_rating String
+ feedback_user feedback_calendar @relation(fields: [rating_user_id], references: [id])
+}
+
+// model Feedback_user {
+//  id           String    @id @default(uuid())
+//  user_id      String
+//  user_email   String
+//  feedback     String
+//  user_name    String
+//  rating       Rating[]
+// }
+
+// model Rating {
+//  id            String        @id @default(uuid())
+//  rating_user_id String 
+//  createdAt     DateTime      @default(now())
+//  updatedAt     DateTime      @updatedAt
+//  rating_message String
+//  user_rating String
+//  feedback_user Feedback_user @relation(fields: [rating_user_id], references: [id])
+// }
+
+
+
 model calendarBooking {
-  id String @id @default(uuid())
-  fname String
-  lName String
-  email String
-  city String
-  event String
-  checkIn String
+  id       String @id @default(uuid())
+  fname    String
+  lName    String
+  email    String
+  city     String
+  event    String
+  checkIn  String
   checkOut String
 }

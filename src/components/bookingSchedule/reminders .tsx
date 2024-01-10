@@ -11,13 +11,13 @@ import { title } from "process";
 import Popup from "./popup";
 import { FeedbackBtn } from "../buttons/buttons";
 import { FeedbackForm } from "../feedback/feedbackForm";
-import { Ratings } from "../ratings/stars";
-import { getApiWithId } from "@/utils/api";
 import { useAppSelector } from "@/store/hooks";
+import { getApiWithId } from "@/utils/api";
+
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
-
 export default function ReactBigCalendar() {
+  const storeTheme = useAppSelector((state)=>state.theme)
   const [eventsData, setEventsData] = useState<any>(events);
   const [viewCalendar, setViewCalendar] = useState<View>("month");
   const [searchTerm, setSearchTerm] = useState("");
@@ -100,9 +100,7 @@ const selecterr=useAppSelector((state)=>state.submitValue)
             OnClick={() => handleClickFeedback()}
           />
         </div>
-        <div className="ratings">
-          <Ratings />
-        </div>
+        {/* <Ratings/> */}
         <div
           className={`${ShowFeedbackForm ? "block duration-150 " : " hidden"
             }  `}
@@ -148,7 +146,7 @@ const selecterr=useAppSelector((state)=>state.submitValue)
         defaultDate={new Date()}
         defaultView="month"
         events={eventsData}
-        style={{ height: "100vh" }}
+        style={{ height: "100vh",color:storeTheme==='dark'?"white":"black" }}
         onSelectEvent={(event) => alert(event.title)}
         onSelectSlot={handleSelect}
         date={date}
