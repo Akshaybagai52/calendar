@@ -1,13 +1,22 @@
-import { Button, SubmitButton} from "../buttons/buttons";
+import { RatingSaveApi } from "@/utils/api";
+import { SubmitButton} from "../buttons/buttons";
 
-export const TextArea = ({rating_message,setRating_message,ratings}:any | string) => {
-    console.log(rating_message,"ratingData")
+
+export const TextArea = ({rating_message,setRating_message,ratings,feedUserData}:any | string) => {
+    // console.log(feedUserData?.id,"feedUserData")
+    let userId=feedUserData?.id
     const handleChange=(e:any)=>{
         const {value}=e.target
         setRating_message(value)
     }
-const handleClickRating=()=>{
-   
+const handleClickRating=async(e:any)=>{
+ e.preventDefault()
+ if(!ratings && !feedUserData?.id){
+console.log("empty fields")
+
+ }
+ let RatingApi:any = await RatingSaveApi({rating_message,ratings,userId})
+ console.log(RatingApi,"RatingApi")
 }
 
   return (
