@@ -30,7 +30,7 @@ const BlogSection = () => {
     return (
         <>
             <div className='container mt-[7rem]'>
-                <h1 className={`sm:text-[2.125rem] text-[3.125rem] font-bold  text-center mb-[1.5rem    ] ${storeTheme === "dark" ? "text-white" : "text-[rgb(11,53,88)]"}`}>Smarter scheduling for teams</h1>
+                <h1 className={`sm:text-[2.125rem] text-[3.125rem] font-bold  text-center mb-[1.5rem] ${storeTheme === "dark" ? "text-white" : "text-[rgb(11,53,88)]"}`}>Read our blogs here</h1>
                 <div className='tabs flex justify-between'>
                     <div className="flex items-center justify-center w-[97%]">
                         {tabs.map((tab) =>

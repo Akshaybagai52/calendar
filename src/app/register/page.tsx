@@ -90,7 +90,7 @@ export default function Register() {
                 });
                 if (response.ok) {
                     toast.success("User registered successfully!")
-                    localStorage.setItem("email",email)
+                    
                     router.push("/login")
                     setName('')
                     setEmail('')

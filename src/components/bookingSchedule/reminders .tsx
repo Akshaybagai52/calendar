@@ -85,7 +85,7 @@ const selecterr=useAppSelector((state)=>state.submitValue)
   };
 
   useEffect(() => {
-    let user_email = "pradeep@gmail.com";
+    let user_email =localStorage.getItem('email');
     getApiWithId(user_email);
   }, []);
 
@@ -110,7 +110,7 @@ const selecterr=useAppSelector((state)=>state.submitValue)
       </div>
       <div className="search w-[220px] h-10 rounded border mx-auto my-4 border-solid border-[grey] ">
         <input
-          className="w-[220px] h-10 float-left text-[white] bg-transparent px-[5px] bg-[grey] rounded-[3px_0_0_3px] border-0"
+          className="w-[220px] h-10 float-left text-[black] bg-transparent px-[5px] bg-[grey] rounded-[3px_0_0_3px] border-0"
           type="text"
           placeholder="Search events..."
           value={searchTerm}
@@ -118,7 +118,7 @@ const selecterr=useAppSelector((state)=>state.submitValue)
         />
         {searchTerm.length > 2 ? (
           eventsData.length > 0 ? (
-            <div className="relative z-[99]">
+            <div className="relative z-[99] mt-[40px]">
               {eventsData.map((deta: any, ind: number) => {
                 return (
                   <li

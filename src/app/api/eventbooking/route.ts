@@ -71,3 +71,12 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     );
   }
 };
+
+export const GET = async (req: Request, res: Response) => {
+  try {
+    const users = await prisma.calendarBooking.findMany();
+    return NextResponse.json({ msg: "OK" ,user:users}, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ msg: "Unable to retrieve users.", error }, { status: 500 });
+  }
+};
